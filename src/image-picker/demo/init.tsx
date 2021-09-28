@@ -32,8 +32,7 @@ export default () => {
   };
 
   // 初始化方法
-  const onInit = (index: number) => {
-    console.log('index', index, value[index].fssid);
+  const onInit = () => {
     return new Promise((resolve, reject) => {
       const rate = Math.random();
       setTimeout(() => {
@@ -41,7 +40,7 @@ export default () => {
           // 成功
           return resolve({ url: demo });
         }
-        reject('加载失败');
+        return reject('加载失败');
       }, 3000);
     });
   };

@@ -3,7 +3,7 @@ import classnames from 'classnames';
 import Compressor from 'compressorjs';
 import WxImageViewer from 'react-wx-images-viewer';
 import { Toast } from 'antd-mobile';
-import s from './styles.less';
+import s from './styles.module.less';
 
 const noon = () => {};
 
@@ -21,7 +21,7 @@ interface ImagePickerProps {
   max?: number; // 图片最大个数
   onChange?: (arr: Array<Files>) => void; // 图片列表改变
   onUpload?: (file: any) => Promise<object | undefined>; // 图片上传方法
-  onInit?: (index: number) => Promise<object | undefined>; // 图片初始化加载方法
+  onInit?: (index?: number) => Promise<object | undefined>; // 图片初始化加载方法
   accept?: string; // 选择的图片类型
   multiple?: boolean; // 是否多选
   capture?: string; // 图片选择的方式

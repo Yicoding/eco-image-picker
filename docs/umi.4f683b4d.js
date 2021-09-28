@@ -100,27 +100,27 @@
       g = t.n(p),
       f = t('U0F3'),
       E = t.n(f),
-      v = t('9Qrb'),
+      v = t('erb0'),
       h = t.n(v),
-      b = () => {},
-      k = Object(m['forwardRef'])((e, n) => {
+      k = () => {},
+      b = Object(m['forwardRef'])((e, n) => {
         var t = e.value,
           a = void 0 === t ? [] : t,
           i = e.max,
           s = void 0 === i ? 1 : i,
           p = e.onChange,
-          f = void 0 === p ? b : p,
+          f = void 0 === p ? k : p,
           v = e.accept,
-          k = void 0 === v ? 'image/*' : v,
+          b = void 0 === v ? 'image/*' : v,
           A = e.multiple,
           P = e.capture,
-          w = e.width,
-          y = void 0 === w ? '80px' : w,
+          y = e.width,
+          w = void 0 === y ? '80px' : y,
           x = e.height,
           j = void 0 === x ? '80px' : x,
           C = e.config,
-          I = void 0 === C ? ['defaultBorder'] : C,
-          T = e.children,
+          T = void 0 === C ? ['defaultBorder'] : C,
+          I = e.children,
           O = e.mode,
           N = void 0 === O ? 'fill' : O,
           X = e.size,
@@ -129,21 +129,21 @@
           S = e.onUpload,
           U = e.onInit,
           Z = e.onFail,
-          z = void 0 === Z ? b : Z,
-          F = e.onGetPreviewUrl,
-          V = e.resize,
-          L = e.showRemove,
-          J = void 0 === L || L,
-          K = e.replace,
-          R = e.quality,
-          D = n || Object(m['useRef'])(null),
-          q = Object(m['useRef'])(null),
+          F = void 0 === Z ? k : Z,
+          V = e.onGetPreviewUrl,
+          L = e.resize,
+          z = e.showRemove,
+          D = void 0 === z || z,
+          J = e.replace,
+          q = e.quality,
+          K = n || Object(m['useRef'])(null),
+          R = Object(m['useRef'])(null),
           W = Object(m['useRef'])(a),
-          G = [];
+          H = [];
         W.current.forEach((e) => {
-          e.preview ? G.push(e.preview) : e.url && G.push(e.url);
+          e.preview ? H.push(e.preview) : e.url && H.push(e.url);
         });
-        var H = Object(m['useMemo'])(() => {
+        var G = Object(m['useMemo'])(() => {
             for (var e = 0, n = 0; n < a.length; n++) {
               var t = a[n],
                 r = t.url,
@@ -195,15 +195,15 @@
                 oe(e);
         }, []),
           Object(m['useEffect'])(() => {
-            if (V) {
-              var e = getComputedStyle(q.current).width;
+            if (L) {
+              var e = getComputedStyle(R.current).width;
               ie(e);
             }
-          }, [V]);
+          }, [L]);
         var me = (e) =>
             new Promise((n) => {
               new g.a(e, {
-                quality: R,
+                quality: q,
                 success: (e) => {
                   n(e);
                 },
@@ -220,7 +220,7 @@
                   while (1)
                     switch ((e.prev = e.next)) {
                       case 0:
-                        if (((l = n), !R)) {
+                        if (((l = n), !q)) {
                           e.next = 5;
                           break;
                         }
@@ -261,8 +261,8 @@
             var n = e.target,
               t = n.files;
             if (!t || !t.length) return (n.value = '');
-            var a = s - (K ? 0 : H);
-            t.length > (K ? s : a) &&
+            var a = s - (J ? 0 : G);
+            t.length > (J ? s : a) &&
               r.a.info(
                 '\u56fe\u7247\u6700\u591a\u4e0d\u8d85\u8fc7'.concat(
                   s,
@@ -274,9 +274,9 @@
               i < l.length;
               i++
             )
-              c.push(ue(l[i], i, H));
+              c.push(ue(l[i], i, G));
             W.current = W.current.filter((e) => e.url || e.errorTip);
-            var o = K ? 0 : W.current.length;
+            var o = J ? 0 : W.current.length;
             Promise.all(c)
               .then((e) => {
                 'function' === typeof S && e.forEach((e) => (e.loading = !0));
@@ -291,7 +291,7 @@
                     : e,
                 );
                 if (
-                  ((W.current = K ? [...t] : W.current.concat(t)),
+                  ((W.current = J ? [...t] : W.current.concat(t)),
                   f(W.current),
                   'function' === typeof S)
                 )
@@ -328,11 +328,11 @@
                 n.value = '';
               })
               .catch((e) => {
-                z(e), (n.value = '');
+                F(e), (n.value = '');
               });
           },
           de = () => {
-            M || (D && D.current && D.current.click());
+            M || (K && K.current && K.current.click());
           },
           pe = (e) => {
             for (var n = !0, t = 0; t < W.current.length; t++) {
@@ -362,11 +362,11 @@
                         }
                         return e.abrupt('return');
                       case 2:
-                        if (W.current[t].preview || 'function' !== typeof F) {
+                        if (W.current[t].preview || 'function' !== typeof V) {
                           e.next = 9;
                           break;
                         }
-                        return (e.next = 5), F(t);
+                        return (e.next = 5), V(t);
                       case 5:
                         (a = e.sent),
                           (W.current[t].preview = a),
@@ -386,29 +386,29 @@
             };
           })(),
           fe = () => $((e) => !e),
-          Ee = V ? ce : j,
+          Ee = L ? ce : j,
           ve = 0;
-        if (V) {
-          var he = Math.floor(100 / parseFloat(y));
+        if (L) {
+          var he = Math.floor(100 / parseFloat(w));
           if (a && a.length > 0 && he > 1) {
-            var be = a.length % he;
-            be >= 0 &&
-              be <= he - 1 &&
-              ((ve = he - be - 1), a.length === s && (ve += 1));
+            var ke = a.length % he;
+            ke >= 0 &&
+              ke <= he - 1 &&
+              ((ve = he - ke - 1), a.length === s && (ve += 1));
           }
         }
-        var ke = d()(h.a.parent, {
+        var be = d()(h.a.parent, {
           [h.a.noMargin]: 1 === s || a.length < 1,
-          [h.a.marginBottom]: V,
+          [h.a.marginBottom]: L,
         });
         return u.a.createElement(
           'div',
-          { className: d()(h.a.root, { [h.a.justifyContent]: V }) },
+          { className: d()(h.a.root, { [h.a.justifyContent]: L }) },
           u.a.createElement('input', {
             className: h.a.hidden,
-            ref: D,
+            ref: K,
             type: 'file',
-            accept: k,
+            accept: b,
             multiple: A,
             capture: P,
             onChange: se,
@@ -433,11 +433,11 @@
                 var g = n - m;
                 return u.a.createElement(
                   'div',
-                  { key: n, className: ke, style: { width: y } },
+                  { key: n, className: be, style: { width: w } },
                   u.a.createElement(
                     'div',
                     {
-                      className: d()(h.a.imgBox, ...I.map((e) => h.a[e])),
+                      className: d()(h.a.imgBox, ...T.map((e) => h.a[e])),
                       style: { height: Ee },
                     },
                     t &&
@@ -450,7 +450,7 @@
                       }),
                     c &&
                       u.a.createElement('div', { className: h.a.errorTip }, c),
-                    J &&
+                    D &&
                       u.a.createElement('i', {
                         className: h.a.iconRemove,
                         onClick: () => pe(n),
@@ -466,21 +466,21 @@
                 );
               }
             }),
-          H < s &&
+          G < s &&
             u.a.createElement(
               'div',
-              { className: ke, style: { width: y }, ref: q, onClick: de },
-              T ||
+              { className: be, style: { width: w }, ref: R, onClick: de },
+              I ||
                 u.a.createElement('div', {
                   style: { height: Ee },
-                  className: d()(h.a.childrenEle, [...I.map((e) => h.a[e])]),
+                  className: d()(h.a.childrenEle, [...T.map((e) => h.a[e])]),
                 }),
               1 === s &&
                 a[0] &&
                 a[0].name &&
                 u.a.createElement(
                   'div',
-                  { className: h.a.name, style: { width: y } },
+                  { className: h.a.name, style: { width: w } },
                   a[0].name,
                 ),
             ),
@@ -490,14 +490,14 @@
               .map((e, n) =>
                 u.a.createElement('div', {
                   key: n,
-                  className: ke,
-                  style: { width: y },
+                  className: be,
+                  style: { width: w },
                 }),
               ),
-          _ && u.a.createElement(E.a, { onClose: fe, index: te, urls: G }),
+          _ && u.a.createElement(E.a, { onClose: fe, index: te, urls: H }),
         );
       }),
-      A = k;
+      A = b;
     n['a'] = A;
   },
   0: function (e, n, t) {
@@ -523,13 +523,13 @@
         m = (e) => {
           e.forEach((e, n) => (e.name = '\u793a\u4f8b\u56fe'.concat(n))), o(e);
         },
-        u = (e) =>
+        u = () =>
           new Promise((e, n) => {
             var t = Math.random();
-            setTimeout(() => {
-              if (t > 0.3) return e({ url: i });
-              n('\u52a0\u8f7d\u5931\u8d25');
-            }, 3e3);
+            setTimeout(
+              () => (t > 0.3 ? e({ url: i }) : n('\u52a0\u8f7d\u5931\u8d25')),
+              3e3,
+            );
           }),
         s = (e) =>
           new Promise((e, n) => {
@@ -553,28 +553,6 @@
   '19b6': function (e, n) {
     e.exports =
       'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAALIAAAByCAMAAADAvHvuAAABI1BMVEXx8fHh4eGSxP/1n4Hy1YXrnoDq6url5eX39/ey0/rt8PLk5OTn5+fuyoDw14fwvIH0sILuyLn0woT////yz4T1oIH0x4TyzIT1o4Hy14v1ooHw8PDzuYP1qYHu7u7s7Ozy36ny1IX0p4Hx8O3114j9/f3y58fy5b/x2ZLy0YT1toTx7+rsoYP1rIKXx//6+vrQ4vbz8/Py7ejy7uPy4rXzvYP1s4P1poLvy4Hx47v1yobwwIPwxYKeyv6q0Pzy6M/v183x25zy25jtr4H29vbx69nx3tbv0MPuxLTtuqXx3J/x3J71z4fus4L1r4LtqoG41/q51/nY5vXm7PPr7/Lx5+Tx6tXy4bDy3qXutJnsrJPspov1voXutYLspoHw4dvw1b3UZAjfAAAEGklEQVR42u3c13LaQBQG4AO7AicQTCQhOqY3g7HB2LHBPXGLS3pv7/8U2RUoogoxg2aOJvvd2INvfu/8uzpoNAJFKe2Aa+yUFAWUFrhKS4ESuEwJXoLLrIGLiqxzX2BBEARBEARhCclPld3s2fltdrfyCaxs+D0r59+AZW2WsyFqimdPCjCHz+MIHyylcBCnk+KVJMwU8DgiAMuoDAPXNLmb6sqaSnXVMsziccgynbilXLTbjJChfEqjXHZWO/weR/jBtldVPXCYDBix03ro8w5MyTjSjEAG7DqJ80bs/VtgLUGGmlHe6FcwzeeAJdaYJ47mydDDYfGuToYSMs/cAVw6PDFf2ISxyMU7Y8HZRym+CTcBk8I5TxwhifqPGNH9qGtkYF9LR/TMt4DJAUuksrDNYrFOxkXk4t0+IbwbZcCjHaI0p/f48HCfTNiTZZ48yupcADQ+U0q7xFqTUnoAWHT48ZYgprrxM0JMGqUhNDuQN3mkwvuHRTkyaPFoTfKY2nzOmhwjJrm4N2hxUSYjWJu/AA68F9pYbWNpwqVjTTIixZpRGJ+XAytnb14um72wxJtxMprY4wg7mXdZlDSxoUZpBcckl2WRY8SKWeZdHPPya0pzxA6N0iyOVa5SqhI7ZErPcMzLLHLNbuTXMCLpC66cLwn2ikEjtouBAt9+5lUuEZ5g/jcq334o8EOuaV4wQhPCZCiS44ccCuWxOU4NTdDIUFi/lKDQpiNHxkNoSszcfSEsE/PZ8PKXiMVicmhKin2cYL1Q0ew+gAqLzGe2/rNJL3Tslz6b6zANnx2qL3P6mYU8X+Q4mhEfPuvj57pV5HAK1Rcp2IyzPKl1K6kcpdUCjMkE/SsXzNhuMxO2mpXVYZNxzMtMgR8auflDcyLK/v4F1/3ldpVnDs9bY564uons/vKfHGVSM8ejcI1fbL5iu7/87aJm3F6ekJcpoz5KpzAu43FEBuz5LUm/opTTHsZWOi1TLvpLkm5gQsbnXzlfBmy6kiSp0ae6mryXjvE9lw93VarrScx3QOW5xN2r1JBTc9QQvZB0gAqPzP1U6ST1XhpoACqnkpHroqeO5u1dSIZvgEq7IZkef673+tF+b/3+URpxDbjcSIs0PgIuHxvSAs8Bm1PJ2k0S0Ln8Llm4RpgYoH09txxfL2EGnwOzXMAHS0leXj2fdnXaRvw8xhyIn8eYC+vzGMsKehwRBOcknbm/nAQHJTd8K7eB8jAVBEEQBEEQBJd5igjYsH285UVk63gbFnjjRefNgjX2ImS9zsdehI7BCqoeG7bAypEXoSOw8sSL0BOw8h5hM7beg6V36Kpx9A4W+LD99gkib7c/gCAIwn/Eda8B2nHf26FeuvEdXMoauMqaAoq73s7WUnhkpdRac4lWicX9C81Kok0FFxVKAAAAAElFTkSuQmCC';
-  },
-  '9Qrb': function (e, n, t) {
-    e.exports = {
-      root: 'root___Wjntz',
-      justifyContent: 'justifyContent___2ToKW',
-      hidden: 'hidden___2dj6V',
-      imgBox: 'imgBox___10rMM',
-      img: 'img___3KFjb',
-      errorTip: 'errorTip___3tzko',
-      iconRemove: 'iconRemove___1wHpu',
-      parent: 'parent___2XWNG',
-      noMargin: 'noMargin___1ICR7',
-      marginBottom: 'marginBottom___28Iw1',
-      name: 'name___1iIm8',
-      childrenEle: 'childrenEle___2Efwi',
-      defaultDashed: 'defaultDashed___1tlbv',
-      defaultBackGround: 'defaultBackGround___1kx5u',
-      defaultBorder: 'defaultBorder___12f-e',
-      loadingBox: 'loadingBox___3FnC6',
-      loading: 'loading___3fzb3',
-      myRound: 'myRound___3q78b',
-    };
   },
   '9kvl': function (e, n, t) {
     'use strict';
@@ -621,7 +599,7 @@
             return e.push({ name: '\u4eba\u50cf', url: '' }), a(e);
           a(e);
         },
-        b = (e) => {
+        k = (e) => {
           if (0 === e.length)
             return e.push({ name: '\u56fd\u5fbd', url: '' }), E(e);
           E(e);
@@ -661,7 +639,7 @@
             o['a'],
             {
               value: f,
-              onChange: b,
+              onChange: k,
               mode: 'cover',
               width: '100%',
               height: '90px',
@@ -790,13 +768,13 @@
       l =
         "import React, { useState } from 'react';\n\nimport ImagePicker from 'eco-image-picker';\n\ninterface Files {\n  url: string; // \u56fe\u7247url\n  preview?: string; // \u9884\u89c8\u56fe\n  loading?: boolean; // \u56fe\u7247\u662f\u5426\u52a0\u8f7d\u4e2d\n  errorTip?: string; // \u9519\u8bef\u63d0\u793a\n  name?: string; // \u56fe\u7247\u540d\u79f0\n  [index: string]: any;\n}\n\nexport default () => {\n  const [value, setValue] = useState<Array<Files>>([]);\n\n  // \u6570\u7ec4\u6539\u53d8\n  const onChange = (arr: Array<Files>) => {\n    console.log('onChange', arr);\n    arr.forEach((item, index) => (item.name = `\u793a\u4f8b\u56fe${index}`));\n    setValue(arr);\n  };\n\n  // \u5b9e\u65f6\u4e0a\u4f20\u65b9\u6cd5\n  const onUpload = (item: any): Promise<object | undefined> => {\n    return new Promise((resolve, reject) => {\n      const rate = Math.random();\n      setTimeout(() => {\n        if (rate > 0.3) {\n          // \u6210\u529f\n          return resolve({ fssid: rate.toString().slice(-6) });\n        }\n        reject('\u4e0a\u4f20\u5931\u8d25');\n      }, 3000);\n    });\n  };\n\n  return (\n    <ImagePicker\n      value={value}\n      onChange={onChange}\n      multiple\n      max={10}\n      mode=\"cover\"\n      onUpload={onUpload}\n    />\n  );\n};",
       c =
-        "import React, { useState } from 'react';\n\nimport { Flex } from 'antd-mobile';\nimport ImagePicker from 'eco-image-picker';\nimport s from './idCard.less';\n\nconst iconIdCard = require('../../assets/images/icon-idcard.png');\nconst iconIdCardBack = require('../../assets/images/icon-idcard-back.png');\nconst iconPhoto = require('../../assets/images/icon-photo.png');\n\n\ninterface Files {\n  url: string; // \u56fe\u7247url\n  preview?: string; // \u9884\u89c8\u56fe\n  loading?: boolean; // \u56fe\u7247\u662f\u5426\u52a0\u8f7d\u4e2d\n  errorTip?: string; // \u9519\u8bef\u63d0\u793a\n  name?: string; // \u56fe\u7247\u540d\u79f0\n  [index: string]: any;\n}\n\nexport default () => {\n\n  const [idCard, setIdCard] = useState<Array<Files>>([\n    { name: '\u4eba\u50cf', url: '' },\n  ]);\n  const [idCardBack, setIdCardBack] = useState<Array<Files>>([\n    { name: '\u56fd\u5fbd', url: '' },\n  ]);\n\n  // \u5b9e\u65f6\u4e0a\u4f20\u65b9\u6cd5\n  const onUpload = (item: any): Promise<object | undefined> => {\n    console.log('onUpload', item);\n    return new Promise((resolve, reject) => {\n      const rate = Math.random();\n      setTimeout(() => {\n        if (rate > 0.3) {\n          // \u6210\u529f\n          return resolve({ fssid: rate.toString().slice(-6) });\n        }\n        reject('\u4e0a\u4f20\u5931\u8d25');\n      }, 3000);\n    });\n  };\n\n  // \u4eba\u50cf\u9762\u6539\u53d8\n  const onChangeIdCard = (arr: Array<Files>) => {\n    console.log('onChangeIdCard', arr);\n    if (arr.length === 0) {\n      arr.push({ name: '\u4eba\u50cf', url: '' });\n      return setIdCard(arr);\n    }\n    setIdCard(arr);\n  };\n\n  // \u56fd\u5fbd\u9762\u6539\u53d8\n  const onChangeIdCardBack = (arr: Array<Files>) => {\n    if (arr.length === 0) {\n      arr.push({ name: '\u56fd\u5fbd', url: '' });\n      return setIdCardBack(arr);\n    }\n    setIdCardBack(arr);\n  };\n\n  return (\n    <div className={s.root}>\n      <div className={s.item}>\n        <ImagePicker\n          value={idCard}\n          onChange={onChangeIdCard}\n          mode=\"cover\"\n          width=\"100%\"\n          height=\"90px\"\n          onUpload={onUpload}\n        >\n          <Flex className={s.children} justify=\"center\">\n            <img className={s.img} alt=\"\" src={iconIdCard} />\n            <img alt=\"\" className={s.iconPhoto} src={iconPhoto} />\n          </Flex>\n        </ImagePicker>\n      </div>\n      <div className={s.item}>\n        <ImagePicker\n          value={idCardBack}\n          onChange={onChangeIdCardBack}\n          mode=\"cover\"\n          width=\"100%\"\n          height=\"90px\"\n          onUpload={onUpload}\n        >\n          <Flex className={s.children} justify=\"center\">\n            <img className={s.img} alt=\"\" src={iconIdCardBack} />\n            <img alt=\"\" className={s.iconPhoto} src={iconPhoto} />\n          </Flex>\n        </ImagePicker>\n      </div>\n    </div>\n  );\n};",
+        "import React, { useState } from 'react';\n\nimport { Flex } from 'antd-mobile';\nimport ImagePicker from 'eco-image-picker';\nimport s from './idCard.less';\n\nconst iconIdCard = require('../../assets/images/icon-idcard.png');\nconst iconIdCardBack = require('../../assets/images/icon-idcard-back.png');\nconst iconPhoto = require('../../assets/images/icon-photo.png');\n\ninterface Files {\n  url: string; // \u56fe\u7247url\n  preview?: string; // \u9884\u89c8\u56fe\n  loading?: boolean; // \u56fe\u7247\u662f\u5426\u52a0\u8f7d\u4e2d\n  errorTip?: string; // \u9519\u8bef\u63d0\u793a\n  name?: string; // \u56fe\u7247\u540d\u79f0\n  [index: string]: any;\n}\n\nexport default () => {\n  const [idCard, setIdCard] = useState<Array<Files>>([\n    { name: '\u4eba\u50cf', url: '' },\n  ]);\n  const [idCardBack, setIdCardBack] = useState<Array<Files>>([\n    { name: '\u56fd\u5fbd', url: '' },\n  ]);\n\n  // \u5b9e\u65f6\u4e0a\u4f20\u65b9\u6cd5\n  const onUpload = (item: any): Promise<object | undefined> => {\n    console.log('onUpload', item);\n    return new Promise((resolve, reject) => {\n      const rate = Math.random();\n      setTimeout(() => {\n        if (rate > 0.3) {\n          // \u6210\u529f\n          return resolve({ fssid: rate.toString().slice(-6) });\n        }\n        reject('\u4e0a\u4f20\u5931\u8d25');\n      }, 3000);\n    });\n  };\n\n  // \u4eba\u50cf\u9762\u6539\u53d8\n  const onChangeIdCard = (arr: Array<Files>) => {\n    console.log('onChangeIdCard', arr);\n    if (arr.length === 0) {\n      arr.push({ name: '\u4eba\u50cf', url: '' });\n      return setIdCard(arr);\n    }\n    setIdCard(arr);\n  };\n\n  // \u56fd\u5fbd\u9762\u6539\u53d8\n  const onChangeIdCardBack = (arr: Array<Files>) => {\n    if (arr.length === 0) {\n      arr.push({ name: '\u56fd\u5fbd', url: '' });\n      return setIdCardBack(arr);\n    }\n    setIdCardBack(arr);\n  };\n\n  return (\n    <div className={s.root}>\n      <div className={s.item}>\n        <ImagePicker\n          value={idCard}\n          onChange={onChangeIdCard}\n          mode=\"cover\"\n          width=\"100%\"\n          height=\"90px\"\n          onUpload={onUpload}\n        >\n          <Flex className={s.children} justify=\"center\">\n            <img className={s.img} alt=\"\" src={iconIdCard} />\n            <img alt=\"\" className={s.iconPhoto} src={iconPhoto} />\n          </Flex>\n        </ImagePicker>\n      </div>\n      <div className={s.item}>\n        <ImagePicker\n          value={idCardBack}\n          onChange={onChangeIdCardBack}\n          mode=\"cover\"\n          width=\"100%\"\n          height=\"90px\"\n          onUpload={onUpload}\n        >\n          <Flex className={s.children} justify=\"center\">\n            <img className={s.img} alt=\"\" src={iconIdCardBack} />\n            <img alt=\"\" className={s.iconPhoto} src={iconPhoto} />\n          </Flex>\n        </ImagePicker>\n      </div>\n    </div>\n  );\n};",
       i =
         '.root {\n  display: flex;\n}\n.item {\n  flex: 1;\n  &:first-child {\n    margin-right: 10px;\n  }\n}\n.children {\n  background: #e8f1fc;\n  height: 90px;\n  position: relative;\n}\nimg {\n  width: 89px;\n  height: 57px;\n}\n.iconPhoto {\n  width: 32px;\n  height: 28px;\n  display: block;\n  position: absolute;\n  top: 50%;\n  left: 50%;\n  transform: translate(-50%, -50%);\n  z-index: 2;\n}',
       o =
         "import React, { useState } from 'react';\n\nimport { Toast } from 'antd-mobile';\nimport ImagePicker from 'eco-image-picker';\n\ninterface Files {\n  url: string; // \u56fe\u7247url\n  preview?: string; // \u9884\u89c8\u56fe\n  loading?: boolean; // \u56fe\u7247\u662f\u5426\u52a0\u8f7d\u4e2d\n  errorTip?: string; // \u9519\u8bef\u63d0\u793a\n  name?: string; // \u56fe\u7247\u540d\u79f0\n  [index: string]: any;\n}\n\nexport default () => {\n  const [value, setValue] = useState<Array<Files>>([]);\n\n  // \u6570\u7ec4\u6539\u53d8\n  const onChange = (arr: Array<Files>) => {\n    console.log('onChange', arr);\n    setValue(arr);\n  };\n\n  // \u5b9e\u65f6\u4e0a\u4f20\u65b9\u6cd5\n  const onUpload = (item: any): Promise<object | undefined> => {\n    console.log('item', item);\n    return new Promise((resolve, reject) => {\n      const rate = Math.random();\n      setTimeout(() => {\n        if (rate > 0.3) {\n          // \u6210\u529f\n          return resolve({ fssid: rate.toString().slice(-6) });\n        }\n        reject('\u4e0a\u4f20\u5931\u8d25');\n      }, 3000);\n    });\n  };\n\n  // \u67e5\u770b\u5927\u56fe\u65b9\u6cd5\n  const onGetPreviewUrl = (index: number): Promise<string> => {\n    return new Promise((resolve, reject) => {\n      Toast.loading('Loading...');\n      setTimeout(() => {\n        Toast.hide();\n        resolve(value[index].url);\n      }, 1000);\n    });\n  };\n\n  return (\n    <ImagePicker\n      value={value}\n      onChange={onChange}\n      multiple\n      max={12}\n      mode=\"cover\"\n      onUpload={onUpload}\n      resize\n      width=\"22%\"\n      onGetPreviewUrl={onGetPreviewUrl}\n    />\n  );\n};",
       m =
-        "import React, { useState } from 'react';\n\nimport ImagePicker from 'eco-image-picker';\nimport { demo } from '../../assets/icon';\n\ninterface Files {\n  url: string; // \u56fe\u7247url\n  preview?: string; // \u9884\u89c8\u56fe\n  loading?: boolean; // \u56fe\u7247\u662f\u5426\u52a0\u8f7d\u4e2d\n  errorTip?: string; // \u9519\u8bef\u63d0\u793a\n  name?: string; // \u56fe\u7247\u540d\u79f0\n  [index: string]: any;\n}\n\nexport default () => {\n  const [value, setValue] = useState<Array<Files>>([\n    {\n      url: '',\n      fssid: 'id-1',\n    },\n    {\n      url: '',\n      fssid: 'id-2',\n    },\n  ]);\n\n  // \u6570\u7ec4\u6539\u53d8\n  const onChange = (arr: Array<Files>) => {\n    console.log('onChange', arr);\n    arr.forEach((item, index) => (item.name = `\u793a\u4f8b\u56fe${index}`));\n    setValue(arr);\n  };\n\n  // \u521d\u59cb\u5316\u65b9\u6cd5\n  const onInit = (index: number) => {\n    console.log('index', index, value[index].fssid);\n    return new Promise((resolve, reject) => {\n      const rate = Math.random();\n      setTimeout(() => {\n        if (rate > 0.3) {\n          // \u6210\u529f\n          return resolve({ url: demo });\n        }\n        reject('\u52a0\u8f7d\u5931\u8d25');\n      }, 3000);\n    });\n  };\n\n  // \u5b9e\u65f6\u4e0a\u4f20\u65b9\u6cd5\n  const onUpload = (item: any): Promise<object | undefined> => {\n    return new Promise((resolve, reject) => {\n      const rate = Math.random();\n      setTimeout(() => {\n        if (rate > 0.3) {\n          // \u6210\u529f\n          return resolve({ fssid: rate.toString().slice(-6) });\n        }\n        reject('\u4e0a\u4f20\u5931\u8d25');\n      }, 3000);\n    });\n  };\n\n  return (\n    <ImagePicker\n      value={value}\n      onChange={onChange}\n      multiple\n      max={10}\n      mode=\"cover\"\n      onUpload={onUpload}\n      onInit={onInit}\n    />\n  );\n};",
+        "import React, { useState } from 'react';\n\nimport ImagePicker from 'eco-image-picker';\nimport { demo } from '../../assets/icon';\n\ninterface Files {\n  url: string; // \u56fe\u7247url\n  preview?: string; // \u9884\u89c8\u56fe\n  loading?: boolean; // \u56fe\u7247\u662f\u5426\u52a0\u8f7d\u4e2d\n  errorTip?: string; // \u9519\u8bef\u63d0\u793a\n  name?: string; // \u56fe\u7247\u540d\u79f0\n  [index: string]: any;\n}\n\nexport default () => {\n  const [value, setValue] = useState<Array<Files>>([\n    {\n      url: '',\n      fssid: 'id-1',\n    },\n    {\n      url: '',\n      fssid: 'id-2',\n    },\n  ]);\n\n  // \u6570\u7ec4\u6539\u53d8\n  const onChange = (arr: Array<Files>) => {\n    console.log('onChange', arr);\n    arr.forEach((item, index) => (item.name = `\u793a\u4f8b\u56fe${index}`));\n    setValue(arr);\n  };\n\n  // \u521d\u59cb\u5316\u65b9\u6cd5\n  const onInit = () => {\n    return new Promise((resolve, reject) => {\n      const rate = Math.random();\n      setTimeout(() => {\n        if (rate > 0.3) {\n          // \u6210\u529f\n          return resolve({ url: demo });\n        }\n        return reject('\u52a0\u8f7d\u5931\u8d25');\n      }, 3000);\n    });\n  };\n\n  // \u5b9e\u65f6\u4e0a\u4f20\u65b9\u6cd5\n  const onUpload = (item: any): Promise<object | undefined> => {\n    return new Promise((resolve, reject) => {\n      const rate = Math.random();\n      setTimeout(() => {\n        if (rate > 0.3) {\n          // \u6210\u529f\n          return resolve({ fssid: rate.toString().slice(-6) });\n        }\n        reject('\u4e0a\u4f20\u5931\u8d25');\n      }, 3000);\n    });\n  };\n\n  return (\n    <ImagePicker\n      value={value}\n      onChange={onChange}\n      multiple\n      max={10}\n      mode=\"cover\"\n      onUpload={onUpload}\n      onInit={onInit}\n    />\n  );\n};",
       u =
         'export const demo = `data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGwAAABcCAMAAAC8wqBSAAAAjVBMVEUAAADm5ubm5ubl5eXl5eXd3d3m5ubm5ubm5ubm5ua1tbXl5eXl5eXl5eXm5ubm5ubm5ubl5eXl5eXk5OTm5ubk5OTi4uLl5eXl5eXj4+Pc3Nzl5eXl5eXl5eXl5eXY2Njl5eXm5ubl5eXm5ubm5ubk5OTm5ubm5ubm5ubm5ubm5ubm5ubl5eXk5OTm5uZ+RDafAAAALnRSTlMAZhR72g/zmvvMAzmIcPHpRfnvVaxKIk9bKgrEdWs+BuTeoJWLMY/X0r63gmEbAQb9LQAAAo1JREFUaN7tmdmaojAQRgsRzMQGFVeURVxbu633f7wB0vPFLYZI0XPDuZQPj5XUTwHCO8x6Od/wO/Qx5wOe0sr+myxN+NuyZWIos337XRn/8GMTFY8Ysvg9GbcZuia58DCHeWYy6UJkVnXZwpc2Q1npwsEcqjOWNjNZJFxDAAKbRmZLlwnzAHNGnpFM1LWWLsPaYgOZJ+syZSFqiyvLvJHOpV9JSyeTLrmG5owDsZIcbkkw53CXL6tOXbK29QVucaY5Idyw92vUJbskGEMFeDwSddWyuTqX7MXSVcu2gKp4U2hpaakA7xCS6ubKsUtGZr92OZ9IyGCmuYcjZfvKdcmQlGAPanaYww42Abtylk7ULjEATxwo2GAOUw4CPpHH6xOWU361VBweisopCpN7onjEWK4wx+0DEbM15hw7z/OMYkvJ+MKCSJ1nN6STXTJlsm0Ud4OEeKpkh2v5M6hwupjjPyZ7iwU7IMV63gZ7VxZGR6fsg9HwWZ7xi9IkO/zkwDVThjlZh1qWrkqb9Zhn9ICceVlF97oKq/zo6NDL0tP9/ly6WPANDTAUj77h3XXljwMNkJ6xYMNBMBtgwQIaISlniZtcjzlccaBHfv1ZDLa+TzEzdfOfza/yfE6hKXqyJUQS2BAaI/T/pdhZobwZaIhDqchmEGGBO3c0vFhl7mgIA9H+PwvKfFdD9OrdjObcgIldK2VV6NW6ZzeUTTRbQio7KsfP8kQuY4lKNvPJZbhVbxm9LOgrCsuIZfJS+sgWyWXK990xa0bGxk8CPcJmZMgi/vhfCLVMMrkJQFie3JgM3c2085Pl/m6ARDI1n72dbX9sVwyRTKanlbWyVtbKUEUra2WtrJXpZHPr11j8BVuY017FDvZgAAAAAElFTkSuQmCC`;';
     n['default'] = {
@@ -810,7 +788,7 @@
               css: 'antd-mobile/dist/antd-mobile.css',
             },
             react: { version: '17.0.2' },
-            'eco-image-picker': { version: '1.0.0' },
+            'eco-image-picker': { version: '1.0.3' },
           },
           componentName: 'image-picker',
           identifier: 'image-picker-base',
@@ -827,7 +805,7 @@
             },
             react: { version: '>= 16.9.0' },
             'rc-field-form': { version: '1.21.2' },
-            'eco-image-picker': { version: '1.0.0' },
+            'eco-image-picker': { version: '1.0.3' },
             'react-dom': { version: '>= 16.9.0' },
           },
           componentName: 'image-picker',
@@ -840,7 +818,7 @@
           sources: { _: { tsx: l } },
           dependencies: {
             react: { version: '17.0.2' },
-            'eco-image-picker': { version: '1.0.0' },
+            'eco-image-picker': { version: '1.0.3' },
           },
           componentName: 'image-picker',
           identifier: 'image-picker-onupload',
@@ -859,7 +837,7 @@
               css: 'antd-mobile/dist/antd-mobile.css',
             },
             react: { version: '17.0.2' },
-            'eco-image-picker': { version: '1.0.0' },
+            'eco-image-picker': { version: '1.0.3' },
           },
           componentName: 'image-picker',
           compact: !0,
@@ -876,7 +854,7 @@
               css: 'antd-mobile/dist/antd-mobile.css',
             },
             react: { version: '17.0.2' },
-            'eco-image-picker': { version: '1.0.0' },
+            'eco-image-picker': { version: '1.0.3' },
           },
           componentName: 'image-picker',
           identifier: 'image-picker-resize',
@@ -891,7 +869,7 @@
           },
           dependencies: {
             react: { version: '17.0.2' },
-            'eco-image-picker': { version: '1.0.0' },
+            'eco-image-picker': { version: '1.0.3' },
           },
           componentName: 'image-picker',
           identifier: 'image-picker-init',
@@ -1012,6 +990,28 @@
         width: '22%',
         onGetPreviewUrl: s,
       });
+    };
+  },
+  erb0: function (e, n, t) {
+    e.exports = {
+      root: 'root___3qxUD',
+      justifyContent: 'justifyContent___1Zpuq',
+      hidden: 'hidden___2HrBf',
+      imgBox: 'imgBox___3fkFT',
+      img: 'img___3kqcM',
+      errorTip: 'errorTip___2YBo5',
+      iconRemove: 'iconRemove___39dCt',
+      parent: 'parent___2iped',
+      noMargin: 'noMargin___3PtND',
+      marginBottom: 'marginBottom___1_jKe',
+      name: 'name___1JV_D',
+      childrenEle: 'childrenEle___3HYyv',
+      defaultDashed: 'defaultDashed___1DjJT',
+      defaultBackGround: 'defaultBackGround___Qk5EN',
+      defaultBorder: 'defaultBorder___3jW6w',
+      loadingBox: 'loadingBox___3WPNf',
+      loading: 'loading___3UDZf',
+      myRound: 'myRound___3EOwF',
     };
   },
   gql7: function (e, n, t) {
@@ -2066,7 +2066,7 @@
                 locale: 'en-US',
                 order: null,
                 filePath: 'README.md',
-                updatedTime: 1631846402e3,
+                updatedTime: 1631861951e3,
                 slugs: [
                   {
                     depth: 1,
@@ -2090,7 +2090,7 @@
               exact: !0,
               meta: {
                 filePath: 'src/image-picker/index.md',
-                updatedTime: 1631848296728,
+                updatedTime: 1631861951e3,
                 componentName: 'image-picker',
                 group: {
                   title: 'ImagePicker \u56fe\u7247\u9009\u62e9\u5668',
