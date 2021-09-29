@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-import ImagePicker from 'eco-image-picker';
+import { ImagePicker } from 'eco-image-picker';
 
 interface Files {
   url: string; // 图片url

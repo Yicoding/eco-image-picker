@@ -4,7 +4,7 @@
 import React, { useState } from 'react';
 
 import { Flex } from 'antd-mobile';
-import ImagePicker from 'eco-image-picker';
+import { ImagePicker } from 'eco-image-picker';
 import s from './idCard.less';
 
 const iconIdCard = require('../../assets/images/icon-idcard.png');

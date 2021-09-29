@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
 import { WhiteSpace, Flex, WingBlank } from 'antd-mobile';
-import ImagePicker from 'eco-image-picker';
+import { ImagePicker } from 'eco-image-picker';
 
 interface Files {
   url: string; // 图片url

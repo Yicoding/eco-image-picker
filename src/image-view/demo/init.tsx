@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-import { ImagePicker } from 'eco-image-picker';
+import { ImageView } from 'eco-image-picker';
 import { demo } from '../../assets/icon';
 
 interface Files {
@@ -60,14 +60,6 @@ export default () => {
   };
 
   return (
-    <ImagePicker
-      value={value}
-      onChange={onChange}
-      multiple
-      max={10}
-      mode="cover"
-      onUpload={onUpload}
-      onInit={onInit}
-    />
+    <ImageView value={value} onChange={onChange} mode="cover" onInit={onInit} />
   );
 };

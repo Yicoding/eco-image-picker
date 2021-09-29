@@ -21,7 +21,7 @@ yarn add eco-image-picker
 <br />
 
 ```shell
-import ImagePicker from 'eco-image-picker';
+import { ImagePicker } from 'eco-image-picker';
 ```
 
 [site]: https://yicoding.github.io/eco-image-picker

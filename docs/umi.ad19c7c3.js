@@ -1,13 +1,13 @@
 (function (e) {
   function n(n) {
     for (
-      var a, c, i = n[0], o = n[1], m = n[2], s = 0, d = [];
-      s < i.length;
+      var a, i, c = n[0], o = n[1], m = n[2], s = 0, d = [];
+      s < c.length;
       s++
     )
-      (c = i[s]),
-        Object.prototype.hasOwnProperty.call(r, c) && r[c] && d.push(r[c][0]),
-        (r[c] = 0);
+      (i = c[s]),
+        Object.prototype.hasOwnProperty.call(r, i) && r[i] && d.push(r[i][0]),
+        (r[i] = 0);
     for (a in o) Object.prototype.hasOwnProperty.call(o, a) && (e[a] = o[a]);
     u && u(n);
     while (d.length) d.shift()();
@@ -15,44 +15,44 @@
   }
   function t() {
     for (var e, n = 0; n < l.length; n++) {
-      for (var t = l[n], a = !0, i = 1; i < t.length; i++) {
-        var o = t[i];
+      for (var t = l[n], a = !0, c = 1; c < t.length; c++) {
+        var o = t[c];
         0 !== r[o] && (a = !1);
       }
-      a && (l.splice(n--, 1), (e = c((c.s = t[0]))));
+      a && (l.splice(n--, 1), (e = i((i.s = t[0]))));
     }
     return e;
   }
   var a = {},
     r = { 0: 0 },
     l = [];
-  function c(n) {
+  function i(n) {
     if (a[n]) return a[n].exports;
     var t = (a[n] = { i: n, l: !1, exports: {} });
-    return e[n].call(t.exports, t, t.exports, c), (t.l = !0), t.exports;
+    return e[n].call(t.exports, t, t.exports, i), (t.l = !0), t.exports;
   }
-  (c.m = e),
-    (c.c = a),
-    (c.d = function (e, n, t) {
-      c.o(e, n) || Object.defineProperty(e, n, { enumerable: !0, get: t });
+  (i.m = e),
+    (i.c = a),
+    (i.d = function (e, n, t) {
+      i.o(e, n) || Object.defineProperty(e, n, { enumerable: !0, get: t });
     }),
-    (c.r = function (e) {
+    (i.r = function (e) {
       'undefined' !== typeof Symbol &&
         Symbol.toStringTag &&
         Object.defineProperty(e, Symbol.toStringTag, { value: 'Module' }),
         Object.defineProperty(e, '__esModule', { value: !0 });
     }),
-    (c.t = function (e, n) {
-      if ((1 & n && (e = c(e)), 8 & n)) return e;
+    (i.t = function (e, n) {
+      if ((1 & n && (e = i(e)), 8 & n)) return e;
       if (4 & n && 'object' === typeof e && e && e.__esModule) return e;
       var t = Object.create(null);
       if (
-        (c.r(t),
+        (i.r(t),
         Object.defineProperty(t, 'default', { enumerable: !0, value: e }),
         2 & n && 'string' != typeof e)
       )
         for (var a in e)
-          c.d(
+          i.d(
             t,
             a,
             function (n) {
@@ -61,7 +61,7 @@
           );
       return t;
     }),
-    (c.n = function (e) {
+    (i.n = function (e) {
       var n =
         e && e.__esModule
           ? function () {
@@ -70,28 +70,34 @@
           : function () {
               return e;
             };
-      return c.d(n, 'a', n), n;
+      return i.d(n, 'a', n), n;
     }),
-    (c.o = function (e, n) {
+    (i.o = function (e, n) {
       return Object.prototype.hasOwnProperty.call(e, n);
     }),
-    (c.p = 'https://yicoding.github.io/eco-image-picker/');
-  var i = (window['webpackJsonp'] = window['webpackJsonp'] || []),
-    o = i.push.bind(i);
-  (i.push = n), (i = i.slice());
-  for (var m = 0; m < i.length; m++) n(i[m]);
+    (i.p = 'https://yicoding.github.io/eco-image-picker/');
+  var c = (window['webpackJsonp'] = window['webpackJsonp'] || []),
+    o = c.push.bind(c);
+  (c.push = n), (c = c.slice());
+  for (var m = 0; m < c.length; m++) n(c[m]);
   var u = o;
   l.push([0, 1]), t();
 })({
   '/7QA': function (e, n, t) {
     'use strict';
+    t.d(n, 'a', function () {
+      return A;
+    }),
+      t.d(n, 'b', function () {
+        return j;
+      });
     t('TttT');
     var a = t('Kl5d'),
       r = t.n(a),
       l = t('9og8'),
-      c = t('tJVT'),
-      i = t('WmNS'),
-      o = t.n(i),
+      i = t('tJVT'),
+      c = t('WmNS'),
+      o = t.n(c),
       m = t('q1tI'),
       u = t.n(m),
       s = t('TSYQ'),
@@ -99,51 +105,51 @@
       p = t('fI17'),
       g = t.n(p),
       f = t('U0F3'),
-      E = t.n(f),
-      v = t('erb0'),
-      h = t.n(v),
-      k = () => {},
-      b = Object(m['forwardRef'])((e, n) => {
+      v = t.n(f),
+      h = t('erb0'),
+      E = t.n(h),
+      b = () => {},
+      k = Object(m['forwardRef'])((e, n) => {
         var t = e.value,
           a = void 0 === t ? [] : t,
-          i = e.max,
-          s = void 0 === i ? 1 : i,
+          c = e.max,
+          s = void 0 === c ? 1 : c,
           p = e.onChange,
-          f = void 0 === p ? k : p,
-          v = e.accept,
-          b = void 0 === v ? 'image/*' : v,
+          f = void 0 === p ? b : p,
+          h = e.accept,
+          k = void 0 === h ? 'image/*' : h,
           A = e.multiple,
-          P = e.capture,
+          w = e.capture,
           y = e.width,
-          w = void 0 === y ? '80px' : y,
+          P = void 0 === y ? '80px' : y,
           x = e.height,
           j = void 0 === x ? '80px' : x,
-          C = e.config,
-          T = void 0 === C ? ['defaultBorder'] : C,
-          I = e.children,
-          O = e.mode,
-          N = void 0 === O ? 'fill' : O,
-          X = e.size,
-          B = e.disabledPreview,
-          M = e.disabledSelect,
-          S = e.onUpload,
+          I = e.config,
+          C = void 0 === I ? ['defaultBorder'] : I,
+          O = e.children,
+          T = e.mode,
+          N = void 0 === T ? 'fill' : T,
+          B = e.size,
+          M = e.disabledPreview,
+          S = e.disabledSelect,
+          X = e.onUpload,
           U = e.onInit,
-          Z = e.onFail,
-          F = void 0 === Z ? k : Z,
-          V = e.onGetPreviewUrl,
+          V = e.onFail,
+          F = void 0 === V ? b : V,
+          Z = e.onGetPreviewUrl,
           L = e.resize,
-          z = e.showRemove,
-          D = void 0 === z || z,
-          J = e.replace,
-          q = e.quality,
-          K = n || Object(m['useRef'])(null),
-          R = Object(m['useRef'])(null),
-          W = Object(m['useRef'])(a),
-          H = [];
-        W.current.forEach((e) => {
-          e.preview ? H.push(e.preview) : e.url && H.push(e.url);
+          R = e.showRemove,
+          z = void 0 === R || R,
+          q = e.replace,
+          D = e.quality,
+          J = n || Object(m['useRef'])(null),
+          K = Object(m['useRef'])(null),
+          _ = Object(m['useRef'])(a),
+          G = [];
+        _.current.forEach((e) => {
+          e.preview ? G.push(e.preview) : e.url && G.push(e.url);
         });
-        var G = Object(m['useMemo'])(() => {
+        var W = Object(m['useMemo'])(() => {
             for (var e = 0, n = 0; n < a.length; n++) {
               var t = a[n],
                 r = t.url,
@@ -152,58 +158,58 @@
             }
             return e;
           }, [a]),
-          Q = Object(m['useState'])(!1),
-          Y = Object(c['a'])(Q, 2),
-          _ = Y[0],
-          $ = Y[1],
+          H = Object(m['useState'])(!1),
+          Q = Object(i['a'])(H, 2),
+          Y = Q[0],
+          $ = Q[1],
           ee = Object(m['useState'])(0),
-          ne = Object(c['a'])(ee, 2),
+          ne = Object(i['a'])(ee, 2),
           te = ne[0],
           ae = ne[1],
           re = Object(m['useState'])(''),
-          le = Object(c['a'])(re, 2),
-          ce = le[0],
-          ie = le[1],
+          le = Object(i['a'])(re, 2),
+          ie = le[0],
+          ce = le[1],
           oe = (e) => {
             U &&
               U(e)
                 .then((n) => {
-                  (W.current[e] = Object.assign({}, W.current[e], n, {
+                  (_.current[e] = Object.assign({}, _.current[e], n, {
                     loading: !1,
                   })),
-                    (W.current = [...W.current]),
-                    setTimeout(() => f(W.current), 10);
+                    (_.current = [..._.current]),
+                    setTimeout(() => f(_.current), 10);
                 })
                 .catch((n) => {
-                  (W.current[e] = Object.assign({}, W.current[e], {
+                  (_.current[e] = Object.assign({}, _.current[e], {
                     url: '',
                     loading: !1,
                     errorTip: n || '\u52a0\u8f7d\u5931\u8d25',
                   })),
-                    (W.current = [...W.current]),
-                    setTimeout(() => f(W.current), 10);
+                    (_.current = [..._.current]),
+                    setTimeout(() => f(_.current), 10);
                 });
           };
         Object(m['useEffect'])(() => {
           if ('function' === typeof U)
-            for (var e = 0; e < W.current.length; e++)
-              W.current.forEach((e) => {
+            for (var e = 0; e < _.current.length; e++)
+              _.current.forEach((e) => {
                 (e.loading = !0), (e.isInit = !0);
               }),
-                (W.current = [...W.current]),
-                f(W.current),
+                (_.current = [..._.current]),
+                f(_.current),
                 oe(e);
         }, []),
           Object(m['useEffect'])(() => {
             if (L) {
-              var e = getComputedStyle(R.current).width;
-              ie(e);
+              var e = getComputedStyle(K.current).width;
+              ce(e);
             }
           }, [L]);
         var me = (e) =>
             new Promise((n) => {
               new g.a(e, {
-                quality: q,
+                quality: D,
                 success: (e) => {
                   n(e);
                 },
@@ -220,7 +226,7 @@
                   while (1)
                     switch ((e.prev = e.next)) {
                       case 0:
-                        if (((l = n), !q)) {
+                        if (((l = n), !D)) {
                           e.next = 5;
                           break;
                         }
@@ -231,19 +237,19 @@
                         return e.abrupt(
                           'return',
                           new Promise((e, n) => {
-                            var c = new FileReader();
-                            (c.onload = (c) => {
-                              var i = c.target.result;
-                              i
+                            var i = new FileReader();
+                            (i.onload = (i) => {
+                              var c = i.target.result;
+                              c
                                 ? e(
                                     Object.assign({}, a[r + t], {
                                       file: l,
-                                      url: i,
+                                      url: c,
                                     }),
                                   )
                                 : n('Fail to get the '.concat(t, ' image'));
                             }),
-                              c.readAsDataURL(l);
+                              i.readAsDataURL(l);
                           }),
                         );
                       case 6:
@@ -261,8 +267,8 @@
             var n = e.target,
               t = n.files;
             if (!t || !t.length) return (n.value = '');
-            var a = s - (J ? 0 : G);
-            t.length > (J ? s : a) &&
+            var a = s - (q ? 0 : W);
+            t.length > (q ? s : a) &&
               r.a.info(
                 '\u56fe\u7247\u6700\u591a\u4e0d\u8d85\u8fc7'.concat(
                   s,
@@ -270,58 +276,58 @@
                 ),
               );
             for (
-              var l = Array.from(t).slice(0, a), c = [], i = 0;
-              i < l.length;
-              i++
+              var l = Array.from(t).slice(0, a), i = [], c = 0;
+              c < l.length;
+              c++
             )
-              c.push(ue(l[i], i, G));
-            W.current = W.current.filter((e) => e.url || e.errorTip);
-            var o = J ? 0 : W.current.length;
-            Promise.all(c)
+              i.push(ue(l[c], c, W));
+            _.current = _.current.filter((e) => e.url || e.errorTip);
+            var o = q ? 0 : _.current.length;
+            Promise.all(i)
               .then((e) => {
-                'function' === typeof S && e.forEach((e) => (e.loading = !0));
+                'function' === typeof X && e.forEach((e) => (e.loading = !0));
                 var t = e.filter((e) =>
-                  X && e.file.size > 1024 * X * 1024
+                  B && e.file.size > 1024 * B * 1024
                     ? r.a.info(
                         '\u56fe\u7247\u5927\u5c0f\u4e0d\u80fd\u8d85\u8fc7'.concat(
-                          X,
+                          B,
                           'M',
                         ),
                       )
                     : e,
                 );
                 if (
-                  ((W.current = J ? [...t] : W.current.concat(t)),
-                  f(W.current),
-                  'function' === typeof S)
+                  ((_.current = q ? [...t] : _.current.concat(t)),
+                  f(_.current),
+                  'function' === typeof X)
                 )
                   for (
                     var a = function (e) {
-                        var n = W.current[e];
+                        var n = _.current[e];
                         e >= o &&
-                          S(n)
+                          X(n)
                             .then((n) => {
-                              (W.current[e] = Object.assign(
+                              (_.current[e] = Object.assign(
                                 {},
-                                W.current[e],
+                                _.current[e],
                                 n,
                                 { loading: !1 },
                               )),
-                                (W.current = [...W.current]),
-                                setTimeout(() => f(W.current), 10);
+                                (_.current = [..._.current]),
+                                setTimeout(() => f(_.current), 10);
                             })
                             .catch((n) => {
-                              (W.current[e] = Object.assign({}, W.current[e], {
+                              (_.current[e] = Object.assign({}, _.current[e], {
                                 url: '',
                                 loading: !1,
                                 errorTip: n || '\u4e0a\u4f20\u5931\u8d25',
                               })),
-                                (W.current = [...W.current]),
-                                setTimeout(() => f(W.current), 10);
+                                (_.current = [..._.current]),
+                                setTimeout(() => f(_.current), 10);
                             });
                       },
                       l = 0;
-                    l < W.current.length;
+                    l < _.current.length;
                     l++
                   )
                     a(l);
@@ -332,11 +338,11 @@
               });
           },
           de = () => {
-            M || (K && K.current && K.current.click());
+            S || (J && J.current && J.current.click());
           },
           pe = (e) => {
-            for (var n = !0, t = 0; t < W.current.length; t++) {
-              var a = W.current[t].loading;
+            for (var n = !0, t = 0; t < _.current.length; t++) {
+              var a = _.current[t].loading;
               if (a) {
                 n = !1;
                 break;
@@ -346,7 +352,7 @@
               return r.a.info(
                 '\u56fe\u7247\u4e0a\u4f20\u4e2d\uff0c\u8bf7\u7a0d\u540e\u64cd\u4f5c',
               );
-            W.current.splice(e, 1), (W.current = [...W.current]), f(W.current);
+            _.current.splice(e, 1), (_.current = [..._.current]), f(_.current);
           },
           ge = (function () {
             var e = Object(l['a'])(
@@ -356,22 +362,22 @@
                   while (1)
                     switch ((e.prev = e.next)) {
                       case 0:
-                        if (!B) {
+                        if (!M) {
                           e.next = 2;
                           break;
                         }
                         return e.abrupt('return');
                       case 2:
-                        if (W.current[t].preview || 'function' !== typeof V) {
+                        if (_.current[t].preview || 'function' !== typeof Z) {
                           e.next = 9;
                           break;
                         }
-                        return (e.next = 5), V(t);
+                        return (e.next = 5), Z(t);
                       case 5:
                         (a = e.sent),
-                          (W.current[t].preview = a),
-                          (W.current = [...W.current]),
-                          f(W.current);
+                          (_.current[t].preview = a),
+                          (_.current = [..._.current]),
+                          f(_.current);
                       case 9:
                         ae(n), fe();
                       case 11:
@@ -386,31 +392,31 @@
             };
           })(),
           fe = () => $((e) => !e),
-          Ee = L ? ce : j,
-          ve = 0;
+          ve = L ? ie : j,
+          he = 0;
         if (L) {
-          var he = Math.floor(100 / parseFloat(w));
-          if (a && a.length > 0 && he > 1) {
-            var ke = a.length % he;
-            ke >= 0 &&
-              ke <= he - 1 &&
-              ((ve = he - ke - 1), a.length === s && (ve += 1));
+          var Ee = Math.floor(100 / parseFloat(P));
+          if (a && a.length > 0 && Ee > 1) {
+            var be = a.length % Ee;
+            be >= 0 &&
+              be <= Ee - 1 &&
+              ((he = Ee - be - 1), a.length === s && (he += 1));
           }
         }
-        var be = d()(h.a.parent, {
-          [h.a.noMargin]: 1 === s || a.length < 1,
-          [h.a.marginBottom]: L,
+        var ke = d()(E.a.parent, {
+          [E.a.noMargin]: 1 === s || a.length < 1,
+          [E.a.marginBottom]: L,
         });
         return u.a.createElement(
           'div',
-          { className: d()(h.a.root, { [h.a.justifyContent]: L }) },
+          { className: d()(E.a.root, { [E.a.justifyContent]: L }) },
           u.a.createElement('input', {
-            className: h.a.hidden,
-            ref: K,
+            className: E.a.hidden,
+            ref: J,
             type: 'file',
-            accept: b,
+            accept: k,
             multiple: A,
-            capture: P,
+            capture: w,
             onChange: se,
           }),
           a &&
@@ -419,9 +425,9 @@
               var t = e.url,
                 r = e.loading,
                 l = e.name,
-                c = e.errorTip,
-                i = e.isInit;
-              if (t || c || i) {
+                i = e.errorTip,
+                c = e.isInit;
+              if (t || i || c) {
                 for (
                   var o = a.slice(0, n + 1), m = 0, s = 0;
                   s < o.length;
@@ -433,72 +439,250 @@
                 var g = n - m;
                 return u.a.createElement(
                   'div',
-                  { key: n, className: be, style: { width: w } },
+                  { key: n, className: ke, style: { width: P } },
                   u.a.createElement(
                     'div',
                     {
-                      className: d()(h.a.imgBox, ...T.map((e) => h.a[e])),
-                      style: { height: Ee },
+                      className: d()(E.a.imgBox, ...C.map((e) => E.a[e])),
+                      style: { height: ve },
                     },
                     t &&
                       u.a.createElement('img', {
                         alt: '',
-                        className: h.a.img,
+                        className: E.a.img,
                         src: t,
                         style: { objectFit: N },
                         onClick: () => ge(g, n),
                       }),
-                    c &&
-                      u.a.createElement('div', { className: h.a.errorTip }, c),
-                    D &&
+                    i &&
+                      u.a.createElement('div', { className: E.a.errorTip }, i),
+                    z &&
                       u.a.createElement('i', {
-                        className: h.a.iconRemove,
+                        className: E.a.iconRemove,
                         onClick: () => pe(n),
                       }),
                     r &&
                       u.a.createElement(
                         'div',
-                        { className: h.a.loadingBox },
-                        u.a.createElement('i', { className: h.a.loading }),
+                        { className: E.a.loadingBox },
+                        u.a.createElement('i', { className: E.a.loading }),
                       ),
                   ),
-                  l && u.a.createElement('div', { className: h.a.name }, l),
+                  l && u.a.createElement('div', { className: E.a.name }, l),
                 );
               }
             }),
-          G < s &&
+          W < s &&
             u.a.createElement(
               'div',
-              { className: be, style: { width: w }, ref: R, onClick: de },
-              I ||
+              { className: ke, style: { width: P }, ref: K, onClick: de },
+              O ||
                 u.a.createElement('div', {
-                  style: { height: Ee },
-                  className: d()(h.a.childrenEle, [...T.map((e) => h.a[e])]),
+                  style: { height: ve },
+                  className: d()(E.a.childrenEle, [...C.map((e) => E.a[e])]),
                 }),
               1 === s &&
                 a[0] &&
                 a[0].name &&
                 u.a.createElement(
                   'div',
-                  { className: h.a.name, style: { width: w } },
+                  { className: E.a.name, style: { width: P } },
                   a[0].name,
                 ),
             ),
-          ve > 0 &&
-            new Array(ve)
-              .fill(ve)
+          he > 0 &&
+            new Array(he)
+              .fill(he)
               .map((e, n) =>
                 u.a.createElement('div', {
                   key: n,
-                  className: be,
-                  style: { width: w },
+                  className: ke,
+                  style: { width: P },
                 }),
               ),
-          _ && u.a.createElement(E.a, { onClose: fe, index: te, urls: H }),
+          Y && u.a.createElement(v.a, { onClose: fe, index: te, urls: G }),
         );
       }),
-      A = b;
-    n['a'] = A;
+      A = k,
+      w = t('2qhL'),
+      y = t.n(w),
+      P = () => {},
+      x = Object(m['forwardRef'])((e, n) => {
+        var t = e.value,
+          a = void 0 === t ? [] : t,
+          r = e.onChange,
+          c = void 0 === r ? P : r,
+          s = e.width,
+          p = void 0 === s ? '80px' : s,
+          g = e.height,
+          f = void 0 === g ? '80px' : g,
+          h = e.config,
+          E = void 0 === h ? ['defaultBorder'] : h,
+          b = e.mode,
+          k = void 0 === b ? 'fill' : b,
+          A = e.disabledPreview,
+          w = e.onInit,
+          x = e.onGetPreviewUrl,
+          j = e.resize,
+          I = Object(m['useRef'])(null),
+          C = Object(m['useRef'])(a),
+          O = [];
+        C.current.forEach((e) => {
+          e.preview ? O.push(e.preview) : e.url && O.push(e.url);
+        });
+        var T = Object(m['useState'])(!1),
+          N = Object(i['a'])(T, 2),
+          B = N[0],
+          M = N[1],
+          S = Object(m['useState'])(0),
+          X = Object(i['a'])(S, 2),
+          U = X[0],
+          V = X[1],
+          F = Object(m['useState'])(''),
+          Z = Object(i['a'])(F, 2),
+          L = Z[0],
+          R = Z[1],
+          z = (e) => {
+            w &&
+              w(e)
+                .then((n) => {
+                  (C.current[e] = Object.assign({}, C.current[e], n, {
+                    loading: !1,
+                  })),
+                    (C.current = [...C.current]),
+                    setTimeout(() => c(C.current), 10);
+                })
+                .catch((n) => {
+                  (C.current[e] = Object.assign({}, C.current[e], {
+                    url: '',
+                    loading: !1,
+                    errorTip: n || '\u52a0\u8f7d\u5931\u8d25',
+                  })),
+                    (C.current = [...C.current]),
+                    setTimeout(() => c(C.current), 10);
+                });
+          };
+        Object(m['useEffect'])(() => {
+          if ('function' === typeof w)
+            for (var e = 0; e < C.current.length; e++)
+              C.current.forEach((e) => {
+                (e.loading = !0), (e.isInit = !0);
+              }),
+                (C.current = [...C.current]),
+                c(C.current),
+                z(e);
+        }, []),
+          Object(m['useEffect'])(() => {
+            if (j) {
+              var e = getComputedStyle(I.current).width;
+              R(e);
+            }
+          }, [j]);
+        var q = (function () {
+            var e = Object(l['a'])(
+              o.a.mark(function e(n, t) {
+                var a;
+                return o.a.wrap(function (e) {
+                  while (1)
+                    switch ((e.prev = e.next)) {
+                      case 0:
+                        if (!A) {
+                          e.next = 2;
+                          break;
+                        }
+                        return e.abrupt('return');
+                      case 2:
+                        if (C.current[t].preview || 'function' !== typeof x) {
+                          e.next = 9;
+                          break;
+                        }
+                        return (e.next = 5), x(t);
+                      case 5:
+                        (a = e.sent),
+                          (C.current[t].preview = a),
+                          (C.current = [...C.current]),
+                          c(C.current);
+                      case 9:
+                        V(n), D();
+                      case 11:
+                      case 'end':
+                        return e.stop();
+                    }
+                }, e);
+              }),
+            );
+            return function (n, t) {
+              return e.apply(this, arguments);
+            };
+          })(),
+          D = () => M((e) => !e),
+          J = j ? L : f;
+        if (j) {
+          var K = Math.floor(100 / parseFloat(p));
+          if (a && a.length > 0 && K > 1) {
+            var _ = a.length % K;
+            _ >= 0 && _ <= K - 1 && K - _ - 1;
+          }
+        }
+        var G = d()(y.a.parent, {
+          [y.a.noMargin]: a.length < 1,
+          [y.a.marginBottom]: j,
+        });
+        return u.a.createElement(
+          'div',
+          { className: d()(y.a.root, { [y.a.justifyContent]: j }) },
+          a &&
+            a.length > 0 &&
+            a.map((e, n) => {
+              var t = e.url,
+                r = e.loading,
+                l = e.name,
+                i = e.errorTip,
+                c = e.isInit;
+              if (t || i || c) {
+                for (
+                  var o = a.slice(0, n + 1), m = 0, s = 0;
+                  s < o.length;
+                  s++
+                ) {
+                  var g = o[s].errorTip;
+                  g && m++;
+                }
+                var f = n - m;
+                return u.a.createElement(
+                  'div',
+                  { key: n, className: G, style: { width: p } },
+                  u.a.createElement(
+                    'div',
+                    {
+                      className: d()(y.a.imgBox, ...E.map((e) => y.a[e])),
+                      style: { height: J },
+                    },
+                    t &&
+                      u.a.createElement('img', {
+                        alt: '',
+                        className: y.a.img,
+                        src: t,
+                        style: { objectFit: k },
+                        onClick: () => q(f, n),
+                      }),
+                    i &&
+                      u.a.createElement('div', { className: y.a.errorTip }, i),
+                    r &&
+                      u.a.createElement(
+                        'div',
+                        { className: y.a.loadingBox },
+                        u.a.createElement('i', { className: y.a.loading }),
+                      ),
+                  ),
+                  l && u.a.createElement('div', { className: y.a.name }, l),
+                );
+              }
+            }),
+          B && u.a.createElement(v.a, { onClose: D, index: U, urls: O }),
+        );
+      }),
+      j = x;
   },
   0: function (e, n, t) {
     e.exports = t('tB8F');
@@ -509,9 +693,8 @@
     var a = t('tJVT'),
       r = t('q1tI'),
       l = t.n(r),
-      c = t('/7QA'),
-      i =
-        'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGwAAABcCAMAAAC8wqBSAAAAjVBMVEUAAADm5ubm5ubl5eXl5eXd3d3m5ubm5ubm5ubm5ua1tbXl5eXl5eXl5eXm5ubm5ubm5ubl5eXl5eXk5OTm5ubk5OTi4uLl5eXl5eXj4+Pc3Nzl5eXl5eXl5eXl5eXY2Njl5eXm5ubl5eXm5ubm5ubk5OTm5ubm5ubm5ubm5ubm5ubm5ubl5eXk5OTm5uZ+RDafAAAALnRSTlMAZhR72g/zmvvMAzmIcPHpRfnvVaxKIk9bKgrEdWs+BuTeoJWLMY/X0r63gmEbAQb9LQAAAo1JREFUaN7tmdmaojAQRgsRzMQGFVeURVxbu633f7wB0vPFLYZI0XPDuZQPj5XUTwHCO8x6Od/wO/Qx5wOe0sr+myxN+NuyZWIos337XRn/8GMTFY8Ysvg9GbcZuia58DCHeWYy6UJkVnXZwpc2Q1npwsEcqjOWNjNZJFxDAAKbRmZLlwnzAHNGnpFM1LWWLsPaYgOZJ+syZSFqiyvLvJHOpV9JSyeTLrmG5owDsZIcbkkw53CXL6tOXbK29QVucaY5Idyw92vUJbskGEMFeDwSddWyuTqX7MXSVcu2gKp4U2hpaakA7xCS6ubKsUtGZr92OZ9IyGCmuYcjZfvKdcmQlGAPanaYww42Abtylk7ULjEATxwo2GAOUw4CPpHH6xOWU361VBweisopCpN7onjEWK4wx+0DEbM15hw7z/OMYkvJ+MKCSJ1nN6STXTJlsm0Ud4OEeKpkh2v5M6hwupjjPyZ7iwU7IMV63gZ7VxZGR6fsg9HwWZ7xi9IkO/zkwDVThjlZh1qWrkqb9Zhn9ICceVlF97oKq/zo6NDL0tP9/ly6WPANDTAUj77h3XXljwMNkJ6xYMNBMBtgwQIaISlniZtcjzlccaBHfv1ZDLa+TzEzdfOfza/yfE6hKXqyJUQS2BAaI/T/pdhZobwZaIhDqchmEGGBO3c0vFhl7mgIA9H+PwvKfFdD9OrdjObcgIldK2VV6NW6ZzeUTTRbQio7KsfP8kQuY4lKNvPJZbhVbxm9LOgrCsuIZfJS+sgWyWXK990xa0bGxk8CPcJmZMgi/vhfCLVMMrkJQFie3JgM3c2085Pl/m6ARDI1n72dbX9sVwyRTKanlbWyVtbKUEUra2WtrJXpZHPr11j8BVuY017FDvZgAAAAAElFTkSuQmCC';
+      i = t('/7QA'),
+      c = t('cMq5');
     n['default'] = () => {
       var e = Object(r['useState'])([
           { url: '', fssid: 'id-1' },
@@ -527,7 +710,8 @@
           new Promise((e, n) => {
             var t = Math.random();
             setTimeout(
-              () => (t > 0.3 ? e({ url: i }) : n('\u52a0\u8f7d\u5931\u8d25')),
+              () =>
+                t > 0.3 ? e({ url: c['a'] }) : n('\u52a0\u8f7d\u5931\u8d25'),
               3e3,
             );
           }),
@@ -539,7 +723,7 @@
               n('\u4e0a\u4f20\u5931\u8d25');
             }, 3e3);
           });
-      return l.a.createElement(c['a'], {
+      return l.a.createElement(i['a'], {
         value: t,
         onChange: m,
         multiple: !0,
@@ -554,6 +738,28 @@
     e.exports =
       'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAALIAAAByCAMAAADAvHvuAAABI1BMVEXx8fHh4eGSxP/1n4Hy1YXrnoDq6url5eX39/ey0/rt8PLk5OTn5+fuyoDw14fwvIH0sILuyLn0woT////yz4T1oIH0x4TyzIT1o4Hy14v1ooHw8PDzuYP1qYHu7u7s7Ozy36ny1IX0p4Hx8O3114j9/f3y58fy5b/x2ZLy0YT1toTx7+rsoYP1rIKXx//6+vrQ4vbz8/Py7ejy7uPy4rXzvYP1s4P1poLvy4Hx47v1yobwwIPwxYKeyv6q0Pzy6M/v183x25zy25jtr4H29vbx69nx3tbv0MPuxLTtuqXx3J/x3J71z4fus4L1r4LtqoG41/q51/nY5vXm7PPr7/Lx5+Tx6tXy4bDy3qXutJnsrJPspov1voXutYLspoHw4dvw1b3UZAjfAAAEGklEQVR42u3c13LaQBQG4AO7AicQTCQhOqY3g7HB2LHBPXGLS3pv7/8U2RUoogoxg2aOJvvd2INvfu/8uzpoNAJFKe2Aa+yUFAWUFrhKS4ESuEwJXoLLrIGLiqxzX2BBEARBEARhCclPld3s2fltdrfyCaxs+D0r59+AZW2WsyFqimdPCjCHz+MIHyylcBCnk+KVJMwU8DgiAMuoDAPXNLmb6sqaSnXVMsziccgynbilXLTbjJChfEqjXHZWO/weR/jBtldVPXCYDBix03ro8w5MyTjSjEAG7DqJ80bs/VtgLUGGmlHe6FcwzeeAJdaYJ47mydDDYfGuToYSMs/cAVw6PDFf2ISxyMU7Y8HZRym+CTcBk8I5TxwhifqPGNH9qGtkYF9LR/TMt4DJAUuksrDNYrFOxkXk4t0+IbwbZcCjHaI0p/f48HCfTNiTZZ48yupcADQ+U0q7xFqTUnoAWHT48ZYgprrxM0JMGqUhNDuQN3mkwvuHRTkyaPFoTfKY2nzOmhwjJrm4N2hxUSYjWJu/AA68F9pYbWNpwqVjTTIixZpRGJ+XAytnb14um72wxJtxMprY4wg7mXdZlDSxoUZpBcckl2WRY8SKWeZdHPPya0pzxA6N0iyOVa5SqhI7ZErPcMzLLHLNbuTXMCLpC66cLwn2ikEjtouBAt9+5lUuEZ5g/jcq334o8EOuaV4wQhPCZCiS44ccCuWxOU4NTdDIUFi/lKDQpiNHxkNoSszcfSEsE/PZ8PKXiMVicmhKin2cYL1Q0ew+gAqLzGe2/rNJL3Tslz6b6zANnx2qL3P6mYU8X+Q4mhEfPuvj57pV5HAK1Rcp2IyzPKl1K6kcpdUCjMkE/SsXzNhuMxO2mpXVYZNxzMtMgR8auflDcyLK/v4F1/3ldpVnDs9bY564uons/vKfHGVSM8ejcI1fbL5iu7/87aJm3F6ekJcpoz5KpzAu43FEBuz5LUm/opTTHsZWOi1TLvpLkm5gQsbnXzlfBmy6kiSp0ae6mryXjvE9lw93VarrScx3QOW5xN2r1JBTc9QQvZB0gAqPzP1U6ST1XhpoACqnkpHroqeO5u1dSIZvgEq7IZkef673+tF+b/3+URpxDbjcSIs0PgIuHxvSAs8Bm1PJ2k0S0Ln8Llm4RpgYoH09txxfL2EGnwOzXMAHS0leXj2fdnXaRvw8xhyIn8eYC+vzGMsKehwRBOcknbm/nAQHJTd8K7eB8jAVBEEQBEEQBJd5igjYsH285UVk63gbFnjjRefNgjX2ImS9zsdehI7BCqoeG7bAypEXoSOw8sSL0BOw8h5hM7beg6V36Kpx9A4W+LD99gkib7c/gCAIwn/Eda8B2nHf26FeuvEdXMoauMqaAoq73s7WUnhkpdRac4lWicX9C81Kok0FFxVKAAAAAElFTkSuQmCC';
   },
+  '2qhL': function (e, n, t) {
+    e.exports = {
+      root: 'root___2yaR5',
+      justifyContent: 'justifyContent___2eofh',
+      hidden: 'hidden___2YVM6',
+      imgBox: 'imgBox___1gsGA',
+      img: 'img___NU3cF',
+      errorTip: 'errorTip___3gy2d',
+      iconRemove: 'iconRemove___1lA_x',
+      parent: 'parent___2m4X7',
+      noMargin: 'noMargin___2eKtJ',
+      marginBottom: 'marginBottom___2S62m',
+      name: 'name___3VQl9',
+      childrenEle: 'childrenEle___1b5hi',
+      defaultDashed: 'defaultDashed___3uC-5',
+      defaultBackGround: 'defaultBackGround___1woVQ',
+      defaultBorder: 'defaultBorder___3BgZb',
+      loadingBox: 'loadingBox___Sr7jv',
+      loading: 'loading___O8g58',
+      myRound: 'myRound___2_bDa',
+    };
+  },
   '9kvl': function (e, n, t) {
     'use strict';
     var a = t('FfOG');
@@ -562,6 +768,98 @@
     });
     t('bCY9');
   },
+  AvFv: function (e, n, t) {
+    'use strict';
+    t.r(n);
+    var a = t('q1tI'),
+      r = t.n(a),
+      l = t('dEAq'),
+      i = t('Zxc8'),
+      c = t('Rsk4'),
+      o = r.a.memo(c['default']['image-view-init'].component);
+    n['default'] = (e) => (
+      r.a.useEffect(() => {
+        var n;
+        null !== e &&
+          void 0 !== e &&
+          null !== (n = e.location) &&
+          void 0 !== n &&
+          n.hash &&
+          l['AnchorLink'].scrollToAnchor(
+            decodeURIComponent(e.location.hash.slice(1)),
+          );
+      }, []),
+      r.a.createElement(
+        r.a.Fragment,
+        null,
+        r.a.createElement(
+          r.a.Fragment,
+          null,
+          r.a.createElement(
+            'div',
+            { className: 'markdown' },
+            r.a.createElement(
+              'h1',
+              { id: 'imageview-\u56fe\u7247\u9884\u89c8' },
+              r.a.createElement(
+                l['AnchorLink'],
+                {
+                  to: '#imageview-\u56fe\u7247\u9884\u89c8',
+                  'aria-hidden': 'true',
+                  tabIndex: -1,
+                },
+                r.a.createElement('span', { className: 'icon icon-link' }),
+              ),
+              'ImageView \u56fe\u7247\u9884\u89c8',
+            ),
+            r.a.createElement(
+              'h2',
+              { id: '\u57fa\u672c\u7528\u6cd5' },
+              r.a.createElement(
+                l['AnchorLink'],
+                {
+                  to: '#\u57fa\u672c\u7528\u6cd5',
+                  'aria-hidden': 'true',
+                  tabIndex: -1,
+                },
+                r.a.createElement('span', { className: 'icon icon-link' }),
+              ),
+              '\u57fa\u672c\u7528\u6cd5',
+            ),
+          ),
+          r.a.createElement(
+            i['default'],
+            c['default']['image-view-init'].previewerProps,
+            r.a.createElement(o, null),
+          ),
+          r.a.createElement(
+            'div',
+            { className: 'markdown' },
+            r.a.createElement(
+              'h2',
+              { id: 'api' },
+              r.a.createElement(
+                l['AnchorLink'],
+                { to: '#api', 'aria-hidden': 'true', tabIndex: -1 },
+                r.a.createElement('span', { className: 'icon icon-link' }),
+              ),
+              'API',
+            ),
+            r.a.createElement(
+              'h3',
+              { id: 'imageview' },
+              r.a.createElement(
+                l['AnchorLink'],
+                { to: '#imageview', 'aria-hidden': 'true', tabIndex: -1 },
+                r.a.createElement('span', { className: 'icon icon-link' }),
+              ),
+              'ImageView',
+            ),
+          ),
+        ),
+      )
+    );
+  },
   CK2m: function (e, n, t) {
     'use strict';
     t.r(n);
@@ -569,8 +867,8 @@
     var a = t('4IZf'),
       r = t.n(a),
       l = t('tJVT'),
-      c = t('q1tI'),
-      i = t.n(c),
+      i = t('q1tI'),
+      c = t.n(i),
       o = t('/7QA'),
       m = t('S/KV'),
       u = t.n(m),
@@ -578,15 +876,15 @@
       d = t('19b6'),
       p = t('CWFq');
     n['default'] = () => {
-      var e = Object(c['useState'])([{ name: '\u4eba\u50cf', url: '' }]),
+      var e = Object(i['useState'])([{ name: '\u4eba\u50cf', url: '' }]),
         n = Object(l['a'])(e, 2),
         t = n[0],
         a = n[1],
-        m = Object(c['useState'])([{ name: '\u56fd\u5fbd', url: '' }]),
+        m = Object(i['useState'])([{ name: '\u56fd\u5fbd', url: '' }]),
         g = Object(l['a'])(m, 2),
         f = g[0],
-        E = g[1],
-        v = (e) =>
+        v = g[1],
+        h = (e) =>
           new Promise((e, n) => {
             var t = Math.random();
             setTimeout(() => {
@@ -594,37 +892,37 @@
               n('\u4e0a\u4f20\u5931\u8d25');
             }, 3e3);
           }),
-        h = (e) => {
+        E = (e) => {
           if (0 === e.length)
             return e.push({ name: '\u4eba\u50cf', url: '' }), a(e);
           a(e);
         },
-        k = (e) => {
+        b = (e) => {
           if (0 === e.length)
-            return e.push({ name: '\u56fd\u5fbd', url: '' }), E(e);
-          E(e);
+            return e.push({ name: '\u56fd\u5fbd', url: '' }), v(e);
+          v(e);
         };
-      return i.a.createElement(
+      return c.a.createElement(
         'div',
         { className: u.a.root },
-        i.a.createElement(
+        c.a.createElement(
           'div',
           { className: u.a.item },
-          i.a.createElement(
+          c.a.createElement(
             o['a'],
             {
               value: t,
-              onChange: h,
+              onChange: E,
               mode: 'cover',
               width: '100%',
               height: '90px',
-              onUpload: v,
+              onUpload: h,
             },
-            i.a.createElement(
+            c.a.createElement(
               r.a,
               { className: u.a.children, justify: 'center' },
-              i.a.createElement('img', { className: u.a.img, alt: '', src: s }),
-              i.a.createElement('img', {
+              c.a.createElement('img', { className: u.a.img, alt: '', src: s }),
+              c.a.createElement('img', {
                 alt: '',
                 className: u.a.iconPhoto,
                 src: p,
@@ -632,24 +930,24 @@
             ),
           ),
         ),
-        i.a.createElement(
+        c.a.createElement(
           'div',
           { className: u.a.item },
-          i.a.createElement(
+          c.a.createElement(
             o['a'],
             {
               value: f,
-              onChange: k,
+              onChange: b,
               mode: 'cover',
               width: '100%',
               height: '90px',
-              onUpload: v,
+              onUpload: h,
             },
-            i.a.createElement(
+            c.a.createElement(
               r.a,
               { className: u.a.children, justify: 'center' },
-              i.a.createElement('img', { className: u.a.img, alt: '', src: d }),
-              i.a.createElement('img', {
+              c.a.createElement('img', { className: u.a.img, alt: '', src: d }),
+              c.a.createElement('img', {
                 alt: '',
                 className: u.a.iconPhoto,
                 src: p,
@@ -671,9 +969,9 @@
     var a = t('4IZf'),
       r = t.n(a),
       l = (t('ca75'), t('JMAg')),
-      c = t.n(l),
-      i = (t('dlV3'), t('4cdd')),
-      o = t.n(i),
+      i = t.n(l),
+      c = (t('dlV3'), t('4cdd')),
+      o = t.n(c),
       m = t('tJVT'),
       u = t('q1tI'),
       s = t.n(u),
@@ -690,13 +988,13 @@
         r.a,
         { direction: 'row', wrap: 'wrap' },
         s.a.createElement(
-          c.a,
+          i.a,
           null,
           s.a.createElement(d['a'], { value: t, onChange: l, quality: 0.1 }),
           s.a.createElement(o.a, null),
         ),
         s.a.createElement(
-          c.a,
+          i.a,
           null,
           s.a.createElement(d['a'], {
             value: t,
@@ -706,7 +1004,7 @@
           s.a.createElement(o.a, null),
         ),
         s.a.createElement(
-          c.a,
+          i.a,
           null,
           s.a.createElement(d['a'], {
             showRemove: !1,
@@ -717,7 +1015,7 @@
           s.a.createElement(o.a, null),
         ),
         s.a.createElement(
-          c.a,
+          i.a,
           null,
           s.a.createElement(d['a'], {
             value: t,
@@ -727,7 +1025,7 @@
           s.a.createElement(o.a, null),
         ),
         s.a.createElement(
-          c.a,
+          i.a,
           null,
           s.a.createElement(d['a'], {
             value: t,
@@ -742,7 +1040,7 @@
   FfOG: function (e, n, t) {
     'use strict';
     t.d(n, 'a', function () {
-      return c;
+      return i;
     }),
       t.d(n, 'b', function () {
         return l;
@@ -753,30 +1051,68 @@
     var l = Object({ NODE_ENV: 'production' }).__IS_SERVER
         ? null
         : Object(a['b'])(r),
-      c = function () {
+      i = function () {
         var e = arguments.length > 0 && void 0 !== arguments[0] && arguments[0];
         return e || (l = Object(a['b'])(r)), l;
       };
+  },
+  JobO: function (e, n, t) {
+    'use strict';
+    t.r(n);
+    var a = t('tJVT'),
+      r = t('q1tI'),
+      l = t.n(r),
+      i = t('/7QA'),
+      c = t('cMq5');
+    n['default'] = () => {
+      var e = Object(r['useState'])([
+          { url: '', fssid: 'id-1' },
+          { url: '', fssid: 'id-2' },
+        ]),
+        n = Object(a['a'])(e, 2),
+        t = n[0],
+        o = n[1],
+        m = (e) => {
+          e.forEach((e, n) => (e.name = '\u793a\u4f8b\u56fe'.concat(n))), o(e);
+        },
+        u = () =>
+          new Promise((e, n) => {
+            var t = Math.random();
+            setTimeout(
+              () =>
+                t > 0.3 ? e({ url: c['a'] }) : n('\u52a0\u8f7d\u5931\u8d25'),
+              3e3,
+            );
+          });
+      return l.a.createElement(i['b'], {
+        value: t,
+        onChange: m,
+        mode: 'cover',
+        onInit: u,
+      });
+    };
   },
   Rsk4: function (e, n, t) {
     'use strict';
     t.r(n);
     var a =
-        "import React, { useState } from 'react';\n\nimport { WhiteSpace, Flex, WingBlank } from 'antd-mobile';\nimport ImagePicker from 'eco-image-picker';\n\ninterface Files {\n  url: string; // \u56fe\u7247url\n  preview?: string; // \u9884\u89c8\u56fe\n  loading?: boolean; // \u56fe\u7247\u662f\u5426\u52a0\u8f7d\u4e2d\n  errorTip?: string; // \u9519\u8bef\u63d0\u793a\n  name?: string; // \u56fe\u7247\u540d\u79f0\n  [index: string]: any;\n}\n\nexport default () => {\n  const [value, setValue] = useState<Array<Files>>([]);\n\n  // \u6570\u7ec4\u6539\u53d8\n  const onChange = (arr: Array<Files>) => {\n    setValue(arr);\n  };\n\n  return (\n    <Flex direction=\"row\" wrap=\"wrap\">\n      <WingBlank>\n        <ImagePicker value={value} onChange={onChange} quality={0.1} />\n        <WhiteSpace />\n      </WingBlank>\n      <WingBlank>\n        <ImagePicker\n          value={value}\n          onChange={onChange}\n          config={['defaultBackGround']}\n        />\n        <WhiteSpace />\n      </WingBlank>\n      <WingBlank>\n        <ImagePicker\n          showRemove={false}\n          value={value}\n          onChange={onChange}\n          config={['defaultDashed']}\n        />\n        <WhiteSpace />\n      </WingBlank>\n      <WingBlank>\n        <ImagePicker\n          value={value}\n          onChange={onChange}\n          config={['defaultBorder', 'defaultBackGround']}\n        />\n        <WhiteSpace />\n      </WingBlank>\n      <WingBlank>\n        <ImagePicker\n          value={value}\n          onChange={onChange}\n          config={['defaultDashed', 'defaultBackGround']}\n        />\n        <WhiteSpace />\n      </WingBlank>\n    </Flex>\n  );\n};",
+        "import React, { useState } from 'react';\n\nimport { WhiteSpace, Flex, WingBlank } from 'antd-mobile';\nimport { ImagePicker } from 'eco-image-picker';\n\ninterface Files {\n  url: string; // \u56fe\u7247url\n  preview?: string; // \u9884\u89c8\u56fe\n  loading?: boolean; // \u56fe\u7247\u662f\u5426\u52a0\u8f7d\u4e2d\n  errorTip?: string; // \u9519\u8bef\u63d0\u793a\n  name?: string; // \u56fe\u7247\u540d\u79f0\n  [index: string]: any;\n}\n\nexport default () => {\n  const [value, setValue] = useState<Array<Files>>([]);\n\n  // \u6570\u7ec4\u6539\u53d8\n  const onChange = (arr: Array<Files>) => {\n    setValue(arr);\n  };\n\n  return (\n    <Flex direction=\"row\" wrap=\"wrap\">\n      <WingBlank>\n        <ImagePicker value={value} onChange={onChange} quality={0.1} />\n        <WhiteSpace />\n      </WingBlank>\n      <WingBlank>\n        <ImagePicker\n          value={value}\n          onChange={onChange}\n          config={['defaultBackGround']}\n        />\n        <WhiteSpace />\n      </WingBlank>\n      <WingBlank>\n        <ImagePicker\n          showRemove={false}\n          value={value}\n          onChange={onChange}\n          config={['defaultDashed']}\n        />\n        <WhiteSpace />\n      </WingBlank>\n      <WingBlank>\n        <ImagePicker\n          value={value}\n          onChange={onChange}\n          config={['defaultBorder', 'defaultBackGround']}\n        />\n        <WhiteSpace />\n      </WingBlank>\n      <WingBlank>\n        <ImagePicker\n          value={value}\n          onChange={onChange}\n          config={['defaultDashed', 'defaultBackGround']}\n        />\n        <WhiteSpace />\n      </WingBlank>\n    </Flex>\n  );\n};",
       r =
-        "import React, { useEffect } from 'react';\n\nimport Form, { Field } from 'rc-field-form';\nimport { WhiteSpace, Button } from 'antd-mobile';\nimport ImagePicker from 'eco-image-picker';\n\nexport default () => {\n  const [form] = Form.useForm();\n\n  useEffect(() => {\n    form.setFieldsValue({ filesList: [] });\n  }, []);\n\n  const submit = () => {\n    const values = form.getFieldsValue();\n    console.log(values);\n  };\n\n  return (\n    <div>\n      <Form form={form}>\n        <Field name=\"filesList\">\n          <ImagePicker />\n        </Field>\n      </Form>\n      <WhiteSpace />\n      <Button onClick={submit} size=\"small\" type=\"primary\" inline>\n        Submit\n      </Button>\n    </div>\n  );\n};",
+        "import React, { useEffect } from 'react';\n\nimport Form, { Field } from 'rc-field-form';\nimport { WhiteSpace, Button } from 'antd-mobile';\nimport { ImagePicker } from 'eco-image-picker';\n\nexport default () => {\n  const [form] = Form.useForm();\n\n  useEffect(() => {\n    form.setFieldsValue({ filesList: [] });\n  }, []);\n\n  const submit = () => {\n    const values = form.getFieldsValue();\n    console.log(values);\n  };\n\n  return (\n    <div>\n      <Form form={form}>\n        <Field name=\"filesList\">\n          <ImagePicker />\n        </Field>\n      </Form>\n      <WhiteSpace />\n      <Button onClick={submit} size=\"small\" type=\"primary\" inline>\n        Submit\n      </Button>\n    </div>\n  );\n};",
       l =
-        "import React, { useState } from 'react';\n\nimport ImagePicker from 'eco-image-picker';\n\ninterface Files {\n  url: string; // \u56fe\u7247url\n  preview?: string; // \u9884\u89c8\u56fe\n  loading?: boolean; // \u56fe\u7247\u662f\u5426\u52a0\u8f7d\u4e2d\n  errorTip?: string; // \u9519\u8bef\u63d0\u793a\n  name?: string; // \u56fe\u7247\u540d\u79f0\n  [index: string]: any;\n}\n\nexport default () => {\n  const [value, setValue] = useState<Array<Files>>([]);\n\n  // \u6570\u7ec4\u6539\u53d8\n  const onChange = (arr: Array<Files>) => {\n    console.log('onChange', arr);\n    arr.forEach((item, index) => (item.name = `\u793a\u4f8b\u56fe${index}`));\n    setValue(arr);\n  };\n\n  // \u5b9e\u65f6\u4e0a\u4f20\u65b9\u6cd5\n  const onUpload = (item: any): Promise<object | undefined> => {\n    return new Promise((resolve, reject) => {\n      const rate = Math.random();\n      setTimeout(() => {\n        if (rate > 0.3) {\n          // \u6210\u529f\n          return resolve({ fssid: rate.toString().slice(-6) });\n        }\n        reject('\u4e0a\u4f20\u5931\u8d25');\n      }, 3000);\n    });\n  };\n\n  return (\n    <ImagePicker\n      value={value}\n      onChange={onChange}\n      multiple\n      max={10}\n      mode=\"cover\"\n      onUpload={onUpload}\n    />\n  );\n};",
-      c =
-        "import React, { useState } from 'react';\n\nimport { Flex } from 'antd-mobile';\nimport ImagePicker from 'eco-image-picker';\nimport s from './idCard.less';\n\nconst iconIdCard = require('../../assets/images/icon-idcard.png');\nconst iconIdCardBack = require('../../assets/images/icon-idcard-back.png');\nconst iconPhoto = require('../../assets/images/icon-photo.png');\n\ninterface Files {\n  url: string; // \u56fe\u7247url\n  preview?: string; // \u9884\u89c8\u56fe\n  loading?: boolean; // \u56fe\u7247\u662f\u5426\u52a0\u8f7d\u4e2d\n  errorTip?: string; // \u9519\u8bef\u63d0\u793a\n  name?: string; // \u56fe\u7247\u540d\u79f0\n  [index: string]: any;\n}\n\nexport default () => {\n  const [idCard, setIdCard] = useState<Array<Files>>([\n    { name: '\u4eba\u50cf', url: '' },\n  ]);\n  const [idCardBack, setIdCardBack] = useState<Array<Files>>([\n    { name: '\u56fd\u5fbd', url: '' },\n  ]);\n\n  // \u5b9e\u65f6\u4e0a\u4f20\u65b9\u6cd5\n  const onUpload = (item: any): Promise<object | undefined> => {\n    console.log('onUpload', item);\n    return new Promise((resolve, reject) => {\n      const rate = Math.random();\n      setTimeout(() => {\n        if (rate > 0.3) {\n          // \u6210\u529f\n          return resolve({ fssid: rate.toString().slice(-6) });\n        }\n        reject('\u4e0a\u4f20\u5931\u8d25');\n      }, 3000);\n    });\n  };\n\n  // \u4eba\u50cf\u9762\u6539\u53d8\n  const onChangeIdCard = (arr: Array<Files>) => {\n    console.log('onChangeIdCard', arr);\n    if (arr.length === 0) {\n      arr.push({ name: '\u4eba\u50cf', url: '' });\n      return setIdCard(arr);\n    }\n    setIdCard(arr);\n  };\n\n  // \u56fd\u5fbd\u9762\u6539\u53d8\n  const onChangeIdCardBack = (arr: Array<Files>) => {\n    if (arr.length === 0) {\n      arr.push({ name: '\u56fd\u5fbd', url: '' });\n      return setIdCardBack(arr);\n    }\n    setIdCardBack(arr);\n  };\n\n  return (\n    <div className={s.root}>\n      <div className={s.item}>\n        <ImagePicker\n          value={idCard}\n          onChange={onChangeIdCard}\n          mode=\"cover\"\n          width=\"100%\"\n          height=\"90px\"\n          onUpload={onUpload}\n        >\n          <Flex className={s.children} justify=\"center\">\n            <img className={s.img} alt=\"\" src={iconIdCard} />\n            <img alt=\"\" className={s.iconPhoto} src={iconPhoto} />\n          </Flex>\n        </ImagePicker>\n      </div>\n      <div className={s.item}>\n        <ImagePicker\n          value={idCardBack}\n          onChange={onChangeIdCardBack}\n          mode=\"cover\"\n          width=\"100%\"\n          height=\"90px\"\n          onUpload={onUpload}\n        >\n          <Flex className={s.children} justify=\"center\">\n            <img className={s.img} alt=\"\" src={iconIdCardBack} />\n            <img alt=\"\" className={s.iconPhoto} src={iconPhoto} />\n          </Flex>\n        </ImagePicker>\n      </div>\n    </div>\n  );\n};",
+        "import React, { useState } from 'react';\n\nimport { ImagePicker } from 'eco-image-picker';\n\ninterface Files {\n  url: string; // \u56fe\u7247url\n  preview?: string; // \u9884\u89c8\u56fe\n  loading?: boolean; // \u56fe\u7247\u662f\u5426\u52a0\u8f7d\u4e2d\n  errorTip?: string; // \u9519\u8bef\u63d0\u793a\n  name?: string; // \u56fe\u7247\u540d\u79f0\n  [index: string]: any;\n}\n\nexport default () => {\n  const [value, setValue] = useState<Array<Files>>([]);\n\n  // \u6570\u7ec4\u6539\u53d8\n  const onChange = (arr: Array<Files>) => {\n    console.log('onChange', arr);\n    arr.forEach((item, index) => (item.name = `\u793a\u4f8b\u56fe${index}`));\n    setValue(arr);\n  };\n\n  // \u5b9e\u65f6\u4e0a\u4f20\u65b9\u6cd5\n  const onUpload = (item: any): Promise<object | undefined> => {\n    return new Promise((resolve, reject) => {\n      const rate = Math.random();\n      setTimeout(() => {\n        if (rate > 0.3) {\n          // \u6210\u529f\n          return resolve({ fssid: rate.toString().slice(-6) });\n        }\n        reject('\u4e0a\u4f20\u5931\u8d25');\n      }, 3000);\n    });\n  };\n\n  return (\n    <ImagePicker\n      value={value}\n      onChange={onChange}\n      multiple\n      max={10}\n      mode=\"cover\"\n      onUpload={onUpload}\n    />\n  );\n};",
       i =
+        "import React, { useState } from 'react';\n\nimport { Flex } from 'antd-mobile';\nimport { ImagePicker } from 'eco-image-picker';\nimport s from './idCard.less';\n\nconst iconIdCard = require('../../assets/images/icon-idcard.png');\nconst iconIdCardBack = require('../../assets/images/icon-idcard-back.png');\nconst iconPhoto = require('../../assets/images/icon-photo.png');\n\ninterface Files {\n  url: string; // \u56fe\u7247url\n  preview?: string; // \u9884\u89c8\u56fe\n  loading?: boolean; // \u56fe\u7247\u662f\u5426\u52a0\u8f7d\u4e2d\n  errorTip?: string; // \u9519\u8bef\u63d0\u793a\n  name?: string; // \u56fe\u7247\u540d\u79f0\n  [index: string]: any;\n}\n\nexport default () => {\n  const [idCard, setIdCard] = useState<Array<Files>>([\n    { name: '\u4eba\u50cf', url: '' },\n  ]);\n  const [idCardBack, setIdCardBack] = useState<Array<Files>>([\n    { name: '\u56fd\u5fbd', url: '' },\n  ]);\n\n  // \u5b9e\u65f6\u4e0a\u4f20\u65b9\u6cd5\n  const onUpload = (item: any): Promise<object | undefined> => {\n    console.log('onUpload', item);\n    return new Promise((resolve, reject) => {\n      const rate = Math.random();\n      setTimeout(() => {\n        if (rate > 0.3) {\n          // \u6210\u529f\n          return resolve({ fssid: rate.toString().slice(-6) });\n        }\n        reject('\u4e0a\u4f20\u5931\u8d25');\n      }, 3000);\n    });\n  };\n\n  // \u4eba\u50cf\u9762\u6539\u53d8\n  const onChangeIdCard = (arr: Array<Files>) => {\n    console.log('onChangeIdCard', arr);\n    if (arr.length === 0) {\n      arr.push({ name: '\u4eba\u50cf', url: '' });\n      return setIdCard(arr);\n    }\n    setIdCard(arr);\n  };\n\n  // \u56fd\u5fbd\u9762\u6539\u53d8\n  const onChangeIdCardBack = (arr: Array<Files>) => {\n    if (arr.length === 0) {\n      arr.push({ name: '\u56fd\u5fbd', url: '' });\n      return setIdCardBack(arr);\n    }\n    setIdCardBack(arr);\n  };\n\n  return (\n    <div className={s.root}>\n      <div className={s.item}>\n        <ImagePicker\n          value={idCard}\n          onChange={onChangeIdCard}\n          mode=\"cover\"\n          width=\"100%\"\n          height=\"90px\"\n          onUpload={onUpload}\n        >\n          <Flex className={s.children} justify=\"center\">\n            <img className={s.img} alt=\"\" src={iconIdCard} />\n            <img alt=\"\" className={s.iconPhoto} src={iconPhoto} />\n          </Flex>\n        </ImagePicker>\n      </div>\n      <div className={s.item}>\n        <ImagePicker\n          value={idCardBack}\n          onChange={onChangeIdCardBack}\n          mode=\"cover\"\n          width=\"100%\"\n          height=\"90px\"\n          onUpload={onUpload}\n        >\n          <Flex className={s.children} justify=\"center\">\n            <img className={s.img} alt=\"\" src={iconIdCardBack} />\n            <img alt=\"\" className={s.iconPhoto} src={iconPhoto} />\n          </Flex>\n        </ImagePicker>\n      </div>\n    </div>\n  );\n};",
+      c =
         '.root {\n  display: flex;\n}\n.item {\n  flex: 1;\n  &:first-child {\n    margin-right: 10px;\n  }\n}\n.children {\n  background: #e8f1fc;\n  height: 90px;\n  position: relative;\n}\nimg {\n  width: 89px;\n  height: 57px;\n}\n.iconPhoto {\n  width: 32px;\n  height: 28px;\n  display: block;\n  position: absolute;\n  top: 50%;\n  left: 50%;\n  transform: translate(-50%, -50%);\n  z-index: 2;\n}',
       o =
-        "import React, { useState } from 'react';\n\nimport { Toast } from 'antd-mobile';\nimport ImagePicker from 'eco-image-picker';\n\ninterface Files {\n  url: string; // \u56fe\u7247url\n  preview?: string; // \u9884\u89c8\u56fe\n  loading?: boolean; // \u56fe\u7247\u662f\u5426\u52a0\u8f7d\u4e2d\n  errorTip?: string; // \u9519\u8bef\u63d0\u793a\n  name?: string; // \u56fe\u7247\u540d\u79f0\n  [index: string]: any;\n}\n\nexport default () => {\n  const [value, setValue] = useState<Array<Files>>([]);\n\n  // \u6570\u7ec4\u6539\u53d8\n  const onChange = (arr: Array<Files>) => {\n    console.log('onChange', arr);\n    setValue(arr);\n  };\n\n  // \u5b9e\u65f6\u4e0a\u4f20\u65b9\u6cd5\n  const onUpload = (item: any): Promise<object | undefined> => {\n    console.log('item', item);\n    return new Promise((resolve, reject) => {\n      const rate = Math.random();\n      setTimeout(() => {\n        if (rate > 0.3) {\n          // \u6210\u529f\n          return resolve({ fssid: rate.toString().slice(-6) });\n        }\n        reject('\u4e0a\u4f20\u5931\u8d25');\n      }, 3000);\n    });\n  };\n\n  // \u67e5\u770b\u5927\u56fe\u65b9\u6cd5\n  const onGetPreviewUrl = (index: number): Promise<string> => {\n    return new Promise((resolve, reject) => {\n      Toast.loading('Loading...');\n      setTimeout(() => {\n        Toast.hide();\n        resolve(value[index].url);\n      }, 1000);\n    });\n  };\n\n  return (\n    <ImagePicker\n      value={value}\n      onChange={onChange}\n      multiple\n      max={12}\n      mode=\"cover\"\n      onUpload={onUpload}\n      resize\n      width=\"22%\"\n      onGetPreviewUrl={onGetPreviewUrl}\n    />\n  );\n};",
+        "import React, { useState } from 'react';\n\nimport { Toast } from 'antd-mobile';\nimport { ImagePicker } from 'eco-image-picker';\n\ninterface Files {\n  url: string; // \u56fe\u7247url\n  preview?: string; // \u9884\u89c8\u56fe\n  loading?: boolean; // \u56fe\u7247\u662f\u5426\u52a0\u8f7d\u4e2d\n  errorTip?: string; // \u9519\u8bef\u63d0\u793a\n  name?: string; // \u56fe\u7247\u540d\u79f0\n  [index: string]: any;\n}\n\nexport default () => {\n  const [value, setValue] = useState<Array<Files>>([]);\n\n  // \u6570\u7ec4\u6539\u53d8\n  const onChange = (arr: Array<Files>) => {\n    console.log('onChange', arr);\n    setValue(arr);\n  };\n\n  // \u5b9e\u65f6\u4e0a\u4f20\u65b9\u6cd5\n  const onUpload = (item: any): Promise<object | undefined> => {\n    console.log('item', item);\n    return new Promise((resolve, reject) => {\n      const rate = Math.random();\n      setTimeout(() => {\n        if (rate > 0.3) {\n          // \u6210\u529f\n          return resolve({ fssid: rate.toString().slice(-6) });\n        }\n        reject('\u4e0a\u4f20\u5931\u8d25');\n      }, 3000);\n    });\n  };\n\n  // \u67e5\u770b\u5927\u56fe\u65b9\u6cd5\n  const onGetPreviewUrl = (index: number): Promise<string> => {\n    return new Promise((resolve, reject) => {\n      Toast.loading('Loading...');\n      setTimeout(() => {\n        Toast.hide();\n        resolve(value[index].url);\n      }, 1000);\n    });\n  };\n\n  return (\n    <ImagePicker\n      value={value}\n      onChange={onChange}\n      multiple\n      max={12}\n      mode=\"cover\"\n      onUpload={onUpload}\n      resize\n      width=\"22%\"\n      onGetPreviewUrl={onGetPreviewUrl}\n    />\n  );\n};",
       m =
-        "import React, { useState } from 'react';\n\nimport ImagePicker from 'eco-image-picker';\nimport { demo } from '../../assets/icon';\n\ninterface Files {\n  url: string; // \u56fe\u7247url\n  preview?: string; // \u9884\u89c8\u56fe\n  loading?: boolean; // \u56fe\u7247\u662f\u5426\u52a0\u8f7d\u4e2d\n  errorTip?: string; // \u9519\u8bef\u63d0\u793a\n  name?: string; // \u56fe\u7247\u540d\u79f0\n  [index: string]: any;\n}\n\nexport default () => {\n  const [value, setValue] = useState<Array<Files>>([\n    {\n      url: '',\n      fssid: 'id-1',\n    },\n    {\n      url: '',\n      fssid: 'id-2',\n    },\n  ]);\n\n  // \u6570\u7ec4\u6539\u53d8\n  const onChange = (arr: Array<Files>) => {\n    console.log('onChange', arr);\n    arr.forEach((item, index) => (item.name = `\u793a\u4f8b\u56fe${index}`));\n    setValue(arr);\n  };\n\n  // \u521d\u59cb\u5316\u65b9\u6cd5\n  const onInit = () => {\n    return new Promise((resolve, reject) => {\n      const rate = Math.random();\n      setTimeout(() => {\n        if (rate > 0.3) {\n          // \u6210\u529f\n          return resolve({ url: demo });\n        }\n        return reject('\u52a0\u8f7d\u5931\u8d25');\n      }, 3000);\n    });\n  };\n\n  // \u5b9e\u65f6\u4e0a\u4f20\u65b9\u6cd5\n  const onUpload = (item: any): Promise<object | undefined> => {\n    return new Promise((resolve, reject) => {\n      const rate = Math.random();\n      setTimeout(() => {\n        if (rate > 0.3) {\n          // \u6210\u529f\n          return resolve({ fssid: rate.toString().slice(-6) });\n        }\n        reject('\u4e0a\u4f20\u5931\u8d25');\n      }, 3000);\n    });\n  };\n\n  return (\n    <ImagePicker\n      value={value}\n      onChange={onChange}\n      multiple\n      max={10}\n      mode=\"cover\"\n      onUpload={onUpload}\n      onInit={onInit}\n    />\n  );\n};",
+        "import React, { useState } from 'react';\n\nimport { ImagePicker } from 'eco-image-picker';\nimport { demo } from '../../assets/icon';\n\ninterface Files {\n  url: string; // \u56fe\u7247url\n  preview?: string; // \u9884\u89c8\u56fe\n  loading?: boolean; // \u56fe\u7247\u662f\u5426\u52a0\u8f7d\u4e2d\n  errorTip?: string; // \u9519\u8bef\u63d0\u793a\n  name?: string; // \u56fe\u7247\u540d\u79f0\n  [index: string]: any;\n}\n\nexport default () => {\n  const [value, setValue] = useState<Array<Files>>([\n    {\n      url: '',\n      fssid: 'id-1',\n    },\n    {\n      url: '',\n      fssid: 'id-2',\n    },\n  ]);\n\n  // \u6570\u7ec4\u6539\u53d8\n  const onChange = (arr: Array<Files>) => {\n    console.log('onChange', arr);\n    arr.forEach((item, index) => (item.name = `\u793a\u4f8b\u56fe${index}`));\n    setValue(arr);\n  };\n\n  // \u521d\u59cb\u5316\u65b9\u6cd5\n  const onInit = () => {\n    return new Promise((resolve, reject) => {\n      const rate = Math.random();\n      setTimeout(() => {\n        if (rate > 0.3) {\n          // \u6210\u529f\n          return resolve({ url: demo });\n        }\n        return reject('\u52a0\u8f7d\u5931\u8d25');\n      }, 3000);\n    });\n  };\n\n  // \u5b9e\u65f6\u4e0a\u4f20\u65b9\u6cd5\n  const onUpload = (item: any): Promise<object | undefined> => {\n    return new Promise((resolve, reject) => {\n      const rate = Math.random();\n      setTimeout(() => {\n        if (rate > 0.3) {\n          // \u6210\u529f\n          return resolve({ fssid: rate.toString().slice(-6) });\n        }\n        reject('\u4e0a\u4f20\u5931\u8d25');\n      }, 3000);\n    });\n  };\n\n  return (\n    <ImagePicker\n      value={value}\n      onChange={onChange}\n      multiple\n      max={10}\n      mode=\"cover\"\n      onUpload={onUpload}\n      onInit={onInit}\n    />\n  );\n};",
       u =
-        'export const demo = `data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGwAAABcCAMAAAC8wqBSAAAAjVBMVEUAAADm5ubm5ubl5eXl5eXd3d3m5ubm5ubm5ubm5ua1tbXl5eXl5eXl5eXm5ubm5ubm5ubl5eXl5eXk5OTm5ubk5OTi4uLl5eXl5eXj4+Pc3Nzl5eXl5eXl5eXl5eXY2Njl5eXm5ubl5eXm5ubm5ubk5OTm5ubm5ubm5ubm5ubm5ubm5ubl5eXk5OTm5uZ+RDafAAAALnRSTlMAZhR72g/zmvvMAzmIcPHpRfnvVaxKIk9bKgrEdWs+BuTeoJWLMY/X0r63gmEbAQb9LQAAAo1JREFUaN7tmdmaojAQRgsRzMQGFVeURVxbu633f7wB0vPFLYZI0XPDuZQPj5XUTwHCO8x6Od/wO/Qx5wOe0sr+myxN+NuyZWIos337XRn/8GMTFY8Ysvg9GbcZuia58DCHeWYy6UJkVnXZwpc2Q1npwsEcqjOWNjNZJFxDAAKbRmZLlwnzAHNGnpFM1LWWLsPaYgOZJ+syZSFqiyvLvJHOpV9JSyeTLrmG5owDsZIcbkkw53CXL6tOXbK29QVucaY5Idyw92vUJbskGEMFeDwSddWyuTqX7MXSVcu2gKp4U2hpaakA7xCS6ubKsUtGZr92OZ9IyGCmuYcjZfvKdcmQlGAPanaYww42Abtylk7ULjEATxwo2GAOUw4CPpHH6xOWU361VBweisopCpN7onjEWK4wx+0DEbM15hw7z/OMYkvJ+MKCSJ1nN6STXTJlsm0Ud4OEeKpkh2v5M6hwupjjPyZ7iwU7IMV63gZ7VxZGR6fsg9HwWZ7xi9IkO/zkwDVThjlZh1qWrkqb9Zhn9ICceVlF97oKq/zo6NDL0tP9/ly6WPANDTAUj77h3XXljwMNkJ6xYMNBMBtgwQIaISlniZtcjzlccaBHfv1ZDLa+TzEzdfOfza/yfE6hKXqyJUQS2BAaI/T/pdhZobwZaIhDqchmEGGBO3c0vFhl7mgIA9H+PwvKfFdD9OrdjObcgIldK2VV6NW6ZzeUTTRbQio7KsfP8kQuY4lKNvPJZbhVbxm9LOgrCsuIZfJS+sgWyWXK990xa0bGxk8CPcJmZMgi/vhfCLVMMrkJQFie3JgM3c2085Pl/m6ARDI1n72dbX9sVwyRTKanlbWyVtbKUEUra2WtrJXpZHPr11j8BVuY017FDvZgAAAAAElFTkSuQmCC`;';
+        'export const demo = `data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGwAAABcCAMAAAC8wqBSAAAAjVBMVEUAAADm5ubm5ubl5eXl5eXd3d3m5ubm5ubm5ubm5ua1tbXl5eXl5eXl5eXm5ubm5ubm5ubl5eXl5eXk5OTm5ubk5OTi4uLl5eXl5eXj4+Pc3Nzl5eXl5eXl5eXl5eXY2Njl5eXm5ubl5eXm5ubm5ubk5OTm5ubm5ubm5ubm5ubm5ubm5ubl5eXk5OTm5uZ+RDafAAAALnRSTlMAZhR72g/zmvvMAzmIcPHpRfnvVaxKIk9bKgrEdWs+BuTeoJWLMY/X0r63gmEbAQb9LQAAAo1JREFUaN7tmdmaojAQRgsRzMQGFVeURVxbu633f7wB0vPFLYZI0XPDuZQPj5XUTwHCO8x6Od/wO/Qx5wOe0sr+myxN+NuyZWIos337XRn/8GMTFY8Ysvg9GbcZuia58DCHeWYy6UJkVnXZwpc2Q1npwsEcqjOWNjNZJFxDAAKbRmZLlwnzAHNGnpFM1LWWLsPaYgOZJ+syZSFqiyvLvJHOpV9JSyeTLrmG5owDsZIcbkkw53CXL6tOXbK29QVucaY5Idyw92vUJbskGEMFeDwSddWyuTqX7MXSVcu2gKp4U2hpaakA7xCS6ubKsUtGZr92OZ9IyGCmuYcjZfvKdcmQlGAPanaYww42Abtylk7ULjEATxwo2GAOUw4CPpHH6xOWU361VBweisopCpN7onjEWK4wx+0DEbM15hw7z/OMYkvJ+MKCSJ1nN6STXTJlsm0Ud4OEeKpkh2v5M6hwupjjPyZ7iwU7IMV63gZ7VxZGR6fsg9HwWZ7xi9IkO/zkwDVThjlZh1qWrkqb9Zhn9ICceVlF97oKq/zo6NDL0tP9/ly6WPANDTAUj77h3XXljwMNkJ6xYMNBMBtgwQIaISlniZtcjzlccaBHfv1ZDLa+TzEzdfOfza/yfE6hKXqyJUQS2BAaI/T/pdhZobwZaIhDqchmEGGBO3c0vFhl7mgIA9H+PwvKfFdD9OrdjObcgIldK2VV6NW6ZzeUTTRbQio7KsfP8kQuY4lKNvPJZbhVbxm9LOgrCsuIZfJS+sgWyWXK990xa0bGxk8CPcJmZMgi/vhfCLVMMrkJQFie3JgM3c2085Pl/m6ARDI1n72dbX9sVwyRTKanlbWyVtbKUEUra2WtrJXpZHPr11j8BVuY017FDvZgAAAAAElFTkSuQmCC`;',
+      s =
+        "import React, { useState } from 'react';\n\nimport { ImageView } from 'eco-image-picker';\nimport { demo } from '../../assets/icon';\n\ninterface Files {\n  url: string; // \u56fe\u7247url\n  preview?: string; // \u9884\u89c8\u56fe\n  loading?: boolean; // \u56fe\u7247\u662f\u5426\u52a0\u8f7d\u4e2d\n  errorTip?: string; // \u9519\u8bef\u63d0\u793a\n  name?: string; // \u56fe\u7247\u540d\u79f0\n  [index: string]: any;\n}\n\nexport default () => {\n  const [value, setValue] = useState<Array<Files>>([\n    {\n      url: '',\n      fssid: 'id-1',\n    },\n    {\n      url: '',\n      fssid: 'id-2',\n    },\n  ]);\n\n  // \u6570\u7ec4\u6539\u53d8\n  const onChange = (arr: Array<Files>) => {\n    console.log('onChange', arr);\n    arr.forEach((item, index) => (item.name = `\u793a\u4f8b\u56fe${index}`));\n    setValue(arr);\n  };\n\n  // \u521d\u59cb\u5316\u65b9\u6cd5\n  const onInit = () => {\n    return new Promise((resolve, reject) => {\n      const rate = Math.random();\n      setTimeout(() => {\n        if (rate > 0.3) {\n          // \u6210\u529f\n          return resolve({ url: demo });\n        }\n        return reject('\u52a0\u8f7d\u5931\u8d25');\n      }, 3000);\n    });\n  };\n\n  // \u5b9e\u65f6\u4e0a\u4f20\u65b9\u6cd5\n  const onUpload = (item: any): Promise<object | undefined> => {\n    return new Promise((resolve, reject) => {\n      const rate = Math.random();\n      setTimeout(() => {\n        if (rate > 0.3) {\n          // \u6210\u529f\n          return resolve({ fssid: rate.toString().slice(-6) });\n        }\n        reject('\u4e0a\u4f20\u5931\u8d25');\n      }, 3000);\n    });\n  };\n\n  return (\n    <ImageView\n      value={value}\n      onChange={onChange}\n      mode=\"cover\"\n      onInit={onInit}\n    />\n  );\n};";
     n['default'] = {
       'image-picker-base': {
         component: t('FKBv').default,
@@ -788,7 +1124,7 @@
               css: 'antd-mobile/dist/antd-mobile.css',
             },
             react: { version: '17.0.2' },
-            'eco-image-picker': { version: '1.0.3' },
+            'eco-image-picker': { version: '1.0.9' },
           },
           componentName: 'image-picker',
           identifier: 'image-picker-base',
@@ -805,7 +1141,7 @@
             },
             react: { version: '>= 16.9.0' },
             'rc-field-form': { version: '1.21.2' },
-            'eco-image-picker': { version: '1.0.3' },
+            'eco-image-picker': { version: '1.0.9' },
             'react-dom': { version: '>= 16.9.0' },
           },
           componentName: 'image-picker',
@@ -818,7 +1154,7 @@
           sources: { _: { tsx: l } },
           dependencies: {
             react: { version: '17.0.2' },
-            'eco-image-picker': { version: '1.0.3' },
+            'eco-image-picker': { version: '1.0.9' },
           },
           componentName: 'image-picker',
           identifier: 'image-picker-onupload',
@@ -828,8 +1164,8 @@
         component: t('CK2m').default,
         previewerProps: {
           sources: {
-            _: { tsx: c },
-            'idCard.less': { import: './idCard.less', content: i },
+            _: { tsx: i },
+            'idCard.less': { import: './idCard.less', content: c },
           },
           dependencies: {
             'antd-mobile': {
@@ -837,7 +1173,7 @@
               css: 'antd-mobile/dist/antd-mobile.css',
             },
             react: { version: '17.0.2' },
-            'eco-image-picker': { version: '1.0.3' },
+            'eco-image-picker': { version: '1.0.9' },
           },
           componentName: 'image-picker',
           compact: !0,
@@ -854,7 +1190,7 @@
               css: 'antd-mobile/dist/antd-mobile.css',
             },
             react: { version: '17.0.2' },
-            'eco-image-picker': { version: '1.0.3' },
+            'eco-image-picker': { version: '1.0.9' },
           },
           componentName: 'image-picker',
           identifier: 'image-picker-resize',
@@ -869,10 +1205,25 @@
           },
           dependencies: {
             react: { version: '17.0.2' },
-            'eco-image-picker': { version: '1.0.3' },
+            'eco-image-picker': { version: '1.0.9' },
           },
           componentName: 'image-picker',
           identifier: 'image-picker-init',
+        },
+      },
+      'image-view-init': {
+        component: t('JobO').default,
+        previewerProps: {
+          sources: {
+            _: { tsx: s },
+            'assets/icon/index.ts': { import: '../../assets/icon', content: u },
+          },
+          dependencies: {
+            react: { version: '17.0.2' },
+            'eco-image-picker': { version: '1.0.9' },
+          },
+          componentName: 'image-view',
+          identifier: 'image-view-init',
         },
       },
     };
@@ -892,15 +1243,15 @@
     var a = t('LajT'),
       r = t.n(a),
       l = (t('dlV3'), t('4cdd')),
-      c = t.n(l),
-      i = t('tJVT'),
+      i = t.n(l),
+      c = t('tJVT'),
       o = t('q1tI'),
       m = t.n(o),
       u = t('85Yc'),
       s = t('/7QA');
     n['default'] = () => {
       var e = u['b'].useForm(),
-        n = Object(i['a'])(e, 1),
+        n = Object(c['a'])(e, 1),
         t = n[0];
       Object(o['useEffect'])(() => {
         t.setFieldsValue({ filesList: [] });
@@ -920,7 +1271,7 @@
             m.a.createElement(s['a'], null),
           ),
         ),
-        m.a.createElement(c.a, null),
+        m.a.createElement(i.a, null),
         m.a.createElement(
           r.a,
           { onClick: a, size: 'small', type: 'primary', inline: !0 },
@@ -946,6 +1297,14 @@
         ],
       });
   },
+  cMq5: function (e, n, t) {
+    'use strict';
+    t.d(n, 'a', function () {
+      return a;
+    });
+    var a =
+      'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGwAAABcCAMAAAC8wqBSAAAAjVBMVEUAAADm5ubm5ubl5eXl5eXd3d3m5ubm5ubm5ubm5ua1tbXl5eXl5eXl5eXm5ubm5ubm5ubl5eXl5eXk5OTm5ubk5OTi4uLl5eXl5eXj4+Pc3Nzl5eXl5eXl5eXl5eXY2Njl5eXm5ubl5eXm5ubm5ubk5OTm5ubm5ubm5ubm5ubm5ubm5ubl5eXk5OTm5uZ+RDafAAAALnRSTlMAZhR72g/zmvvMAzmIcPHpRfnvVaxKIk9bKgrEdWs+BuTeoJWLMY/X0r63gmEbAQb9LQAAAo1JREFUaN7tmdmaojAQRgsRzMQGFVeURVxbu633f7wB0vPFLYZI0XPDuZQPj5XUTwHCO8x6Od/wO/Qx5wOe0sr+myxN+NuyZWIos337XRn/8GMTFY8Ysvg9GbcZuia58DCHeWYy6UJkVnXZwpc2Q1npwsEcqjOWNjNZJFxDAAKbRmZLlwnzAHNGnpFM1LWWLsPaYgOZJ+syZSFqiyvLvJHOpV9JSyeTLrmG5owDsZIcbkkw53CXL6tOXbK29QVucaY5Idyw92vUJbskGEMFeDwSddWyuTqX7MXSVcu2gKp4U2hpaakA7xCS6ubKsUtGZr92OZ9IyGCmuYcjZfvKdcmQlGAPanaYww42Abtylk7ULjEATxwo2GAOUw4CPpHH6xOWU361VBweisopCpN7onjEWK4wx+0DEbM15hw7z/OMYkvJ+MKCSJ1nN6STXTJlsm0Ud4OEeKpkh2v5M6hwupjjPyZ7iwU7IMV63gZ7VxZGR6fsg9HwWZ7xi9IkO/zkwDVThjlZh1qWrkqb9Zhn9ICceVlF97oKq/zo6NDL0tP9/ly6WPANDTAUj77h3XXljwMNkJ6xYMNBMBtgwQIaISlniZtcjzlccaBHfv1ZDLa+TzEzdfOfza/yfE6hKXqyJUQS2BAaI/T/pdhZobwZaIhDqchmEGGBO3c0vFhl7mgIA9H+PwvKfFdD9OrdjObcgIldK2VV6NW6ZzeUTTRbQio7KsfP8kQuY4lKNvPJZbhVbxm9LOgrCsuIZfJS+sgWyWXK990xa0bGxk8CPcJmZMgi/vhfCLVMMrkJQFie3JgM3c2085Pl/m6ARDI1n72dbX9sVwyRTKanlbWyVtbKUEUra2WtrJXpZHPr11j8BVuY017FDvZgAAAAAElFTkSuQmCC';
+  },
   cazh: function (e, n, t) {
     'use strict';
     t.r(n);
@@ -953,11 +1312,11 @@
     var a = t('Kl5d'),
       r = t.n(a),
       l = t('tJVT'),
-      c = t('q1tI'),
-      i = t.n(c),
+      i = t('q1tI'),
+      c = t.n(i),
       o = t('/7QA');
     n['default'] = () => {
-      var e = Object(c['useState'])([]),
+      var e = Object(i['useState'])([]),
         n = Object(l['a'])(e, 2),
         t = n[0],
         a = n[1],
@@ -979,7 +1338,7 @@
                 r.a.hide(), n(t[e].url);
               }, 1e3);
           });
-      return i.a.createElement(o['a'], {
+      return c.a.createElement(o['a'], {
         value: t,
         onChange: m,
         multiple: !0,
@@ -1020,7 +1379,7 @@
     var a = t('q1tI'),
       r = t.n(a),
       l = t('dEAq'),
-      c = t('H1Ra');
+      i = t('H1Ra');
     t('Rsk4');
     n['default'] = (e) => (
       r.a.useEffect(() => {
@@ -1090,18 +1449,18 @@
             ),
             'npm \u6216 yarn \u5b89\u88c5',
           ),
-          r.a.createElement(c['a'], {
+          r.a.createElement(i['a'], {
             code: 'npm install eco-image-picker --save',
             lang: 'shell',
           }),
           r.a.createElement('br', null),
-          r.a.createElement(c['a'], {
+          r.a.createElement(i['a'], {
             code: 'yarn add eco-image-picker',
             lang: 'shell',
           }),
           r.a.createElement('br', null),
-          r.a.createElement(c['a'], {
-            code: "import ImagePicker from 'eco-image-picker';",
+          r.a.createElement(i['a'], {
+            code: "import { ImagePicker } from 'eco-image-picker';",
             lang: 'shell',
           }),
         ),
@@ -1114,14 +1473,14 @@
     var a = t('tJVT'),
       r = t('q1tI'),
       l = t.n(r),
-      c = t('/7QA');
+      i = t('/7QA');
     n['default'] = () => {
       var e = Object(r['useState'])([]),
         n = Object(a['a'])(e, 2),
         t = n[0],
-        i = n[1],
+        c = n[1],
         o = (e) => {
-          e.forEach((e, n) => (e.name = '\u793a\u4f8b\u56fe'.concat(n))), i(e);
+          e.forEach((e, n) => (e.name = '\u793a\u4f8b\u56fe'.concat(n))), c(e);
         },
         m = (e) =>
           new Promise((e, n) => {
@@ -1131,7 +1490,7 @@
               n('\u4e0a\u4f20\u5931\u8d25');
             }, 3e3);
           });
-      return l.a.createElement(c['a'], {
+      return l.a.createElement(i['a'], {
         value: t,
         onChange: o,
         multiple: !0,
@@ -1147,14 +1506,14 @@
     var a = t('q1tI'),
       r = t.n(a),
       l = t('dEAq'),
-      c = t('Zxc8'),
-      i = t('Rsk4'),
-      o = r.a.memo(i['default']['image-picker-base'].component),
-      m = r.a.memo(i['default']['image-picker-form'].component),
-      u = r.a.memo(i['default']['image-picker-onupload'].component),
-      s = r.a.memo(i['default']['image-picker-idcard'].component),
-      d = r.a.memo(i['default']['image-picker-resize'].component),
-      p = r.a.memo(i['default']['image-picker-init'].component);
+      i = t('Zxc8'),
+      c = t('Rsk4'),
+      o = r.a.memo(c['default']['image-picker-base'].component),
+      m = r.a.memo(c['default']['image-picker-form'].component),
+      u = r.a.memo(c['default']['image-picker-onupload'].component),
+      s = r.a.memo(c['default']['image-picker-idcard'].component),
+      d = r.a.memo(c['default']['image-picker-resize'].component),
+      p = r.a.memo(c['default']['image-picker-init'].component);
     n['default'] = (e) => (
       r.a.useEffect(() => {
         var n;
@@ -1206,8 +1565,8 @@
             ),
           ),
           r.a.createElement(
-            c['default'],
-            i['default']['image-picker-base'].previewerProps,
+            i['default'],
+            c['default']['image-picker-base'].previewerProps,
             r.a.createElement(o, null),
           ),
           r.a.createElement(
@@ -1229,8 +1588,8 @@
             ),
           ),
           r.a.createElement(
-            c['default'],
-            i['default']['image-picker-form'].previewerProps,
+            i['default'],
+            c['default']['image-picker-form'].previewerProps,
             r.a.createElement(m, null),
           ),
           r.a.createElement(
@@ -1252,8 +1611,8 @@
             ),
           ),
           r.a.createElement(
-            c['default'],
-            i['default']['image-picker-onupload'].previewerProps,
+            i['default'],
+            c['default']['image-picker-onupload'].previewerProps,
             r.a.createElement(u, null),
           ),
           r.a.createElement(
@@ -1275,8 +1634,8 @@
             ),
           ),
           r.a.createElement(
-            c['default'],
-            i['default']['image-picker-idcard'].previewerProps,
+            i['default'],
+            c['default']['image-picker-idcard'].previewerProps,
             r.a.createElement(s, null),
           ),
           r.a.createElement(
@@ -1300,8 +1659,8 @@
             ),
           ),
           r.a.createElement(
-            c['default'],
-            i['default']['image-picker-resize'].previewerProps,
+            i['default'],
+            c['default']['image-picker-resize'].previewerProps,
             r.a.createElement(d, null),
           ),
           r.a.createElement(
@@ -1323,8 +1682,8 @@
             ),
           ),
           r.a.createElement(
-            c['default'],
-            i['default']['image-picker-init'].previewerProps,
+            i['default'],
+            c['default']['image-picker-init'].previewerProps,
             r.a.createElement(p, null),
           ),
           r.a.createElement(
@@ -1834,7 +2193,7 @@
   },
   q3YX: function (e) {
     e.exports = JSON.parse(
-      '{"menus":{"en-US":{"*":[{"path":"/","title":"eco-image-picker","meta":{"order":null}},{"title":"ImagePicker \u56fe\u7247\u9009\u62e9\u5668","path":"/image-picker","meta":{"__fallback":true},"children":[]}]}},"locales":[{"name":"en-US","label":"English"}],"navs":{},"title":"eco-image-picker","logo":"https://user-images.githubusercontent.com/9554297/83762004-a0761b00-a6a9-11ea-83b4-9c8ff721d4b8.png","mode":"doc","repository":{"url":"https://github.com/Yicoding/eco-image-picker","branch":"master"},"theme":{}}',
+      '{"menus":{"en-US":{"*":[{"path":"/","title":"eco-image-picker","meta":{"order":null}},{"title":"ImagePicker \u56fe\u7247\u9009\u62e9\u5668","path":"/image-picker","meta":{"__fallback":true},"children":[]},{"title":"ImageView \u56fe\u7247\u9884\u89c8","path":"/image-view","meta":{"__fallback":true},"children":[]}]}},"locales":[{"name":"en-US","label":"English"}],"navs":{},"title":"eco-image-picker","logo":"https://user-images.githubusercontent.com/9554297/83762004-a0761b00-a6a9-11ea-83b4-9c8ff721d4b8.png","mode":"doc","repository":{"url":"https://github.com/Yicoding/eco-image-picker","branch":"master"},"theme":{}}',
     );
   },
   tB8F: function (e, n, t) {
@@ -2022,9 +2381,9 @@
     var a = t('bCY9'),
       r = t('FfOG'),
       l = t('rlch'),
-      c = t('/dmz'),
-      i = t('q1tI'),
-      o = t.n(i);
+      i = t('/dmz'),
+      c = t('q1tI'),
+      o = t.n(c);
     function m() {
       var e = [
         {
@@ -2036,11 +2395,11 @@
               a = n.default,
               r = t('Zxc8'),
               l = r.default,
-              c = t('Rsk4'),
-              i = c.default,
+              i = t('Rsk4'),
+              c = i.default,
               m = t('dEAq'),
               u = m.usePrefersColor,
-              s = a(e, i);
+              s = a(e, c);
             switch ((u(), s.length)) {
               case 1:
                 return s[0];
@@ -2144,6 +2503,37 @@
               },
               title: 'ImagePicker \u56fe\u7247\u9009\u62e9\u5668',
             },
+            {
+              path: '/image-view',
+              component: t('AvFv').default,
+              exact: !0,
+              meta: {
+                filePath: 'src/image-view/index.md',
+                updatedTime: 1632901880784,
+                componentName: 'image-view',
+                group: {
+                  title: 'ImageView \u56fe\u7247\u9884\u89c8',
+                  __fallback: !0,
+                  path: '/image-view',
+                },
+                slugs: [
+                  {
+                    depth: 1,
+                    value: 'ImageView \u56fe\u7247\u9884\u89c8',
+                    heading: 'imageview-\u56fe\u7247\u9884\u89c8',
+                  },
+                  {
+                    depth: 2,
+                    value: '\u57fa\u672c\u7528\u6cd5',
+                    heading: '\u57fa\u672c\u7528\u6cd5',
+                  },
+                  { depth: 2, value: 'API', heading: 'api' },
+                  { depth: 3, value: 'ImageView', heading: 'imageview' },
+                ],
+                title: 'ImageView \u56fe\u7247\u9884\u89c8',
+              },
+              title: 'ImageView \u56fe\u7247\u9884\u89c8',
+            },
           ],
           title: 'eco-image-picker',
           component: (e) => e.children,
@@ -2177,7 +2567,7 @@
                 defaultTitle: 'eco-image-picker',
               },
             });
-            return Object(c['a'])(n);
+            return Object(i['a'])(n);
           },
           args: e,
         });
