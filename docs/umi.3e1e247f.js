@@ -1112,7 +1112,7 @@
       u =
         'export const demo = `data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGwAAABcCAMAAAC8wqBSAAAAjVBMVEUAAADm5ubm5ubl5eXl5eXd3d3m5ubm5ubm5ubm5ua1tbXl5eXl5eXl5eXm5ubm5ubm5ubl5eXl5eXk5OTm5ubk5OTi4uLl5eXl5eXj4+Pc3Nzl5eXl5eXl5eXl5eXY2Njl5eXm5ubl5eXm5ubm5ubk5OTm5ubm5ubm5ubm5ubm5ubm5ubl5eXk5OTm5uZ+RDafAAAALnRSTlMAZhR72g/zmvvMAzmIcPHpRfnvVaxKIk9bKgrEdWs+BuTeoJWLMY/X0r63gmEbAQb9LQAAAo1JREFUaN7tmdmaojAQRgsRzMQGFVeURVxbu633f7wB0vPFLYZI0XPDuZQPj5XUTwHCO8x6Od/wO/Qx5wOe0sr+myxN+NuyZWIos337XRn/8GMTFY8Ysvg9GbcZuia58DCHeWYy6UJkVnXZwpc2Q1npwsEcqjOWNjNZJFxDAAKbRmZLlwnzAHNGnpFM1LWWLsPaYgOZJ+syZSFqiyvLvJHOpV9JSyeTLrmG5owDsZIcbkkw53CXL6tOXbK29QVucaY5Idyw92vUJbskGEMFeDwSddWyuTqX7MXSVcu2gKp4U2hpaakA7xCS6ubKsUtGZr92OZ9IyGCmuYcjZfvKdcmQlGAPanaYww42Abtylk7ULjEATxwo2GAOUw4CPpHH6xOWU361VBweisopCpN7onjEWK4wx+0DEbM15hw7z/OMYkvJ+MKCSJ1nN6STXTJlsm0Ud4OEeKpkh2v5M6hwupjjPyZ7iwU7IMV63gZ7VxZGR6fsg9HwWZ7xi9IkO/zkwDVThjlZh1qWrkqb9Zhn9ICceVlF97oKq/zo6NDL0tP9/ly6WPANDTAUj77h3XXljwMNkJ6xYMNBMBtgwQIaISlniZtcjzlccaBHfv1ZDLa+TzEzdfOfza/yfE6hKXqyJUQS2BAaI/T/pdhZobwZaIhDqchmEGGBO3c0vFhl7mgIA9H+PwvKfFdD9OrdjObcgIldK2VV6NW6ZzeUTTRbQio7KsfP8kQuY4lKNvPJZbhVbxm9LOgrCsuIZfJS+sgWyWXK990xa0bGxk8CPcJmZMgi/vhfCLVMMrkJQFie3JgM3c2085Pl/m6ARDI1n72dbX9sVwyRTKanlbWyVtbKUEUra2WtrJXpZHPr11j8BVuY017FDvZgAAAAAElFTkSuQmCC`;',
       s =
-        "import React, { useState } from 'react';\n\nimport { ImageView } from 'eco-image-picker';\nimport { demo } from '../../assets/icon';\n\ninterface Files {\n  url: string; // \u56fe\u7247url\n  preview?: string; // \u9884\u89c8\u56fe\n  loading?: boolean; // \u56fe\u7247\u662f\u5426\u52a0\u8f7d\u4e2d\n  errorTip?: string; // \u9519\u8bef\u63d0\u793a\n  name?: string; // \u56fe\u7247\u540d\u79f0\n  [index: string]: any;\n}\n\nexport default () => {\n  const [value, setValue] = useState<Array<Files>>([\n    {\n      url: '',\n      fssid: 'id-1',\n    },\n    {\n      url: '',\n      fssid: 'id-2',\n    },\n  ]);\n\n  // \u6570\u7ec4\u6539\u53d8\n  const onChange = (arr: Array<Files>) => {\n    console.log('onChange', arr);\n    arr.forEach((item, index) => (item.name = `\u793a\u4f8b\u56fe${index}`));\n    setValue(arr);\n  };\n\n  // \u521d\u59cb\u5316\u65b9\u6cd5\n  const onInit = () => {\n    return new Promise((resolve, reject) => {\n      const rate = Math.random();\n      setTimeout(() => {\n        if (rate > 0.3) {\n          // \u6210\u529f\n          return resolve({ url: demo });\n        }\n        return reject('\u52a0\u8f7d\u5931\u8d25');\n      }, 3000);\n    });\n  };\n\n  // \u5b9e\u65f6\u4e0a\u4f20\u65b9\u6cd5\n  const onUpload = (item: any): Promise<object | undefined> => {\n    return new Promise((resolve, reject) => {\n      const rate = Math.random();\n      setTimeout(() => {\n        if (rate > 0.3) {\n          // \u6210\u529f\n          return resolve({ fssid: rate.toString().slice(-6) });\n        }\n        reject('\u4e0a\u4f20\u5931\u8d25');\n      }, 3000);\n    });\n  };\n\n  return (\n    <ImageView\n      value={value}\n      onChange={onChange}\n      mode=\"cover\"\n      onInit={onInit}\n    />\n  );\n};";
+        "import React, { useState } from 'react';\n\nimport { ImageView } from 'eco-image-picker';\nimport { demo } from '../../assets/icon';\n\ninterface Files {\n  url: string; // \u56fe\u7247url\n  preview?: string; // \u9884\u89c8\u56fe\n  loading?: boolean; // \u56fe\u7247\u662f\u5426\u52a0\u8f7d\u4e2d\n  errorTip?: string; // \u9519\u8bef\u63d0\u793a\n  name?: string; // \u56fe\u7247\u540d\u79f0\n  [index: string]: any;\n}\n\nexport default () => {\n  const [value, setValue] = useState<Array<Files>>([\n    {\n      url: '',\n      fssid: 'id-1',\n    },\n    {\n      url: '',\n      fssid: 'id-2',\n    },\n  ]);\n\n  // \u6570\u7ec4\u6539\u53d8\n  const onChange = (arr: Array<Files>) => {\n    console.log('onChange', arr);\n    arr.forEach((item, index) => (item.name = `\u793a\u4f8b\u56fe${index}`));\n    setValue(arr);\n  };\n\n  // \u521d\u59cb\u5316\u65b9\u6cd5\n  const onInit = () => {\n    return new Promise((resolve, reject) => {\n      const rate = Math.random();\n      setTimeout(() => {\n        if (rate > 0.3) {\n          // \u6210\u529f\n          return resolve({ url: demo });\n        }\n        return reject('\u52a0\u8f7d\u5931\u8d25');\n      }, 3000);\n    });\n  };\n\n  // \u5b9e\u65f6\u4e0a\u4f20\u65b9\u6cd5\n  const onUpload = (item: any): Promise<object | undefined> => {\n    return new Promise((resolve, reject) => {\n      const rate = Math.random();\n      setTimeout(() => {\n        if (rate > 0.3) {\n          // \u6210\u529f\n          return resolve({ fssid: rate.toString().slice(-6) });\n        }\n        reject('\u4e0a\u4f20\u5931\u8d25');\n      }, 3000);\n    });\n  };\n\n  return (\n    <ImageView value={value} onChange={onChange} mode=\"cover\" onInit={onInit} />\n  );\n};";
     n['default'] = {
       'image-picker-base': {
         component: t('FKBv').default,
@@ -1124,7 +1124,7 @@
               css: 'antd-mobile/dist/antd-mobile.css',
             },
             react: { version: '17.0.2' },
-            'eco-image-picker': { version: '1.0.9' },
+            'eco-image-picker': { version: '1.0.10' },
           },
           componentName: 'image-picker',
           identifier: 'image-picker-base',
@@ -1141,7 +1141,7 @@
             },
             react: { version: '>= 16.9.0' },
             'rc-field-form': { version: '1.21.2' },
-            'eco-image-picker': { version: '1.0.9' },
+            'eco-image-picker': { version: '1.0.10' },
             'react-dom': { version: '>= 16.9.0' },
           },
           componentName: 'image-picker',
@@ -1154,7 +1154,7 @@
           sources: { _: { tsx: l } },
           dependencies: {
             react: { version: '17.0.2' },
-            'eco-image-picker': { version: '1.0.9' },
+            'eco-image-picker': { version: '1.0.10' },
           },
           componentName: 'image-picker',
           identifier: 'image-picker-onupload',
@@ -1173,7 +1173,7 @@
               css: 'antd-mobile/dist/antd-mobile.css',
             },
             react: { version: '17.0.2' },
-            'eco-image-picker': { version: '1.0.9' },
+            'eco-image-picker': { version: '1.0.10' },
           },
           componentName: 'image-picker',
           compact: !0,
@@ -1190,7 +1190,7 @@
               css: 'antd-mobile/dist/antd-mobile.css',
             },
             react: { version: '17.0.2' },
-            'eco-image-picker': { version: '1.0.9' },
+            'eco-image-picker': { version: '1.0.10' },
           },
           componentName: 'image-picker',
           identifier: 'image-picker-resize',
@@ -1205,7 +1205,7 @@
           },
           dependencies: {
             react: { version: '17.0.2' },
-            'eco-image-picker': { version: '1.0.9' },
+            'eco-image-picker': { version: '1.0.10' },
           },
           componentName: 'image-picker',
           identifier: 'image-picker-init',
@@ -1220,7 +1220,7 @@
           },
           dependencies: {
             react: { version: '17.0.2' },
-            'eco-image-picker': { version: '1.0.9' },
+            'eco-image-picker': { version: '1.0.10' },
           },
           componentName: 'image-view',
           identifier: 'image-view-init',
@@ -2425,7 +2425,7 @@
                 locale: 'en-US',
                 order: null,
                 filePath: 'README.md',
-                updatedTime: 1631861951e3,
+                updatedTime: 1632905629e3,
                 slugs: [
                   {
                     depth: 1,
@@ -2509,7 +2509,7 @@
               exact: !0,
               meta: {
                 filePath: 'src/image-view/index.md',
-                updatedTime: 1632901880784,
+                updatedTime: 1632905629e3,
                 componentName: 'image-view',
                 group: {
                   title: 'ImageView \u56fe\u7247\u9884\u89c8',
