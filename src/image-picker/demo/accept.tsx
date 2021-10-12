@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 
 import { ImagePicker } from 'eco-image-picker';
-import { demo } from '../../assets/icon';
 
 interface Files {
   url: string; // 图片url
@@ -13,16 +12,7 @@ interface Files {
 }
 
 export default () => {
-  const [value, setValue] = useState<Array<Files>>([
-    {
-      url: '',
-      fssid: 'id-1',
-    },
-    {
-      url: '',
-      fssid: 'id-2',
-    },
-  ]);
+  const [value, setValue] = useState<Array<Files>>([]);
 
   // 数组改变
   const onChange = (arr: Array<Files>) => {
@@ -31,32 +21,24 @@ export default () => {
     setValue(arr);
   };
 
-  // 初始化方法
-  const onInit = () => {
+  // 实时上传方法
+  const onUpload = (item: any): Promise<object | undefined> => {
+    console.log('onUpload', item);
     return new Promise((resolve, reject) => {
       const rate = Math.random();
       setTimeout(() => {
         if (rate > 0.1) {
-          // 成功
-          return resolve({ url: demo, file: { type: 'image' } });
-        }
-        return reject('加载失败');
-      }, 3000);
-    });
-  };
-
-  // 实时上传方法
-  const onUpload = (item: any): Promise<object | undefined> => {
-    return new Promise((resolve, reject) => {
-      const rate = Math.random();
-      setTimeout(() => {
-        if (rate > 0.3) {
           // 成功
           return resolve({ fssid: rate.toString().slice(-6) });
         }
         reject('上传失败');
       }, 3000);
     });
+  };
+
+  // 点击单个选项
+  const onItemClick = (index: number, item: Files) => {
+    console.log('onItemClick', index, item);
   };
 
   return (
@@ -67,7 +49,9 @@ export default () => {
       max={10}
       mode="cover"
       onUpload={onUpload}
-      onInit={onInit}
+      onItemClick={onItemClick}
+      accept="*"
+      fileFieldName="文件"
     />
   );
 };

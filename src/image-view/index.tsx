@@ -5,6 +5,11 @@ import s from './styles.module.less';
 
 const noon = () => {};
 
+// 判断文件是否为图片
+const veryImage = (type: string) => {
+  return /image/.test(type);
+};
+
 interface Files {
   url: string; // 图片url
   preview?: string; // 预览图
@@ -27,6 +32,7 @@ interface ImagePickerProps {
   resize?: boolean; // 高度是否根据宽度计算
   disabledPreview?: boolean; // 是否禁用预览图片
   onGetPreviewUrl?: (index: number) => Promise<string>; // 获取预览图片方法
+  onItemClick?: (index: number, item?: Files) => void; // 图片初始化加载方法
 }
 
 const ImageView = forwardRef((props: ImagePickerProps, ref: any) => {
@@ -40,6 +46,7 @@ const ImageView = forwardRef((props: ImagePickerProps, ref: any) => {
     disabledPreview,
     onInit,
     onGetPreviewUrl,
+    onItemClick = noon,
     resize,
   } = props;
 
@@ -116,6 +123,10 @@ const ImageView = forwardRef((props: ImagePickerProps, ref: any) => {
   // 预览图片
   const onPreview = async (currentIndex: number, index: number) => {
     if (disabledPreview) return;
+    if (!veryImage(refFilesList.current[index]?.file?.type)) {
+      // 不是图片
+      return onItemClick(index, refFilesList.current[index]);
+    }
     if (
       !refFilesList.current[index].preview &&
       typeof onGetPreviewUrl === 'function'

@@ -29,6 +29,10 @@ group:
 
 <code src="./demo/init" />
 
+## 不同文件类型
+
+<code src="./demo/accept" />
+
 ## API
 
 ### ImagePicker

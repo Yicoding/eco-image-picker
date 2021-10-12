@@ -22,6 +22,13 @@ export default () => {
       url: '',
       fssid: 'id-2',
     },
+    {
+      url: '',
+      fssid: 'id-2',
+      file: {
+        type: 'pdf',
+      },
+    },
   ]);
 
   // 数组改变
@@ -32,34 +39,34 @@ export default () => {
   };
 
   // 初始化方法
-  const onInit = () => {
+  const onInit = (index: number) => {
     return new Promise((resolve, reject) => {
       const rate = Math.random();
       setTimeout(() => {
-        if (rate > 0.3) {
+        if (rate > 0.1) {
           // 成功
-          return resolve({ url: demo });
+          return resolve({
+            url: demo,
+            file: { type: value[index]?.file?.type || 'image' },
+          });
         }
         return reject('加载失败');
       }, 3000);
     });
   };
 
-  // 实时上传方法
-  const onUpload = (item: any): Promise<object | undefined> => {
-    return new Promise((resolve, reject) => {
-      const rate = Math.random();
-      setTimeout(() => {
-        if (rate > 0.3) {
-          // 成功
-          return resolve({ fssid: rate.toString().slice(-6) });
-        }
-        reject('上传失败');
-      }, 3000);
-    });
+  // 点击单个选项
+  const onItemClick = (index: number, item: Files) => {
+    console.log('onItemClick', index, item);
   };
 
   return (
-    <ImageView value={value} onChange={onChange} mode="cover" onInit={onInit} />
+    <ImageView
+      value={value}
+      onChange={onChange}
+      mode="cover"
+      onInit={onInit}
+      onItemClick={onItemClick}
+    />
   );
 };

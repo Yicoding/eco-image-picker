@@ -4,8 +4,14 @@ import Compressor from 'compressorjs';
 import WxImageViewer from 'react-wx-images-viewer';
 import { Toast } from 'antd-mobile';
 import s from './styles.module.less';
+import { iconPdf } from '../assets/icon';
 
 const noon = () => {};
+
+// 判断文件是否为图片
+const veryImage = (type: string) => {
+  return /image/.test(type);
+};
 
 interface Files {
   url: string; // 图片url
@@ -22,6 +28,7 @@ interface ImagePickerProps {
   onChange?: (arr: Array<Files>) => void; // 图片列表改变
   onUpload?: (file: any) => Promise<object | undefined>; // 图片上传方法
   onInit?: (index: number) => Promise<object | undefined>; // 图片初始化加载方法
+  onItemClick?: (index: number, item?: Files) => void; // 图片初始化加载方法
   accept?: string; // 选择的图片类型
   multiple?: boolean; // 是否多选
   capture?: string; // 图片选择的方式
@@ -39,6 +46,7 @@ interface ImagePickerProps {
   showRemove?: boolean; // 是否显示删除按钮
   replace?: boolean; // 是否替换图片列表
   quality?: number; // 图片压缩比例
+  fileFieldName?: string; // 文件类型名称
 }
 
 const ImagePicker = forwardRef((props: ImagePickerProps, ref: any) => {
@@ -61,10 +69,12 @@ const ImagePicker = forwardRef((props: ImagePickerProps, ref: any) => {
     onInit,
     onFail = noon,
     onGetPreviewUrl,
+    onItemClick = noon,
     resize,
     showRemove = true,
     replace,
     quality,
+    fileFieldName = '图片',
   } = props;
 
   const refInput = ref || useRef<any>(null);
@@ -75,7 +85,7 @@ const ImagePicker = forwardRef((props: ImagePickerProps, ref: any) => {
   refFilesList.current.forEach((item: Files) => {
     if (item.preview) {
       urlList.push(item.preview);
-    } else if (item.url) {
+    } else if (item.url && veryImage(item?.file?.type)) {
       urlList.push(item.url);
     }
   });
@@ -159,7 +169,7 @@ const ImagePicker = forwardRef((props: ImagePickerProps, ref: any) => {
           resolve(result);
         },
         error: (err) => {
-          console.log('图片压缩失败,将返回原文件：', err.message);
+          console.log(`${fileFieldName}压缩失败,将返回原文件：`, err.message);
           resolve(file);
         },
       });
@@ -204,7 +214,7 @@ const ImagePicker = forwardRef((props: ImagePickerProps, ref: any) => {
     console.log('files', files);
     const restNum = max - (replace ? 0 : validLength);
     if (files.length > (replace ? max : restNum)) {
-      Toast.info(`图片最多不超过${max}张`);
+      Toast.info(`${fileFieldName}最多不超过${max}张`);
     }
     const restFileList = Array.from(files).slice(0, restNum);
     console.log('restFileList**', restFileList, restNum);
@@ -224,7 +234,7 @@ const ImagePicker = forwardRef((props: ImagePickerProps, ref: any) => {
         const filterList = imageItems.filter((item: Files) => {
           console.log('item.size', item.file.size);
           if (size && item.file.size > size * 1024 * 1024) {
-            return Toast.info(`图片大小不能超过${size}M`);
+            return Toast.info(`${fileFieldName}大小不能超过${size}M`);
           }
           return item;
         });
@@ -290,7 +300,7 @@ const ImagePicker = forwardRef((props: ImagePickerProps, ref: any) => {
       }
     }
     if (!ableDelete) {
-      return Toast.info('图片上传中，请稍后操作');
+      return Toast.info(`${fileFieldName}上传中，请稍后操作`);
     }
     refFilesList.current.splice(index, 1);
     refFilesList.current = [...refFilesList.current];
@@ -299,7 +309,12 @@ const ImagePicker = forwardRef((props: ImagePickerProps, ref: any) => {
 
   // 预览图片
   const onPreview = async (currentIndex: number, index: number) => {
+    console.log('onPreview', refFilesList.current[index]);
     if (disabledPreview) return;
+    if (!veryImage(refFilesList.current[index]?.file?.type)) {
+      // 不是图片
+      return onItemClick(index, refFilesList.current[index]);
+    }
     if (
       !refFilesList.current[index].preview &&
       typeof onGetPreviewUrl === 'function'
@@ -335,7 +350,7 @@ const ImagePicker = forwardRef((props: ImagePickerProps, ref: any) => {
       }
     }
   }
-  console.log('spaceNum', spaceNum);
+  // console.log('spaceNum', spaceNum);
 
   // parent样式
   const classParent = classnames(s.parent, {
@@ -359,7 +374,8 @@ const ImagePicker = forwardRef((props: ImagePickerProps, ref: any) => {
       {value &&
         value.length > 0 &&
         value.map((item: Files, index: number) => {
-          const { url, loading, name, errorTip, isInit } = item;
+          const { url, loading, name, errorTip, isInit, file } = item;
+          console.log('文件详细信息', item);
           if (url || errorTip || isInit) {
             const currentArr = value.slice(0, index + 1);
             let errorNum = 0;
@@ -385,7 +401,7 @@ const ImagePicker = forwardRef((props: ImagePickerProps, ref: any) => {
                     <img
                       alt=""
                       className={s.img}
-                      src={url}
+                      src={veryImage(file?.type) ? url : iconPdf}
                       style={{ objectFit: mode }}
                       onClick={() => onPreview(currentIndex, index)}
                     />
