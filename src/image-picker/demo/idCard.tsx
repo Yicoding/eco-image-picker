@@ -16,7 +16,8 @@ interface Files {
   preview?: string; // 预览图
   loading?: boolean; // 图片是否加载中
   errorTip?: string; // 错误提示
-  name?: string; // 图片名称
+  name?: string; // 文件说明
+  fileName?: string; // 文件名称,包含后缀
   [index: string]: any;
 }
 
