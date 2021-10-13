@@ -1,6 +1,6 @@
 {
   "name": "eco-image-picker",
-  "version": "1.0.12",
+  "version": "1.0.13",
   "description": "基于react的移动端图片上传组件",
   "scripts": {
     "start": "dumi dev",
@@ -9,7 +9,6 @@
     "build": "father-build",
     "deploy": "npm run docs:build && npm run docs:deploy",
     "release": "npm run build && npm publish",
-    "prettier": "prettier --write \"**/*.{js,jsx,tsx,ts,less,md,json}\"",
     "test": "umi-test",
     "test:coverage": "umi-test --coverage",
     "complete": "npm run docs:build && npm run release"
@@ -20,15 +19,6 @@
   "author": "Ecode",
   "license": "MIT",
   "gitHooks": {
-    "pre-commit": "lint-staged"
-  },
-  "lint-staged": {
-    "*.{js,jsx,less,md,json}": [
-      "prettier --write"
-    ],
-    "*.ts?(x)": [
-      "prettier --parser=typescript --write"
-    ]
   },
   "repository": {
     "type": "git",

@@ -8,11 +8,16 @@ import { iconPdf } from '../assets/icon';
 
 import s from './styles.module.less';
 
-const noon = () => {};
+const noon = () => { };
 
 // 判断文件是否为图片
-const veryImage = (type: string) => {
-  return /image/.test(type);
+const veryImage = (fileName: string | undefined) => {
+  if (typeof fileName === 'string') {
+    const ext = fileName.split('.')?.[1];
+    return [
+      'png', 'jpg', 'jpeg', 'bmp', 'gif', 'webp', 'psd', 'svg', 'tiff'].indexOf((ext as string).toLowerCase()) !== -1;
+  }
+  return false;
 };
 
 interface Files {
@@ -93,7 +98,7 @@ const ImagePicker = forwardRef((props: ImagePickerProps, ref: any) => {
   refFilesList.current.forEach((item: Files) => {
     if (item.preview) {
       urlList.push(item.preview);
-    } else if (item.url && veryImage(item?.file?.type)) {
+    } else if (item.url && veryImage(item?.fileName)) {
       urlList.push(item.url);
     }
   });
@@ -211,6 +216,7 @@ const ImagePicker = forwardRef((props: ImagePickerProps, ref: any) => {
           Object.assign({}, value[validLength + index], {
             file: data,
             url: dataURL,
+            fileName: file?.name
           }),
         );
       };
@@ -237,7 +243,7 @@ const ImagePicker = forwardRef((props: ImagePickerProps, ref: any) => {
       imageParsePromiseList.push(parseFile(restFileList[i], i, validLength));
     }
     refFilesList.current = refFilesList.current.filter(
-      (item) => item.url || item.errorTip,
+      (item) => item.url || item.errorTip
     ); // 过滤有效值
     const index = replace ? 0 : refFilesList.current.length;
     Promise.all(imageParsePromiseList)
@@ -325,7 +331,7 @@ const ImagePicker = forwardRef((props: ImagePickerProps, ref: any) => {
   const onPreview = async (currentIndex: number, index: number) => {
     console.log('onPreview', refFilesList.current[index]);
     if (disabledPreview) return;
-    if (!veryImage(refFilesList.current[index]?.file?.type)) {
+    if (!veryImage(refFilesList.current[index]?.fileName)) {
       // 不是图片
       if (typeof onFileClick === 'function') {
         return onFileClick(index, refFilesList.current[index]);
@@ -395,14 +401,14 @@ const ImagePicker = forwardRef((props: ImagePickerProps, ref: any) => {
       {value &&
         value.length > 0 &&
         value.map((item: Files, index: number) => {
-          const { url, loading, name, errorTip, isInit, file } = item;
+          const { url, loading, name, errorTip, isInit, fileName } = item;
           console.log('文件详细信息', item);
           if (url || errorTip || isInit) {
             const currentArr = value.slice(0, index + 1);
             let errorNum = 0;
             for (let i = 0; i < currentArr.length; i++) {
-              const { errorTip: ErrorTip, file: FileItem } = currentArr[i];
-              if (ErrorTip || !veryImage(FileItem?.type)) {
+              const { errorTip: ErrorTip, fileName: fileNameItem } = currentArr[i];
+              if (ErrorTip || !veryImage(fileNameItem)) {
                 errorNum++;
               }
             }
@@ -422,7 +428,7 @@ const ImagePicker = forwardRef((props: ImagePickerProps, ref: any) => {
                     <img
                       alt=""
                       className={s.img}
-                      src={veryImage(file?.type) ? url : iconPdf}
+                      src={veryImage(fileName) ? url : iconPdf}
                       style={{ objectFit: mode }}
                       onClick={() => onPreview(currentIndex, index)}
                     />
