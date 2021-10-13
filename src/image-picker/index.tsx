@@ -1,10 +1,12 @@
 import React, { useState, useEffect, useRef, useMemo, forwardRef } from 'react';
+import { Toast, Modal } from 'antd-mobile';
 import classnames from 'classnames';
 import Compressor from 'compressorjs';
 import WxImageViewer from 'react-wx-images-viewer';
-import { Toast } from 'antd-mobile';
-import s from './styles.module.less';
+import FileViewer from 'react-file-viewer';
 import { iconPdf } from '../assets/icon';
+
+import s from './styles.module.less';
 
 const noon = () => {};
 
@@ -18,7 +20,8 @@ interface Files {
   preview?: string; // 预览图
   loading?: boolean; // 图片是否加载中
   errorTip?: string; // 错误提示
-  name?: string; // 图片名称
+  name?: string; // 文件说明
+  fileName?: string; // 文件名称,包含后缀
   [index: string]: any;
 }
 
@@ -28,7 +31,7 @@ interface ImagePickerProps {
   onChange?: (arr: Array<Files>) => void; // 图片列表改变
   onUpload?: (file: any) => Promise<object | undefined>; // 图片上传方法
   onInit?: (index: number) => Promise<object | undefined>; // 图片初始化加载方法
-  onItemClick?: (index: number, item?: Files) => void; // 图片初始化加载方法
+  onFileClick?: (index: number, item?: Files) => void; // 图片初始化加载方法
   accept?: string; // 选择的图片类型
   multiple?: boolean; // 是否多选
   capture?: string; // 图片选择的方式
@@ -47,6 +50,11 @@ interface ImagePickerProps {
   replace?: boolean; // 是否替换图片列表
   quality?: number; // 图片压缩比例
   fileFieldName?: string; // 文件类型名称
+}
+
+interface FileInfo {
+  fileType?: string;
+  filePath?: string;
 }
 
 const ImagePicker = forwardRef((props: ImagePickerProps, ref: any) => {
@@ -69,7 +77,7 @@ const ImagePicker = forwardRef((props: ImagePickerProps, ref: any) => {
     onInit,
     onFail = noon,
     onGetPreviewUrl,
-    onItemClick = noon,
+    onFileClick,
     resize,
     showRemove = true,
     replace,
@@ -105,6 +113,12 @@ const ImagePicker = forwardRef((props: ImagePickerProps, ref: any) => {
   const [isOpen, setOpen] = useState<boolean>(false);
   const [index, setIndex] = useState<number>(0);
   const [realHeight, setRealHeight] = useState<string>('');
+  const [visible, setVisible] = useState<boolean>(false);
+  const [fileInfo, setFileInfo] = useState<FileInfo>();
+
+  // 关闭图片预览
+  const onClose = () => setOpen((val) => !val);
+  const onCancel = () => setVisible((val) => !val);
 
   // 初始化
   const init = (index: number) => {
@@ -313,7 +327,17 @@ const ImagePicker = forwardRef((props: ImagePickerProps, ref: any) => {
     if (disabledPreview) return;
     if (!veryImage(refFilesList.current[index]?.file?.type)) {
       // 不是图片
-      return onItemClick(index, refFilesList.current[index]);
+      if (typeof onFileClick === 'function') {
+        return onFileClick(index, refFilesList.current[index]);
+      } else {
+        // 下载
+        const fileName = refFilesList.current[index].fileName;
+        setFileInfo({
+          fileType: fileName?.split('.')?.[1],
+          filePath: refFilesList.current[index]?.url,
+        });
+        return onCancel();
+      }
     }
     if (
       !refFilesList.current[index].preview &&
@@ -329,9 +353,6 @@ const ImagePicker = forwardRef((props: ImagePickerProps, ref: any) => {
     setIndex(currentIndex);
     onClose();
   };
-
-  // 关闭图片预览
-  const onClose = () => setOpen((val) => !val);
 
   // 计算高度
   const calcHeight = resize ? realHeight : height;
@@ -380,8 +401,8 @@ const ImagePicker = forwardRef((props: ImagePickerProps, ref: any) => {
             const currentArr = value.slice(0, index + 1);
             let errorNum = 0;
             for (let i = 0; i < currentArr.length; i++) {
-              const { errorTip } = currentArr[i];
-              if (errorTip) {
+              const { errorTip: ErrorTip, file: FileItem } = currentArr[i];
+              if (ErrorTip || !veryImage(FileItem?.type)) {
                 errorNum++;
               }
             }
@@ -457,6 +478,20 @@ const ImagePicker = forwardRef((props: ImagePickerProps, ref: any) => {
       {isOpen && (
         <WxImageViewer onClose={onClose} index={index} urls={urlList} />
       )}
+      <Modal
+        visible={visible}
+        transparent
+        className={s.modal}
+        onClose={onCancel}
+        footer={[{ text: '关闭', onPress: () => onCancel() }]}
+      >
+        <div className={s.modalContainer}>
+          <FileViewer
+            fileType={fileInfo?.fileType}
+            filePath={fileInfo?.filePath}
+          />
+        </div>
+      </Modal>
     </div>
   );
 });

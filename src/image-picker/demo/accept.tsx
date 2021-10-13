@@ -7,7 +7,8 @@ interface Files {
   preview?: string; // 预览图
   loading?: boolean; // 图片是否加载中
   errorTip?: string; // 错误提示
-  name?: string; // 图片名称
+  name?: string; // 文件说明
+  fileName?: string; // 文件名称,包含后缀
   [index: string]: any;
 }
 
@@ -29,16 +30,14 @@ export default () => {
       setTimeout(() => {
         if (rate > 0.1) {
           // 成功
-          return resolve({ fssid: rate.toString().slice(-6) });
+          return resolve({
+            fssid: rate.toString().slice(-6),
+            fileName: item?.file?.name,
+          });
         }
         reject('上传失败');
       }, 3000);
     });
-  };
-
-  // 点击单个选项
-  const onItemClick = (index: number, item: Files) => {
-    console.log('onItemClick', index, item);
   };
 
   return (
@@ -49,7 +48,6 @@ export default () => {
       max={10}
       mode="cover"
       onUpload={onUpload}
-      onItemClick={onItemClick}
       accept="*"
       fileFieldName="文件"
     />

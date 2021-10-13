@@ -1,6 +1,10 @@
 import React, { useState, useEffect, useRef, forwardRef } from 'react';
+import { Modal } from 'antd-mobile';
 import classnames from 'classnames';
 import WxImageViewer from 'react-wx-images-viewer';
+import FileViewer from 'react-file-viewer';
+import { iconPdf } from '../assets/icon';
+
 import s from './styles.module.less';
 
 const noon = () => {};
@@ -32,7 +36,11 @@ interface ImagePickerProps {
   resize?: boolean; // 高度是否根据宽度计算
   disabledPreview?: boolean; // 是否禁用预览图片
   onGetPreviewUrl?: (index: number) => Promise<string>; // 获取预览图片方法
-  onItemClick?: (index: number, item?: Files) => void; // 图片初始化加载方法
+  onFileClick?: (index: number, item?: Files) => void; // 图片初始化加载方法
+}
+interface FileInfo {
+  fileType?: string;
+  filePath?: string;
 }
 
 const ImageView = forwardRef((props: ImagePickerProps, ref: any) => {
@@ -46,7 +54,7 @@ const ImageView = forwardRef((props: ImagePickerProps, ref: any) => {
     disabledPreview,
     onInit,
     onGetPreviewUrl,
-    onItemClick = noon,
+    onFileClick,
     resize,
   } = props;
 
@@ -57,7 +65,7 @@ const ImageView = forwardRef((props: ImagePickerProps, ref: any) => {
   refFilesList.current.forEach((item: Files) => {
     if (item.preview) {
       urlList.push(item.preview);
-    } else if (item.url) {
+    } else if (item.url && veryImage(item?.file?.type)) {
       urlList.push(item.url);
     }
   });
@@ -65,6 +73,12 @@ const ImageView = forwardRef((props: ImagePickerProps, ref: any) => {
   const [isOpen, setOpen] = useState<boolean>(false);
   const [index, setIndex] = useState<number>(0);
   const [realHeight, setRealHeight] = useState<string>('');
+  const [visible, setVisible] = useState<boolean>(false);
+  const [fileInfo, setFileInfo] = useState<FileInfo>();
+
+  // 关闭图片预览
+  const onClose = () => setOpen((val) => !val);
+  const onCancel = () => setVisible((val) => !val);
 
   // 初始化
   const init = (index: number) => {
@@ -125,7 +139,17 @@ const ImageView = forwardRef((props: ImagePickerProps, ref: any) => {
     if (disabledPreview) return;
     if (!veryImage(refFilesList.current[index]?.file?.type)) {
       // 不是图片
-      return onItemClick(index, refFilesList.current[index]);
+      if (typeof onFileClick === 'function') {
+        return onFileClick(index, refFilesList.current[index]);
+      } else {
+        // 下载
+        const fileName = refFilesList.current[index].fileName;
+        setFileInfo({
+          fileType: fileName?.split('.')?.[1],
+          filePath: refFilesList.current[index]?.url,
+        });
+        return onCancel();
+      }
     }
     if (
       !refFilesList.current[index].preview &&
@@ -141,9 +165,6 @@ const ImageView = forwardRef((props: ImagePickerProps, ref: any) => {
     setIndex(currentIndex);
     onClose();
   };
-
-  // 关闭图片预览
-  const onClose = () => setOpen((val) => !val);
 
   // 计算高度
   const calcHeight = resize ? realHeight : height;
@@ -174,13 +195,13 @@ const ImageView = forwardRef((props: ImagePickerProps, ref: any) => {
       {value &&
         value.length > 0 &&
         value.map((item: Files, index: number) => {
-          const { url, loading, name, errorTip, isInit } = item;
+          const { url, loading, name, errorTip, isInit, file } = item;
           if (url || errorTip || isInit) {
             const currentArr = value.slice(0, index + 1);
             let errorNum = 0;
             for (let i = 0; i < currentArr.length; i++) {
-              const { errorTip } = currentArr[i];
-              if (errorTip) {
+              const { errorTip: ErrorTip, file: FileItem } = currentArr[i];
+              if (ErrorTip || !veryImage(FileItem?.type)) {
                 errorNum++;
               }
             }
@@ -200,7 +221,7 @@ const ImageView = forwardRef((props: ImagePickerProps, ref: any) => {
                     <img
                       alt=""
                       className={s.img}
-                      src={url}
+                      src={veryImage(file?.type) ? url : iconPdf}
                       style={{ objectFit: mode }}
                       onClick={() => onPreview(currentIndex, index)}
                     />
@@ -220,6 +241,20 @@ const ImageView = forwardRef((props: ImagePickerProps, ref: any) => {
       {isOpen && (
         <WxImageViewer onClose={onClose} index={index} urls={urlList} />
       )}
+      <Modal
+        visible={visible}
+        transparent
+        className={s.modal}
+        onClose={onCancel}
+        footer={[{ text: '关闭', onPress: () => onCancel() }]}
+      >
+        <div className={s.modalContainer}>
+          <FileViewer
+            fileType={fileInfo?.fileType}
+            filePath={fileInfo?.filePath}
+          />
+        </div>
+      </Modal>
     </div>
   );
 });
