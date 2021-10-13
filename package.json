@@ -1,6 +1,6 @@
 {
   "name": "eco-image-picker",
-  "version": "1.0.13",
+  "version": "1.0.20",
   "description": "基于react的移动端图片上传组件",
   "scripts": {
     "start": "dumi dev",
@@ -18,8 +18,7 @@
   "typings": "dist/index.d.ts",
   "author": "Ecode",
   "license": "MIT",
-  "gitHooks": {
-  },
+  "gitHooks": {},
   "repository": {
     "type": "git",
     "url": "https://github.com/Yicoding/eco-image-picker.git"
