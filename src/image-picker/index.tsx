@@ -13,7 +13,7 @@ const noon = () => { };
 // 判断文件是否为图片
 const veryImage = (fileName: string | undefined) => {
   if (typeof fileName === 'string') {
-    const ext = fileName.split('.')?.[1];
+    const ext = fileName.split('.')?.[fileName.split('.')?.length - 1];
     return [
       'png', 'jpg', 'jpeg', 'bmp', 'gif', 'webp', 'psd', 'svg', 'tiff'].indexOf((ext as string).toLowerCase()) !== -1;
   }
