@@ -39,7 +39,7 @@ interface ImagePickerProps {
   onFileClick?: (index: number, item?: Files) => void; // 图片初始化加载方法
   accept?: string; // 选择的图片类型
   multiple?: boolean; // 是否多选
-  capture?: string; // 图片选择的方式
+  capture?: boolean | "user" | "environment"; // 图片选择的方式
   width?: string; // 图片宽度，默认80px
   height?: string | number; // 图片高度，默认80px
   config?: Array<'defaultBackGround' | 'defaultDashed' | 'defaultBorder'>; // 图片的额外扩展项,defaultBackGround: 显示默认背景色, defaultDashed: 显示虚线边框, defaultBorder: 显示实线边框
