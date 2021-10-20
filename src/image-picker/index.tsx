@@ -4,6 +4,7 @@ import classnames from 'classnames';
 import Compressor from 'compressorjs';
 import WxImageViewer from 'react-wx-images-viewer';
 import FileViewer from 'react-file-viewer';
+
 import { iconPdf } from '../assets/icon';
 
 import s from './styles.module.less';
@@ -101,6 +102,7 @@ const ImagePicker = forwardRef((props: ImagePickerProps, ref: any) => {
   } = props;
 
   const refInput = ref || useRef<any>(null);
+  const refVideo = ref || useRef<any>(null);
   const refSelectDom = useRef<any>(null);
   const refFilesList = useRef<Array<Files>>(value);
 
@@ -216,13 +218,7 @@ const ImagePicker = forwardRef((props: ImagePickerProps, ref: any) => {
     return new Promise((resolve, reject) => {
       const reader = new FileReader();
       reader.onload = (e) => {
-        // const dataURL = (e.target as any).result;
-        let dataURL = (e.target as any).result;
-        if (/data:video/.test(dataURL)) {
-          const type = dataURL.slice(0, 50).match(/data:video\/(.*);base64/)[1];
-          const reg = new RegExp(`${type}`);
-          dataURL = dataURL.replace(reg, 'mp4');
-        }
+        const dataURL = (e.target as any).result;
         if (!dataURL) {
           reject(`Fail to get the ${index} image`);
           return;
@@ -356,7 +352,7 @@ const ImagePicker = forwardRef((props: ImagePickerProps, ref: any) => {
         const fileName = refFilesList.current[index].fileName;
         const fileType = fileName?.split('.')?.[1];
         setFileInfo({
-          fileType: veryVideo(fileName) ? 'mp4' : fileType,
+          fileType,
           filePath: refFilesList.current[index]?.url,
         });
         return onCancel();
@@ -515,6 +511,7 @@ const ImagePicker = forwardRef((props: ImagePickerProps, ref: any) => {
           />
         </div>
       </Modal>
+      <div ref={refVideo} />
     </div>
   );
 });
