@@ -20,6 +20,16 @@ const veryImage = (fileName: string | undefined) => {
   return false;
 };
 
+// 判断文件是否为视频
+const veryVideo = (fileName: string | undefined) => {
+  if (typeof fileName === 'string') {
+    const ext = fileName.split('.')?.[fileName.split('.')?.length - 1];
+    return [
+      'AVI', 'MOV', 'MPG', 'MPEG', 'MPE', 'DAT', 'VOB', 'ASF', '3GP', 'MP4', 'WMV', 'ASF', 'RM', 'RMVB', 'FLV', 'MKV'].indexOf((ext as string).toUpperCase()) !== -1;
+  }
+  return false;
+};
+
 interface Files {
   url: string; // 图片url
   preview?: string; // 预览图
@@ -206,7 +216,13 @@ const ImagePicker = forwardRef((props: ImagePickerProps, ref: any) => {
     return new Promise((resolve, reject) => {
       const reader = new FileReader();
       reader.onload = (e) => {
-        const dataURL = (e.target as any).result;
+        // const dataURL = (e.target as any).result;
+        let dataURL = (e.target as any).result;
+        if (/data:video/.test(dataURL)) {
+          const type = dataURL.slice(0, 50).match(/data:video\/(.*);base64/)[1];
+          const reg = new RegExp(`${type}`);
+          dataURL = dataURL.replace(reg, 'mp4');
+        }
         if (!dataURL) {
           reject(`Fail to get the ${index} image`);
           return;
@@ -338,8 +354,9 @@ const ImagePicker = forwardRef((props: ImagePickerProps, ref: any) => {
       } else {
         // 下载
         const fileName = refFilesList.current[index].fileName;
+        const fileType = fileName?.split('.')?.[1];
         setFileInfo({
-          fileType: fileName?.split('.')?.[1],
+          fileType: veryVideo(fileName) ? 'mp4' : fileType,
           filePath: refFilesList.current[index]?.url,
         });
         return onCancel();
