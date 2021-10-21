@@ -26,7 +26,17 @@ const veryVideo = (fileName: string | undefined) => {
   if (typeof fileName === 'string') {
     const ext = fileName.split('.')?.[fileName.split('.')?.length - 1];
     return [
-      'AVI', 'MOV', 'MPG', 'MPEG', 'MPE', 'DAT', 'VOB', 'ASF', '3GP', 'MP4', 'WMV', 'ASF', 'RM', 'RMVB', 'FLV', 'MKV'].indexOf((ext as string).toUpperCase()) !== -1;
+      'MP4', 'WEBM', 'OGG'].indexOf((ext as string).toUpperCase()) !== -1;
+  }
+  return false;
+};
+
+// 判断文件是否为音频
+const veryAudio = (fileName: string | undefined) => {
+  if (typeof fileName === 'string') {
+    const ext = fileName.split('.')?.[fileName.split('.')?.length - 1];
+    return [
+      'MP3', 'OGG', 'WAV'].indexOf((ext as string).toUpperCase()) !== -1;
   }
   return false;
 };
@@ -69,6 +79,7 @@ interface ImagePickerProps {
 }
 
 interface FileInfo {
+  fileName?: string;
   fileType?: string;
   filePath?: string;
 }
@@ -352,6 +363,7 @@ const ImagePicker = forwardRef((props: ImagePickerProps, ref: any) => {
         const fileName = refFilesList.current[index].fileName;
         const fileType = fileName?.split('.')?.[1];
         setFileInfo({
+          fileName,
           fileType,
           filePath: refFilesList.current[index]?.url,
         });
@@ -505,15 +517,25 @@ const ImagePicker = forwardRef((props: ImagePickerProps, ref: any) => {
         footer={[{ text: '关闭', onPress: () => onCancel() }]}
       >
         <div className={s.modalContainer}>
-          <FileViewer
-            fileType={fileInfo?.fileType}
-            filePath={fileInfo?.filePath}
-          />
+          {
+            veryAudio(fileInfo?.fileName) ?
+              <audio controls autoPlay>
+                <source src={fileInfo?.filePath} type={`audio/${fileInfo?.fileType}`} />
+              </audio> :
+              veryVideo(fileInfo?.fileName) ?
+              <video height="240" style={{width: '100%'}} controls autoPlay webkit-playsinline playsInline>
+                <source src={fileInfo?.filePath} type={`video/${fileInfo?.fileType}`} />
+              </video> :
+              <FileViewer
+                fileType={fileInfo?.fileType}
+                filePath={fileInfo?.filePath}
+              />
+          }
         </div>
       </Modal>
       <div ref={refVideo} />
     </div>
-  );
+        );
 });
 
-export default ImagePicker;
+        export default ImagePicker;
