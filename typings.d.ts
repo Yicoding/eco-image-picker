@@ -10,4 +10,3 @@ declare module '*.bmp';
 declare module 'eco-image-picker';
 declare module 'react-file-viewer';
 declare module 'classnames';
-declare module 'react-wx-images-viewer';

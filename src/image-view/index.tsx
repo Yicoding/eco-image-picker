@@ -1,23 +1,16 @@
 import React, { useState, useEffect, useRef, forwardRef } from 'react';
 import { Modal } from 'antd-mobile';
 import classnames from 'classnames';
-import WxImageViewer from 'react-wx-images-viewer';
 import FileViewer from 'react-file-viewer';
+import { PhotoSlider } from 'react-photo-view';
+
+import { veryImage, veryAudio, veryVideo } from '../utils/tools';
 import { iconPdf } from '../assets/icon';
 
+import 'react-photo-view/dist/index.css';
 import s from './styles.module.less';
 
-const noon = () => {};
-
-// 判断文件是否为图片
-const veryImage = (fileName: string | undefined) => {
-  if (typeof fileName === 'string') {
-    const ext = fileName.split('.')?.[fileName.split('.')?.length - 1];
-    return [
-      'png', 'jpg', 'jpeg', 'bmp', 'gif', 'webp', 'psd', 'svg', 'tiff'].indexOf((ext as string).toLowerCase()) !== -1;
-  }
-  return false;
-};
+const noon = () => { };
 
 interface Files {
   url: string; // 图片url
@@ -39,12 +32,13 @@ interface ImagePickerProps {
   children?: React.ReactNode; // 选择图片元素，默认为+
   mode?: 'fill' | 'cover' | 'contain' | 'scale-down'; // 图片裁切类型, fill, cover, contain, scale-down
   onFail?: (e: any) => void;
-  resize?: boolean; // 高度是否根据宽度计算
   disabledPreview?: boolean; // 是否禁用预览图片
   onGetPreviewUrl?: (index: number) => Promise<string>; // 获取预览图片方法
   onFileClick?: (index: number, item?: Files) => void; // 图片初始化加载方法
 }
+
 interface FileInfo {
+  fileName?: string;
   fileType?: string;
   filePath?: string;
 }
@@ -61,11 +55,14 @@ const ImageView = forwardRef((props: ImagePickerProps, ref: any) => {
     onInit,
     onGetPreviewUrl,
     onFileClick,
-    resize,
   } = props;
 
-  const refSelectDom = useRef<any>(null);
   const refFilesList = useRef<Array<Files>>(value);
+
+  const [isOpen, setOpen] = useState<boolean>(false);
+  const [index, setIndex] = useState<number>(0);
+  const [visible, setVisible] = useState<boolean>(false);
+  const [fileInfo, setFileInfo] = useState<FileInfo>();
 
   const urlList: string[] = [];
   refFilesList.current.forEach((item: Files) => {
@@ -75,12 +72,6 @@ const ImageView = forwardRef((props: ImagePickerProps, ref: any) => {
       urlList.push(item.url);
     }
   });
-
-  const [isOpen, setOpen] = useState<boolean>(false);
-  const [index, setIndex] = useState<number>(0);
-  const [realHeight, setRealHeight] = useState<string>('');
-  const [visible, setVisible] = useState<boolean>(false);
-  const [fileInfo, setFileInfo] = useState<FileInfo>();
 
   // 关闭图片预览
   const onClose = () => setOpen((val) => !val);
@@ -132,14 +123,6 @@ const ImageView = forwardRef((props: ImagePickerProps, ref: any) => {
     }
   }, []);
 
-  // init
-  useEffect(() => {
-    if (resize) {
-      const calcWidth = getComputedStyle(refSelectDom.current).width;
-      setRealHeight(calcWidth);
-    }
-  }, [resize]);
-
   // 预览图片
   const onPreview = async (currentIndex: number, index: number) => {
     if (disabledPreview) return;
@@ -150,8 +133,10 @@ const ImageView = forwardRef((props: ImagePickerProps, ref: any) => {
       } else {
         // 下载
         const fileName = refFilesList.current[index].fileName;
+        const fileType = fileName?.split('.')?.[1];
         setFileInfo({
-          fileType: fileName?.split('.')?.[1],
+          fileName,
+          fileType,
           filePath: refFilesList.current[index]?.url,
         });
         return onCancel();
@@ -172,31 +157,14 @@ const ImageView = forwardRef((props: ImagePickerProps, ref: any) => {
     onClose();
   };
 
-  // 计算高度
-  const calcHeight = resize ? realHeight : height;
-
-  // 定义占位元素个数
-  let spaceNum = 0;
-  if (resize) {
-    const rowNum = Math.floor(100 / parseFloat(width));
-    if (value && value.length > 0 && rowNum > 1) {
-      const restNum = value.length % rowNum;
-      if (restNum >= 0 && restNum <= rowNum - 1) {
-        spaceNum = rowNum - restNum - 1;
-      }
-    }
-  }
-  console.log('spaceNum', spaceNum);
-
   // parent样式
   const classParent = classnames(s.parent, {
-    [s.noMargin as string]: value.length < 1,
-    [s.marginBottom as string]: resize,
+    [s.noMargin as string]: value.length < 1
   });
 
   return (
     <div
-      className={classnames(s.root, { [s.justifyContent as string]: resize })}
+      className={s.root}
     >
       {value &&
         value.length > 0 &&
@@ -221,7 +189,7 @@ const ImageView = forwardRef((props: ImagePickerProps, ref: any) => {
                       return s[todo];
                     }),
                   )}
-                  style={{ height: calcHeight }}
+                  style={{ height }}
                 >
                   {url && (
                     <img
@@ -244,9 +212,13 @@ const ImageView = forwardRef((props: ImagePickerProps, ref: any) => {
             );
           }
         })}
-      {isOpen && (
-        <WxImageViewer onClose={onClose} index={index} urls={urlList} />
-      )}
+      <PhotoSlider
+        images={urlList.map((item) => ({ src: item }))}
+        visible={isOpen}
+        onClose={onClose}
+        index={index}
+        onIndexChange={setIndex}
+      />
       <Modal
         visible={visible}
         transparent
@@ -255,10 +227,20 @@ const ImageView = forwardRef((props: ImagePickerProps, ref: any) => {
         footer={[{ text: '关闭', onPress: () => onCancel() }]}
       >
         <div className={s.modalContainer}>
-          <FileViewer
-            fileType={fileInfo?.fileType}
-            filePath={fileInfo?.filePath}
-          />
+          {
+            veryAudio(fileInfo?.fileName) ?
+              <audio controls autoPlay>
+                <source src={fileInfo?.filePath} type={`audio/${fileInfo?.fileType}`} />
+              </audio> :
+              veryVideo(fileInfo?.fileName) ?
+                <video height="240" style={{ width: '100%' }} controls autoPlay webkit-playsinline playsInline>
+                  <source src={fileInfo?.filePath} type={`video/${fileInfo?.fileType}`} />
+                </video> :
+                <FileViewer
+                  fileType={fileInfo?.fileType}
+                  filePath={fileInfo?.filePath}
+                />
+          }
         </div>
       </Modal>
     </div>

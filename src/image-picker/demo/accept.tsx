@@ -18,7 +18,6 @@ export default () => {
   // 数组改变
   const onChange = (arr: Array<Files>) => {
     console.log('onChange', arr);
-    arr.forEach((item, index) => (item.name = `示例图${index}`));
     setValue(arr);
   };
 
@@ -45,7 +44,7 @@ export default () => {
       value={value}
       onChange={onChange}
       multiple
-      max={10}
+      max={50}
       mode="cover"
       onUpload={onUpload}
       accept="*"

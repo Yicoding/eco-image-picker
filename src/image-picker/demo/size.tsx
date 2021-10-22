@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 
-import { Toast } from 'antd-mobile';
 import { ImagePicker } from 'eco-image-picker';
 
 interface Files {
@@ -24,26 +23,18 @@ export default () => {
 
   // 实时上传方法
   const onUpload = (item: any): Promise<object | undefined> => {
-    console.log('item', item);
+    console.log('onUpload', item);
     return new Promise((resolve, reject) => {
       const rate = Math.random();
       setTimeout(() => {
-        if (rate > 0.3) {
+        if (rate > 0.1) {
           // 成功
-          return resolve({ fssid: rate.toString().slice(-6) });
+          return resolve({
+            fssid: rate.toString().slice(-6),
+            fileName: item?.file?.name,
+          });
         }
         reject('上传失败');
-      }, 3000);
-    });
-  };
-
-  // 查看大图方法
-  const onGetPreviewUrl = (index: number): Promise<string> => {
-    return new Promise((resolve, reject) => {
-      Toast.loading('Loading...');
-      setTimeout(() => {
-        Toast.hide();
-        resolve(value[index].url);
       }, 1000);
     });
   };
@@ -53,12 +44,17 @@ export default () => {
       value={value}
       onChange={onChange}
       multiple
-      max={12}
+      max={10}
       mode="cover"
       onUpload={onUpload}
-      resize
-      width="22%"
-      onGetPreviewUrl={onGetPreviewUrl}
+      accept="*"
+      fileFieldName="文件"
+      size={{
+        'image': 0.1,
+        'audio': 1,
+        'video': 0.5,
+        'application': 0.05,
+      }}
     />
   );
 };

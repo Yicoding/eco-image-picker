@@ -2,44 +2,16 @@ import React, { useState, useEffect, useRef, useMemo, forwardRef } from 'react';
 import { Toast, Modal } from 'antd-mobile';
 import classnames from 'classnames';
 import Compressor from 'compressorjs';
-import WxImageViewer from 'react-wx-images-viewer';
 import FileViewer from 'react-file-viewer';
+import { PhotoSlider } from 'react-photo-view';
 
+import { veryImage, veryVideo, veryAudio, judeFileTypeName } from '../utils/tools';
 import { iconPdf } from '../assets/icon';
 
+import 'react-photo-view/dist/index.css';
 import s from './styles.module.less';
 
 const noon = () => { };
-
-// 判断文件是否为图片
-const veryImage = (fileName: string | undefined) => {
-  if (typeof fileName === 'string') {
-    const ext = fileName.split('.')?.[fileName.split('.')?.length - 1];
-    return [
-      'png', 'jpg', 'jpeg', 'bmp', 'gif', 'webp', 'psd', 'svg', 'tiff'].indexOf((ext as string).toLowerCase()) !== -1;
-  }
-  return false;
-};
-
-// 判断文件是否为视频
-const veryVideo = (fileName: string | undefined) => {
-  if (typeof fileName === 'string') {
-    const ext = fileName.split('.')?.[fileName.split('.')?.length - 1];
-    return [
-      'MP4', 'WEBM', 'OGG'].indexOf((ext as string).toUpperCase()) !== -1;
-  }
-  return false;
-};
-
-// 判断文件是否为音频
-const veryAudio = (fileName: string | undefined) => {
-  if (typeof fileName === 'string') {
-    const ext = fileName.split('.')?.[fileName.split('.')?.length - 1];
-    return [
-      'MP3', 'OGG', 'WAV'].indexOf((ext as string).toUpperCase()) !== -1;
-  }
-  return false;
-};
 
 interface Files {
   url: string; // 图片url
@@ -51,13 +23,16 @@ interface Files {
   [index: string]: any;
 }
 
+interface Size {
+  [index: string]: number;
+}
 interface ImagePickerProps {
   value?: Array<Files>; // 图片列表
   max?: number; // 图片最大个数
   onChange?: (arr: Array<Files>) => void; // 图片列表改变
   onUpload?: (file: any) => Promise<object | undefined>; // 图片上传方法
   onInit?: (index: number) => Promise<object | undefined>; // 图片初始化加载方法
-  onFileClick?: (index: number, item?: Files) => void; // 图片初始化加载方法
+  onFileClick?: (index: number, item?: Files) => void; // 点击单个文件
   accept?: string; // 选择的图片类型
   multiple?: boolean; // 是否多选
   capture?: boolean | "user" | "environment"; // 图片选择的方式
@@ -66,16 +41,14 @@ interface ImagePickerProps {
   config?: Array<'defaultBackGround' | 'defaultDashed' | 'defaultBorder'>; // 图片的额外扩展项,defaultBackGround: 显示默认背景色, defaultDashed: 显示虚线边框, defaultBorder: 显示实线边框
   children?: React.ReactNode; // 选择图片元素，默认为+
   mode?: 'fill' | 'cover' | 'contain' | 'scale-down'; // 图片裁切类型, fill, cover, contain, scale-down
-  size?: number; // 图片大小限制，单位: M
+  size?: number | Size; // 图片大小限制，单位: M
   onFail?: (e: any) => void;
-  resize?: boolean; // 高度是否根据宽度计算
   disabledSelect?: boolean; // 是否禁用选择图片
   disabledPreview?: boolean; // 是否禁用预览图片
   onGetPreviewUrl?: (index: number) => Promise<string>; // 获取预览图片方法
   showRemove?: boolean; // 是否显示删除按钮
   replace?: boolean; // 是否替换图片列表
   quality?: number; // 图片压缩比例
-  fileFieldName?: string; // 文件类型名称
 }
 
 interface FileInfo {
@@ -105,17 +78,19 @@ const ImagePicker = forwardRef((props: ImagePickerProps, ref: any) => {
     onFail = noon,
     onGetPreviewUrl,
     onFileClick,
-    resize,
     showRemove = true,
     replace,
     quality,
-    fileFieldName = '图片',
   } = props;
 
   const refInput = ref || useRef<any>(null);
-  const refVideo = ref || useRef<any>(null);
   const refSelectDom = useRef<any>(null);
   const refFilesList = useRef<Array<Files>>(value);
+
+  const [isOpen, setOpen] = useState<boolean>(false);
+  const [index, setIndex] = useState<number>(0);
+  const [visible, setVisible] = useState<boolean>(false);
+  const [fileInfo, setFileInfo] = useState<FileInfo>();
 
   const urlList: string[] = [];
   refFilesList.current.forEach((item: Files) => {
@@ -137,12 +112,6 @@ const ImagePicker = forwardRef((props: ImagePickerProps, ref: any) => {
     }
     return num;
   }, [value]);
-
-  const [isOpen, setOpen] = useState<boolean>(false);
-  const [index, setIndex] = useState<number>(0);
-  const [realHeight, setRealHeight] = useState<string>('');
-  const [visible, setVisible] = useState<boolean>(false);
-  const [fileInfo, setFileInfo] = useState<FileInfo>();
 
   // 关闭图片预览
   const onClose = () => setOpen((val) => !val);
@@ -194,16 +163,8 @@ const ImagePicker = forwardRef((props: ImagePickerProps, ref: any) => {
     }
   }, []);
 
-  // init
-  useEffect(() => {
-    if (resize) {
-      const calcWidth = getComputedStyle(refSelectDom.current).width;
-      setRealHeight(calcWidth);
-    }
-  }, [resize]);
-
   // 图片压缩
-  const compress = (file: File | Blob) => {
+  const compress = (file: any) => {
     return new Promise((resolve) => {
       new Compressor(file, {
         quality,
@@ -211,7 +172,7 @@ const ImagePicker = forwardRef((props: ImagePickerProps, ref: any) => {
           resolve(result);
         },
         error: (err) => {
-          console.log(`${fileFieldName}压缩失败,将返回原文件：`, err.message);
+          console.log('图片压缩失败，将返回原文件：', err.message);
           resolve(file);
         },
       });
@@ -221,7 +182,7 @@ const ImagePicker = forwardRef((props: ImagePickerProps, ref: any) => {
   // 图片处理
   const parseFile = async (file: any, index: number, validLength: number) => {
     let data: any = file;
-    if (quality) {
+    if (quality && veryImage(file?.name)) {
       console.log('压缩前', file);
       data = await compress(file);
       console.log('compress data', data);
@@ -237,6 +198,7 @@ const ImagePicker = forwardRef((props: ImagePickerProps, ref: any) => {
         console.log('validLength + index', validLength + index, value);
         resolve(
           Object.assign({}, value[validLength + index], {
+            loading: true,
             file: data,
             url: dataURL,
             fileName: file?.name
@@ -257,16 +219,19 @@ const ImagePicker = forwardRef((props: ImagePickerProps, ref: any) => {
     console.log('files', files);
     const restNum = max - (replace ? 0 : validLength);
     if (files.length > (replace ? max : restNum)) {
-      Toast.info(`${fileFieldName}最多不超过${max}张`);
+      Toast.info(`文件最多不超过${max}张`);
     }
     const restFileList = Array.from(files).slice(0, restNum);
-    console.log('restFileList**', restFileList, restNum);
+    refFilesList.current = restFileList.map(() => {
+      return { url: iconPdf, loading: true, isTemporary: true }
+    });
+    onChange(refFilesList.current);
     const imageParsePromiseList = [];
     for (let i = 0; i < restFileList.length; i++) {
       imageParsePromiseList.push(parseFile(restFileList[i], i, validLength));
     }
     refFilesList.current = refFilesList.current.filter(
-      (item) => item.url || item.errorTip
+      (item) => ((item.url || item.errorTip) && !item.isTemporary)
     ); // 过滤有效值
     const index = replace ? 0 : refFilesList.current.length;
     Promise.all(imageParsePromiseList)
@@ -275,9 +240,20 @@ const ImagePicker = forwardRef((props: ImagePickerProps, ref: any) => {
           imageItems.forEach((item: Files) => (item.loading = true));
         }
         const filterList = imageItems.filter((item: Files) => {
-          console.log('item.size', item.file.size);
-          if (size && item.file.size > size * 1024 * 1024) {
-            return Toast.info(`${fileFieldName}大小不能超过${size}M`);
+          console.log('item.size', item.file.size, item.file);
+          if (size) { // 限制文件大小
+            let sizeNum = 10;
+            if (typeof size === 'number') { // 统一限制文件大小
+              sizeNum = size;
+            } else { // 自定义单独文件格式大小
+              const fileType: string = item?.file?.type?.split('/')?.[0];
+              if (size[fileType]) {
+                sizeNum = size[fileType];
+              }
+            }
+            if (item.file.size > sizeNum * 1024 * 1024) {
+              return Toast.info(`${judeFileTypeName(item.file?.type)}大小不能超过${sizeNum}M`);
+            }
           }
           return item;
         });
@@ -343,7 +319,7 @@ const ImagePicker = forwardRef((props: ImagePickerProps, ref: any) => {
       }
     }
     if (!ableDelete) {
-      return Toast.info(`${fileFieldName}上传中，请稍后操作`);
+      return Toast.info('文件上传中，请稍后操作');
     }
     refFilesList.current.splice(index, 1);
     refFilesList.current = [...refFilesList.current];
@@ -352,7 +328,6 @@ const ImagePicker = forwardRef((props: ImagePickerProps, ref: any) => {
 
   // 预览图片
   const onPreview = async (currentIndex: number, index: number) => {
-    console.log('onPreview', refFilesList.current[index]);
     if (disabledPreview) return;
     if (!veryImage(refFilesList.current[index]?.fileName)) {
       // 不是图片
@@ -385,34 +360,14 @@ const ImagePicker = forwardRef((props: ImagePickerProps, ref: any) => {
     onClose();
   };
 
-  // 计算高度
-  const calcHeight = resize ? realHeight : height;
-
-  // 定义占位元素个数
-  let spaceNum = 0;
-  if (resize) {
-    const rowNum = Math.floor(100 / parseFloat(width));
-    if (value && value.length > 0 && rowNum > 1) {
-      const restNum = value.length % rowNum;
-      if (restNum >= 0 && restNum <= rowNum - 1) {
-        spaceNum = rowNum - restNum - 1;
-        if (value.length === max) {
-          spaceNum += 1;
-        }
-      }
-    }
-  }
-  // console.log('spaceNum', spaceNum);
-
   // parent样式
   const classParent = classnames(s.parent, {
-    [s.noMargin as string]: max === 1 || value.length < 1,
-    [s.marginBottom as string]: resize,
+    [s.noMargin as string]: max === 1 || value.length < 1
   });
 
   return (
     <div
-      className={classnames(s.root, { [s.justifyContent as string]: resize })}
+      className={s.root}
     >
       <input
         className={s.hidden}
@@ -427,7 +382,6 @@ const ImagePicker = forwardRef((props: ImagePickerProps, ref: any) => {
         value.length > 0 &&
         value.map((item: Files, index: number) => {
           const { url, loading, name, errorTip, isInit, fileName } = item;
-          console.log('文件详细信息', item);
           if (url || errorTip || isInit) {
             const currentArr = value.slice(0, index + 1);
             let errorNum = 0;
@@ -447,7 +401,7 @@ const ImagePicker = forwardRef((props: ImagePickerProps, ref: any) => {
                       return s[todo];
                     }),
                   )}
-                  style={{ height: calcHeight }}
+                  style={{ height }}
                 >
                   {url && (
                     <img
@@ -487,7 +441,7 @@ const ImagePicker = forwardRef((props: ImagePickerProps, ref: any) => {
             children
           ) : (
             <div
-              style={{ height: calcHeight }}
+              style={{ height }}
               className={classnames(s.childrenEle, [
                 ...config.map((todo) => {
                   return s[todo];
@@ -502,13 +456,13 @@ const ImagePicker = forwardRef((props: ImagePickerProps, ref: any) => {
           )}
         </div>
       )}
-      {spaceNum > 0 &&
-        new Array(spaceNum).fill(spaceNum).map((item, index) => {
-          return <div key={index} className={classParent} style={{ width }} />;
-        })}
-      {isOpen && (
-        <WxImageViewer onClose={onClose} index={index} urls={urlList} />
-      )}
+      <PhotoSlider
+        images={urlList.map((item) => ({ src: item }))}
+        visible={isOpen}
+        onClose={onClose}
+        index={index}
+        onIndexChange={setIndex}
+      />
       <Modal
         visible={visible}
         transparent
@@ -523,19 +477,18 @@ const ImagePicker = forwardRef((props: ImagePickerProps, ref: any) => {
                 <source src={fileInfo?.filePath} type={`audio/${fileInfo?.fileType}`} />
               </audio> :
               veryVideo(fileInfo?.fileName) ?
-              <video height="240" style={{width: '100%'}} controls autoPlay webkit-playsinline playsInline>
-                <source src={fileInfo?.filePath} type={`video/${fileInfo?.fileType}`} />
-              </video> :
-              <FileViewer
-                fileType={fileInfo?.fileType}
-                filePath={fileInfo?.filePath}
-              />
+                <video height="240" style={{ width: '100%' }} controls autoPlay webkit-playsinline playsInline>
+                  <source src={fileInfo?.filePath} type={`video/${fileInfo?.fileType}`} />
+                </video> :
+                <FileViewer
+                  fileType={fileInfo?.fileType}
+                  filePath={fileInfo?.filePath}
+                />
           }
         </div>
       </Modal>
-      <div ref={refVideo} />
     </div>
-        );
+  );
 });
 
-        export default ImagePicker;
+export default ImagePicker;
