@@ -3,12 +3,11 @@ import { Toast, Modal } from 'antd-mobile';
 import classnames from 'classnames';
 import Compressor from 'compressorjs';
 import FileViewer from 'react-file-viewer';
-import { PhotoSlider } from 'react-photo-view';
+import WxImageViewer from 'react-wx-images-viewer';
 
 import { veryImage, veryVideo, veryAudio, judeFileTypeName } from '../utils/tools';
 import { iconPdf } from '../assets/icon';
 
-import 'react-photo-view/dist/index.css';
 import s from './styles.module.less';
 
 const noon = () => { };
@@ -88,7 +87,7 @@ const ImagePicker = forwardRef((props: ImagePickerProps, ref: any) => {
   const refFilesList = useRef<Array<Files>>(value);
 
   const [isOpen, setOpen] = useState<boolean>(false);
-  const [index, setIndex] = useState<number>(0);
+  const [photoIndex, setPhotoIndex] = useState<number>(0);
   const [visible, setVisible] = useState<boolean>(false);
   const [fileInfo, setFileInfo] = useState<FileInfo>();
   const [temporaryArray, setTemporaryArray] = useState<Array<Files>>([]);
@@ -357,8 +356,7 @@ const ImagePicker = forwardRef((props: ImagePickerProps, ref: any) => {
       refFilesList.current = [...refFilesList.current];
       onChange(refFilesList.current);
     }
-    console.log('currentIndex', currentIndex);
-    setIndex(currentIndex);
+    setPhotoIndex(currentIndex);
     onClose();
   };
 
@@ -434,7 +432,7 @@ const ImagePicker = forwardRef((props: ImagePickerProps, ref: any) => {
         })}
       {temporaryArray &&
         temporaryArray.length > 0 &&
-        temporaryArray.map(() => {
+        temporaryArray.map((item: Files, index: number) => {
             return (
               <div key={index} className={s.parent} style={{ width }}>
                 <div
@@ -449,7 +447,7 @@ const ImagePicker = forwardRef((props: ImagePickerProps, ref: any) => {
                   <img
                     alt=""
                     className={s.img}
-                    src={iconPdf}
+                    src={item.url}
                     style={{ objectFit: mode }}
                   />
                   <div className={s.loadingBox}>
@@ -485,13 +483,9 @@ const ImagePicker = forwardRef((props: ImagePickerProps, ref: any) => {
           )}
         </div>
       )}
-      <PhotoSlider
-        images={urlList.map((item) => ({ src: item }))}
-        visible={isOpen}
-        onClose={onClose}
-        index={index}
-        onIndexChange={setIndex}
-      />
+      {isOpen && (
+        <WxImageViewer onClose={onClose} index={photoIndex} urls={urlList} />
+      )}
       <Modal
         visible={visible}
         transparent

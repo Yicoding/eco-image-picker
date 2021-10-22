@@ -1,6 +1,6 @@
 {
   "name": "eco-image-picker",
-  "version": "1.0.38",
+  "version": "1.0.41",
   "description": "基于react的移动端图片上传组件",
   "scripts": {
     "start": "dumi dev",
@@ -41,7 +41,7 @@
     "classnames": "^2.3.1",
     "compressorjs": "^1.0.7",
     "react-file-viewer": "^1.2.1",
-    "react-photo-view": "^0.5.7"
+    "react-wx-images-viewer": "^1.0.6"
   },
   "devDependencies": {
     "@umijs/test": "^3.0.5",

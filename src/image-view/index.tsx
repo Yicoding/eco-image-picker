@@ -2,12 +2,11 @@ import React, { useState, useEffect, useRef, forwardRef } from 'react';
 import { Modal } from 'antd-mobile';
 import classnames from 'classnames';
 import FileViewer from 'react-file-viewer';
-import { PhotoSlider } from 'react-photo-view';
+import WxImageViewer from 'react-wx-images-viewer';
 
 import { veryImage, veryAudio, veryVideo } from '../utils/tools';
 import { iconPdf } from '../assets/icon';
 
-import 'react-photo-view/dist/index.css';
 import s from './styles.module.less';
 
 const noon = () => { };
@@ -60,7 +59,7 @@ const ImageView = forwardRef((props: ImagePickerProps, ref: any) => {
   const refFilesList = useRef<Array<Files>>(value);
 
   const [isOpen, setOpen] = useState<boolean>(false);
-  const [index, setIndex] = useState<number>(0);
+  const [photoIndex, setPhotoIndex] = useState<number>(0);
   const [visible, setVisible] = useState<boolean>(false);
   const [fileInfo, setFileInfo] = useState<FileInfo>();
 
@@ -153,7 +152,7 @@ const ImageView = forwardRef((props: ImagePickerProps, ref: any) => {
       onChange(refFilesList.current);
     }
     console.log('currentIndex', currentIndex);
-    setIndex(currentIndex);
+    setPhotoIndex(currentIndex);
     onClose();
   };
 
@@ -212,13 +211,9 @@ const ImageView = forwardRef((props: ImagePickerProps, ref: any) => {
             );
           }
         })}
-      <PhotoSlider
-        images={urlList.map((item) => ({ src: item }))}
-        visible={isOpen}
-        onClose={onClose}
-        index={index}
-        onIndexChange={setIndex}
-      />
+      {isOpen && (
+        <WxImageViewer onClose={onClose} index={photoIndex} urls={urlList} />
+      )}
       <Modal
         visible={visible}
         transparent
