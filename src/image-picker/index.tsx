@@ -91,6 +91,7 @@ const ImagePicker = forwardRef((props: ImagePickerProps, ref: any) => {
   const [index, setIndex] = useState<number>(0);
   const [visible, setVisible] = useState<boolean>(false);
   const [fileInfo, setFileInfo] = useState<FileInfo>();
+  const [temporaryArray, setTemporaryArray] = useState<Array<Files>>([]);
 
   const urlList: string[] = [];
   refFilesList.current.forEach((item: Files) => {
@@ -198,7 +199,6 @@ const ImagePicker = forwardRef((props: ImagePickerProps, ref: any) => {
         console.log('validLength + index', validLength + index, value);
         resolve(
           Object.assign({}, value[validLength + index], {
-            loading: true,
             file: data,
             url: dataURL,
             fileName: file?.name
@@ -222,16 +222,16 @@ const ImagePicker = forwardRef((props: ImagePickerProps, ref: any) => {
       Toast.info(`文件最多不超过${max}张`);
     }
     const restFileList = Array.from(files).slice(0, restNum);
-    refFilesList.current = restFileList.map(() => {
-      return { url: iconPdf, loading: true, isTemporary: true }
+    const temporaryCopyArray = restFileList.map(() => {
+      return { url: iconPdf, loading: true }
     });
-    onChange(refFilesList.current);
+    setTemporaryArray(temporaryCopyArray);
     const imageParsePromiseList = [];
     for (let i = 0; i < restFileList.length; i++) {
       imageParsePromiseList.push(parseFile(restFileList[i], i, validLength));
     }
     refFilesList.current = refFilesList.current.filter(
-      (item) => ((item.url || item.errorTip) && !item.isTemporary)
+      (item) => (item.url || item.errorTip)
     ); // 过滤有效值
     const index = replace ? 0 : refFilesList.current.length;
     Promise.all(imageParsePromiseList)
@@ -263,6 +263,7 @@ const ImagePicker = forwardRef((props: ImagePickerProps, ref: any) => {
           refFilesList.current = refFilesList.current.concat(filterList);
         }
         onChange(refFilesList.current);
+        setTemporaryArray([]);
         if (typeof onUpload === 'function') {
           for (let i = 0; i < refFilesList.current.length; i++) {
             const item = refFilesList.current[i];
@@ -299,6 +300,7 @@ const ImagePicker = forwardRef((props: ImagePickerProps, ref: any) => {
       .catch((error) => {
         onFail(error);
         fileSelectorEl.value = '';
+        setTemporaryArray([]);
       });
   };
 
@@ -429,6 +431,33 @@ const ImagePicker = forwardRef((props: ImagePickerProps, ref: any) => {
               </div>
             );
           }
+        })}
+      {temporaryArray &&
+        temporaryArray.length > 0 &&
+        temporaryArray.map(() => {
+            return (
+              <div key={index} className={s.parent} style={{ width }}>
+                <div
+                  className={classnames(
+                    s.imgBox,
+                    ...config.map((todo) => {
+                      return s[todo];
+                    }),
+                  )}
+                  style={{ height }}
+                >
+                  <img
+                    alt=""
+                    className={s.img}
+                    src={iconPdf}
+                    style={{ objectFit: mode }}
+                  />
+                  <div className={s.loadingBox}>
+                    <i className={s.loading} />
+                  </div>
+                </div>
+              </div>
+            );
         })}
       {validLength < max && (
         <div

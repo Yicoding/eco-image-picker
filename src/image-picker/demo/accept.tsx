@@ -44,7 +44,7 @@ export default () => {
       value={value}
       onChange={onChange}
       multiple
-      max={50}
+      max={100}
       mode="cover"
       onUpload={onUpload}
       accept="*"
