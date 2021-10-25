@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
 import { ImagePicker } from 'eco-image-picker';
-import { demo } from '../../assets/icon';
+import { iconEmpty } from '../../assets/icon';
 
 interface Files {
   url: string; // 图片url
@@ -39,7 +39,7 @@ export default () => {
       setTimeout(() => {
         if (rate > 0.1) {
           // 成功
-          return resolve({ url: demo, file: { type: 'image' } });
+          return resolve({ url: iconEmpty, file: { type: 'image' } });
         }
         return reject('加载失败');
       }, 3000);

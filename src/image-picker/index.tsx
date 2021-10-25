@@ -5,8 +5,8 @@ import Compressor from 'compressorjs';
 import FileViewer from 'react-file-viewer';
 import WxImageViewer from 'react-wx-images-viewer';
 
-import { veryImage, veryVideo, veryAudio, judeFileTypeName } from '../utils/tools';
-import { iconPdf } from '../assets/icon';
+import { veryImage, veryVideo, veryAudio, judeFileTypeName, judeSiteGif } from '../utils/tools';
+import { iconFile } from '../assets/icon';
 
 import s from './styles.module.less';
 
@@ -223,7 +223,7 @@ const ImagePicker = forwardRef((props: ImagePickerProps, ref: any) => {
     }
     const restFileList = Array.from(files).slice(0, restNum);
     const temporaryCopyArray = restFileList.map(() => {
-      return { url: iconPdf, loading: true }
+      return { url: iconFile, loading: true }
     });
     setTemporaryArray(temporaryCopyArray);
     const imageParsePromiseList = [];
@@ -403,7 +403,7 @@ const ImagePicker = forwardRef((props: ImagePickerProps, ref: any) => {
                     <img
                       alt=""
                       className={s.img}
-                      src={veryImage(fileName) ? url : iconPdf}
+                      src={judeSiteGif(fileName, url)}
                       style={{ objectFit: mode }}
                       onClick={() => onPreview(currentIndex, index)}
                     />

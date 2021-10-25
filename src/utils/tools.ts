@@ -1,3 +1,4 @@
+import { iconFile, iconAudio, iconVideo, iconExcel, iconPdf, iconWord } from '../assets/icon';
 
 // 判断文件是否为图片
 export const veryImage = (fileName: string | undefined) => {
@@ -29,6 +30,36 @@ export const veryAudio = (fileName: string | undefined) => {
   return false;
 };
 
+// 判断文件是否为excel
+export const veryExcel = (fileName: string | undefined) => {
+  if (typeof fileName === 'string') {
+    const ext = fileName.split('.')?.[fileName.split('.')?.length - 1];
+    return [
+      'xls', 'xlsx'].indexOf((ext as string).toLowerCase()) !== -1;
+  }
+  return false;
+};
+
+// 判断文件是否为word
+export const veryWord = (fileName: string | undefined) => {
+  if (typeof fileName === 'string') {
+    const ext = fileName.split('.')?.[fileName.split('.')?.length - 1];
+    return [
+      'doc', 'docx'].indexOf((ext as string).toLowerCase()) !== -1;
+  }
+  return false;
+};
+
+// 判断文件是否为pdf
+export const veryPdf = (fileName: string | undefined) => {
+  if (typeof fileName === 'string') {
+    const ext = fileName.split('.')?.[fileName.split('.')?.length - 1];
+    return [
+      'pdf'].indexOf((ext as string).toLowerCase()) !== -1;
+  }
+  return false;
+};
+
 export const judeFileTypeName = (type: string | undefined) => {
   const fileType: string = type?.split('/')?.[0] || '';
   let fileTypeName = '文件';
@@ -46,4 +77,28 @@ export const judeFileTypeName = (type: string | undefined) => {
       break;
   }
   return fileTypeName;
+}
+
+export const judeSiteGif = (fileName: string | undefined, url: string) => {
+  if (typeof fileName === 'string') {
+    if (veryImage(fileName)) {
+      return url;
+    }
+    if (veryVideo(fileName)) {
+      return iconVideo;
+    }
+    if (veryAudio(fileName)) {
+      return iconAudio;
+    }
+    if (veryExcel(fileName)) {
+      return iconExcel;
+    }
+    if (veryWord(fileName)) {
+      return iconWord;
+    }
+    if (veryPdf(fileName)) {
+      return iconPdf;
+    }
+  }
+  return iconFile;
 }

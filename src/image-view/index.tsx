@@ -4,8 +4,8 @@ import classnames from 'classnames';
 import FileViewer from 'react-file-viewer';
 import WxImageViewer from 'react-wx-images-viewer';
 
-import { veryImage, veryAudio, veryVideo } from '../utils/tools';
-import { iconPdf } from '../assets/icon';
+import { veryImage, veryAudio, veryVideo, judeSiteGif } from '../utils/tools';
+import { iconEmpty } from '../assets/icon';
 
 import s from './styles.module.less';
 
@@ -27,6 +27,7 @@ interface ImagePickerProps {
   onInit?: (index: number) => Promise<object | undefined>; // 图片初始化加载方法
   width?: string; // 图片宽度，默认80px
   height?: string | number; // 图片高度，默认80px
+  emptyDesc?: boolean; // 是否显示空状态图片
   config?: Array<'defaultBackGround' | 'defaultDashed' | 'defaultBorder'>; // 图片的额外扩展项,defaultBackGround: 显示默认背景色, defaultDashed: 显示虚线边框, defaultBorder: 显示实线边框
   children?: React.ReactNode; // 选择图片元素，默认为+
   mode?: 'fill' | 'cover' | 'contain' | 'scale-down'; // 图片裁切类型, fill, cover, contain, scale-down
@@ -54,6 +55,7 @@ const ImageView = forwardRef((props: ImagePickerProps, ref: any) => {
     onInit,
     onGetPreviewUrl,
     onFileClick,
+    emptyDesc
   } = props;
 
   const refFilesList = useRef<Array<Files>>([]);
@@ -162,7 +164,7 @@ const ImageView = forwardRef((props: ImagePickerProps, ref: any) => {
       className={s.root}
     >
       {value &&
-        value.length > 0 &&
+        value.length > 0 ?
         value.map((item: Files, index: number) => {
           const { url, loading, name, errorTip, isInit, fileName } = item;
           if (url || errorTip || isInit) {
@@ -190,7 +192,7 @@ const ImageView = forwardRef((props: ImagePickerProps, ref: any) => {
                     <img
                       alt=""
                       className={s.img}
-                      src={veryImage(fileName) ? url : iconPdf}
+                      src={judeSiteGif(fileName, url)}
                       style={{ objectFit: mode }}
                       onClick={() => onPreview(currentIndex, index)}
                     />
@@ -206,7 +208,14 @@ const ImageView = forwardRef((props: ImagePickerProps, ref: any) => {
               </div>
             );
           }
-        })}
+        }) :
+        emptyDesc ?
+          <div className={s.emptyBox}>
+            <img className={s.emptyImage} src={iconEmpty} alt="暂无数据" />
+            <span className={s.emptyDesc}>{emptyDesc}</span>
+          </div> :
+          null
+      }
       {isOpen && (
         <WxImageViewer onClose={onClose} index={photoIndex} urls={urlList} />
       )}
