@@ -361,11 +361,6 @@ const ImagePicker = forwardRef((props: ImagePickerProps, ref: any) => {
     onClose();
   };
 
-  // parent样式
-  const classParent = classnames(s.parent, {
-    [s.noMargin as string]: max === 1 || value.length < 1
-  });
-
   return (
     <div
       className={s.root}
@@ -394,7 +389,7 @@ const ImagePicker = forwardRef((props: ImagePickerProps, ref: any) => {
             }
             const currentIndex = index - errorNum;
             return (
-              <div key={index} className={classParent} style={{ width }}>
+              <div key={index} className={s.parent} style={{ width }}>
                 <div
                   className={classnames(
                     s.imgBox,
@@ -460,7 +455,7 @@ const ImagePicker = forwardRef((props: ImagePickerProps, ref: any) => {
         })}
       {validLength < max && (
         <div
-          className={classParent}
+          className={s.parentSelect}
           style={{ width }}
           ref={refSelectDom}
           onClick={inputClick}

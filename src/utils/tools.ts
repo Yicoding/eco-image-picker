@@ -14,7 +14,7 @@ export const veryVideo = (fileName: string | undefined) => {
   if (typeof fileName === 'string') {
     const ext = fileName.split('.')?.[fileName.split('.')?.length - 1];
     return [
-      'mp4', 'wwebm', 'ogg'].indexOf((ext as string).toLowerCase()) !== -1;
+      'mp4', 'webm', 'ogg'].indexOf((ext as string).toLowerCase()) !== -1;
   }
   return false;
 };
