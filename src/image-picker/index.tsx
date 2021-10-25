@@ -84,7 +84,7 @@ const ImagePicker = forwardRef((props: ImagePickerProps, ref: any) => {
 
   const refInput = ref || useRef<any>(null);
   const refSelectDom = useRef<any>(null);
-  const refFilesList = useRef<Array<Files>>(value);
+  const refFilesList = useRef<Array<Files>>([]);
 
   const [isOpen, setOpen] = useState<boolean>(false);
   const [photoIndex, setPhotoIndex] = useState<number>(0);
@@ -92,6 +92,7 @@ const ImagePicker = forwardRef((props: ImagePickerProps, ref: any) => {
   const [fileInfo, setFileInfo] = useState<FileInfo>();
   const [temporaryArray, setTemporaryArray] = useState<Array<Files>>([]);
 
+  refFilesList.current = value;
   const urlList: string[] = [];
   refFilesList.current.forEach((item: Files) => {
     if (item.preview) {

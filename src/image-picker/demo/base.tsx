@@ -18,6 +18,7 @@ export default () => {
 
   // 数组改变
   const onChange = (arr: Array<Files>) => {
+    console.log('onChange base', arr);
     setValue(arr);
   };
 

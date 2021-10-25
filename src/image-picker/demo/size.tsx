@@ -50,7 +50,7 @@ export default () => {
       accept="*"
       fileFieldName="文件"
       size={{
-        'image': 0.1,
+        'image': 1,
         'audio': 1,
         'video': 0.5,
         'application': 0.05,

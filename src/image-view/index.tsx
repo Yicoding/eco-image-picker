@@ -56,13 +56,14 @@ const ImageView = forwardRef((props: ImagePickerProps, ref: any) => {
     onFileClick,
   } = props;
 
-  const refFilesList = useRef<Array<Files>>(value);
+  const refFilesList = useRef<Array<Files>>([]);
 
   const [isOpen, setOpen] = useState<boolean>(false);
   const [photoIndex, setPhotoIndex] = useState<number>(0);
   const [visible, setVisible] = useState<boolean>(false);
   const [fileInfo, setFileInfo] = useState<FileInfo>();
 
+  refFilesList.current = value;
   const urlList: string[] = [];
   refFilesList.current.forEach((item: Files) => {
     if (item.preview) {
