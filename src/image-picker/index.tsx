@@ -23,6 +23,7 @@ interface Files {
 }
 
 interface Size {
+  default: number;
   [index: string]: number;
 }
 interface ImagePickerProps {
@@ -41,6 +42,7 @@ interface ImagePickerProps {
   children?: React.ReactNode; // 选择图片元素，默认为+
   mode?: 'fill' | 'cover' | 'contain' | 'scale-down'; // 图片裁切类型, fill, cover, contain, scale-down
   size?: number | Size; // 图片大小限制，单位: M
+  sizeType?: 'file' | 'base64'; // 图片大小限制的类型，file大小或者base64大小
   onFail?: (e: any) => void;
   disabledSelect?: boolean; // 是否禁用选择图片
   disabledPreview?: boolean; // 是否禁用预览图片
@@ -70,6 +72,7 @@ const ImagePicker = forwardRef((props: ImagePickerProps, ref: any) => {
     children,
     mode = 'fill',
     size,
+    sizeType = 'file',
     disabledPreview,
     disabledSelect,
     onUpload,
@@ -83,7 +86,6 @@ const ImagePicker = forwardRef((props: ImagePickerProps, ref: any) => {
   } = props;
 
   const refInput = ref || useRef<any>(null);
-  const refSelectDom = useRef<any>(null);
   const refFilesList = useRef<Array<Files>>([]);
 
   const [isOpen, setOpen] = useState<boolean>(false);
@@ -246,12 +248,15 @@ const ImagePicker = forwardRef((props: ImagePickerProps, ref: any) => {
             if (typeof size === 'number') { // 统一限制文件大小
               sizeNum = size;
             } else { // 自定义单独文件格式大小
+              sizeNum = size?.default;
               const fileType: string = item?.file?.type?.split('/')?.[0];
               if (size[fileType]) {
                 sizeNum = size[fileType];
               }
             }
-            if (item.file.size > sizeNum * 1024 * 1024) {
+            if (sizeType === 'file' && item.file.size > sizeNum * 1024 * 1024) {
+              return Toast.info(`${judeFileTypeName(item.file?.type)}大小不能超过${sizeNum}M`);
+            } else if (sizeType === 'base64' && item?.url?.length > sizeNum * 1024 * 1024) {
               return Toast.info(`${judeFileTypeName(item.file?.type)}大小不能超过${sizeNum}M`);
             }
           }
@@ -429,35 +434,34 @@ const ImagePicker = forwardRef((props: ImagePickerProps, ref: any) => {
       {temporaryArray &&
         temporaryArray.length > 0 &&
         temporaryArray.map((item: Files, index: number) => {
-            return (
-              <div key={index} className={s.parent} style={{ width }}>
-                <div
-                  className={classnames(
-                    s.imgBox,
-                    ...config.map((todo) => {
-                      return s[todo];
-                    }),
-                  )}
-                  style={{ height }}
-                >
-                  <img
-                    alt=""
-                    className={s.img}
-                    src={item.url}
-                    style={{ objectFit: mode }}
-                  />
-                  <div className={s.loadingBox}>
-                    <i className={s.loading} />
-                  </div>
+          return (
+            <div key={index} className={s.parent} style={{ width }}>
+              <div
+                className={classnames(
+                  s.imgBox,
+                  ...config.map((todo) => {
+                    return s[todo];
+                  }),
+                )}
+                style={{ height }}
+              >
+                <img
+                  alt=""
+                  className={s.img}
+                  src={item.url}
+                  style={{ objectFit: mode }}
+                />
+                <div className={s.loadingBox}>
+                  <i className={s.loading} />
                 </div>
               </div>
-            );
+            </div>
+          );
         })}
       {validLength < max && (
         <div
           className={s.parentSelect}
           style={{ width }}
-          ref={refSelectDom}
           onClick={inputClick}
         >
           {children ? (

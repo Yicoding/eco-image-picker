@@ -54,7 +54,9 @@ export default () => {
         'audio': 1,
         'video': 0.5,
         'application': 0.05,
+        'default': 0.01
       }}
+      sizeType="base64"
     />
   );
 };
