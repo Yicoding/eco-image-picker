@@ -1,9 +1,17 @@
 import { iconFile, iconAudio, iconVideo, iconExcel, iconPdf, iconWord } from '../assets/icon';
 
+// 获取文件后缀名
+export const getFileExt = (fileName: string | undefined) => {
+  if (typeof fileName === 'string') {
+    return fileName.split('.')?.[fileName.split('.')?.length - 1];
+  }
+  return 'undefined';
+}
+
 // 判断文件是否为图片
 export const veryImage = (fileName: string | undefined) => {
   if (typeof fileName === 'string') {
-    const ext = fileName.split('.')?.[fileName.split('.')?.length - 1];
+    const ext = getFileExt(fileName);
     return [
       'png', 'jpg', 'jpeg', 'bmp', 'gif', 'webp', 'psd', 'svg', 'tiff'].indexOf((ext as string).toLowerCase()) !== -1;
   }
@@ -13,7 +21,7 @@ export const veryImage = (fileName: string | undefined) => {
 // 判断文件是否为视频
 export const veryVideo = (fileName: string | undefined) => {
   if (typeof fileName === 'string') {
-    const ext = fileName.split('.')?.[fileName.split('.')?.length - 1];
+    const ext = getFileExt(fileName);
     return [
       'mp4', 'webm', 'ogg'].indexOf((ext as string).toLowerCase()) !== -1;
   }
@@ -23,7 +31,7 @@ export const veryVideo = (fileName: string | undefined) => {
 // 判断文件是否为音频
 export const veryAudio = (fileName: string | undefined) => {
   if (typeof fileName === 'string') {
-    const ext = fileName.split('.')?.[fileName.split('.')?.length - 1];
+    const ext = getFileExt(fileName);
     return [
       'mp3', 'wav', 'ogg'].indexOf((ext as string).toLowerCase()) !== -1;
   }
@@ -33,7 +41,7 @@ export const veryAudio = (fileName: string | undefined) => {
 // 判断文件是否为excel
 export const veryExcel = (fileName: string | undefined) => {
   if (typeof fileName === 'string') {
-    const ext = fileName.split('.')?.[fileName.split('.')?.length - 1];
+    const ext = getFileExt(fileName);
     return [
       'xls', 'xlsx'].indexOf((ext as string).toLowerCase()) !== -1;
   }
@@ -43,7 +51,7 @@ export const veryExcel = (fileName: string | undefined) => {
 // 判断文件是否为word
 export const veryWord = (fileName: string | undefined) => {
   if (typeof fileName === 'string') {
-    const ext = fileName.split('.')?.[fileName.split('.')?.length - 1];
+    const ext = getFileExt(fileName);
     return [
       'doc', 'docx'].indexOf((ext as string).toLowerCase()) !== -1;
   }
@@ -53,7 +61,7 @@ export const veryWord = (fileName: string | undefined) => {
 // 判断文件是否为pdf
 export const veryPdf = (fileName: string | undefined) => {
   if (typeof fileName === 'string') {
-    const ext = fileName.split('.')?.[fileName.split('.')?.length - 1];
+    const ext = getFileExt(fileName);
     return [
       'pdf'].indexOf((ext as string).toLowerCase()) !== -1;
   }

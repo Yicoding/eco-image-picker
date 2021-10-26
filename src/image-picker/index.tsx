@@ -5,7 +5,7 @@ import Compressor from 'compressorjs';
 import FileViewer from 'react-file-viewer';
 import WxImageViewer from 'react-wx-images-viewer';
 
-import { veryImage, veryVideo, veryAudio, judeFileTypeName, judeSiteGif } from '../utils/tools';
+import { veryImage, veryVideo, veryAudio, judeFileTypeName, judeSiteGif, getFileExt } from '../utils/tools';
 import { iconFile } from '../assets/icon';
 
 import s from './styles.module.less';
@@ -343,7 +343,7 @@ const ImagePicker = forwardRef((props: ImagePickerProps, ref: any) => {
       } else {
         // 下载
         const fileName = refFilesList.current[index].fileName;
-        const fileType = fileName?.split('.')?.[1];
+        const fileType = getFileExt(fileName);
         setFileInfo({
           fileName,
           fileType,

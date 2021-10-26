@@ -4,7 +4,7 @@ import classnames from 'classnames';
 import FileViewer from 'react-file-viewer';
 import WxImageViewer from 'react-wx-images-viewer';
 
-import { veryImage, veryAudio, veryVideo, judeSiteGif } from '../utils/tools';
+import { veryImage, veryAudio, veryVideo, judeSiteGif, getFileExt } from '../utils/tools';
 import { iconEmpty } from '../assets/icon';
 
 import s from './styles.module.less';
@@ -135,7 +135,7 @@ const ImageView = forwardRef((props: ImagePickerProps, ref: any) => {
       } else {
         // 下载
         const fileName = refFilesList.current[index].fileName;
-        const fileType = fileName?.split('.')?.[1];
+        const fileType = getFileExt(fileName);
         setFileInfo({
           fileName,
           fileType,
