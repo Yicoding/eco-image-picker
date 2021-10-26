@@ -18,11 +18,13 @@ export default () => {
     {
       url: '',
       fssid: 'id-1',
+      fileName: 'doc.png'
     },
     {
       url: '',
       fssid: 'id-2',
-    },
+      fileName: 'doc.png'
+    }
   ]);
 
   // 数组改变
