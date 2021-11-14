@@ -1,5 +1,14 @@
 export default {
-  esm: 'rollup',
-  cjs: 'rollup',
-  extraBabelPlugins: [['import', { libraryName: 'antd-mobile', style: 'css' }]],
+  esm: {
+    type: 'babel',
+    importLibToEs: true,
+  },
+  cjs: {
+    type: 'babel',
+    lazy: true,
+  },
+  cssModules: true,
+  lessInBabelMode: true,
+  runtimeHelpers: true,
+  extraBabelPlugins: [['import', { libraryName: 'antd-mobile', style: true }]],
 };
