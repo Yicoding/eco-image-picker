@@ -3,8 +3,7 @@ import { defineConfig } from 'dumi';
 const publicPath =
   process.env.NODE_ENV === 'production'
     ? 'https://yicoding.github.io/eco-image-picker/antd-mobile-v3/'
-    : // ? 'https://yicoding.github.io/eco-image-picker/docs/'
-      '/';
+    : '/';
 
 const manifestLink = `${publicPath}asset-manifest.json`;
 
