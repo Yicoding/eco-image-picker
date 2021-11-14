@@ -4,6 +4,10 @@ on:
   push:
     branches:
       - master
+    paths:
+      - src/**
+      - .fatherrc.ts
+      - .umirc.js
 
 jobs:
   build-and-deploy:
