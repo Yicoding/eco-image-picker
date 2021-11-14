@@ -24,4 +24,4 @@ yarn add eco-image-picker
 import { ImagePicker } from 'eco-image-picker';
 ```
 
-[site]: https://yicoding.github.io/eco-image-picker
+[site]: https://yicoding.github.io/eco-image-picker/refs/heads/master/index.html
