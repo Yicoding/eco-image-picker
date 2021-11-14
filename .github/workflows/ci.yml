@@ -15,16 +15,12 @@ jobs:
         persist-credentials: false
     - name: Install
       run: npm install
-    - name: Build package
-      run: npm run build
-    - name: Build latest docs
-      if: ${{github.ref == 'refs/heads/master'}}
+    - name: Build docs
       run: npm run docs:build
-    - name: Deploy latest docs
-      if: ${{github.ref == 'refs/heads/master'}}
+    - name: Deploy docs
       uses: JamesIves/github-pages-deploy-action@releases/v3
       with:
         GITHUB_TOKEN: ${{ secrets.ECO_FILE_PICKER_TOKEN }}
         BRANCH: gh-pages
         FOLDER: site
-        TARGET_FOLDER: latest
+        TARGET_FOLDER: ${{github.ref}}
