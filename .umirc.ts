@@ -1,8 +1,10 @@
 import { defineConfig } from 'dumi';
 
+const pkg = require('./package.json');
+
 const publicPath =
   process.env.NODE_ENV === 'production'
-    ? 'https://yicoding.github.io/eco-image-picker/antd-mobile-v3/'
+    ? `https://yicoding.github.io/eco-image-picker/refs/heads/${pkg.branch}/`
     : '/';
 
 const manifestLink = `${publicPath}asset-manifest.json`;

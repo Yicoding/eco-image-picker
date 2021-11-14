@@ -1,6 +1,7 @@
 {
   "name": "eco-image-picker",
   "version": "1.0.52",
+  "branch": "master",
   "description": "基于react的移动端图片上传组件",
   "scripts": {
     "start": "dumi dev",
