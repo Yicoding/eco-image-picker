@@ -9,6 +9,8 @@
     "sourceMap": true,
     "baseUrl": "./",
     "strict": true,
+    "declaration": true, // 只有declaration设置为true才能生成.d.ts后缀的文件
+    "typeRoots": ["./typings"],
     "paths": {
       "@/*": ["src/*"],
       "@@/*": ["src/.umi/*"]

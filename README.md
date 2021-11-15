@@ -1,7 +1,7 @@
 # eco-image-picker
 
 [![npm][npm]][npm-url]
-![GitHub](../public/mit.svg)
+![GitHub](https://shopmushi.com/configFile/assets/mit.svg)
 
 基于`react`的移动端图片上传组件
 
