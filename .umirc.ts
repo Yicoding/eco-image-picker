@@ -15,6 +15,9 @@ const umiConfig = {
   outputPath: 'site',
   mode: 'site',
   publicPath,
+  devServer: {
+    port: 8090,
+  },
   history: {
     type: 'hash',
   },
@@ -32,10 +35,26 @@ const umiConfig = {
   navs: [
     null, // null 值代表保留约定式生成的导航，只做增量配置
     {
+      title: 'v1.x',
+      path: 'https://yicoding.github.io/eco-image-picker/refs/heads/v1/index.html',
+    },
+    {
       title: 'GitHub',
       path: 'https://github.com/Yicoding/eco-image-picker',
     },
   ],
+  menus: {
+    '/components': [
+      {
+        title: '上传',
+        children: ['ImagePicker', 'FilePicker'],
+      },
+      {
+        title: '预览',
+        children: ['ImageView', 'FileView'],
+      },
+    ],
+  },
 };
 
 if (process.env.NODE_ENV === 'production') {
