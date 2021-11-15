@@ -1,6 +1,7 @@
 {
   "name": "eco-image-picker",
   "version": "1.0.53",
+  "branch": "master",
   "main": "lib/index.js",
   "module": "es/index.js",
   "description": "基于react的移动端图片/文件上传组件",
