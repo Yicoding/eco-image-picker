@@ -47,11 +47,11 @@ const umiConfig = {
     '/components': [
       {
         title: '上传',
-        children: ['ImagePicker', 'FilePicker'],
+        children: ['ImagePicker'],
       },
       {
         title: '预览',
-        children: ['ImageView', 'FileView'],
+        children: ['ImageView'],
       },
     ],
   },
