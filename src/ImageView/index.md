@@ -8,15 +8,16 @@ nav:
   path: /components
 ---
 
-## ImageView
+# ImageView 图片预览
 
-Demo:
+## 基本用法
 
-```tsx
-import React from 'react';
-import { ImageView } from 'eco-image-picker';
+<code src="./demos/init" />
 
-export default () => <ImageView title="First Demo" />;
-```
+## 为空状态
 
-More skills for writing demo: https://d.umijs.org/guide/basic#write-component-demo
+<code src="./demos/empty" />
+
+## API
+
+### ImageView

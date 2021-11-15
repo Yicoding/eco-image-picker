@@ -1,7 +1,7 @@
 ---
-title: eco-image-picker - 基于 react 扩展的移动端图片/文件上传组件
+title: eco-image-picker@1.x - 基于 react 扩展的移动端图片/文件上传组件
 hero:
-  title: eco-image-picker
+  title: eco-image-picker@1.x
   desc: 基于 react 扩展的移动端图片/文件上传组件
   actions:
     - text: 快速上手

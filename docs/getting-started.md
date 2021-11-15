@@ -18,13 +18,13 @@ nav:
 ### npm 或 yarn 安装
 
 ```shell
-npm install eco-image-picker
+npm install eco-image-picker@1.x
 ```
 
 <br />
 
 ```shell
-yarn add eco-image-picker
+yarn add eco-image-picker@1.x
 ```
 
 ### 示例
@@ -53,32 +53,25 @@ export default () => {
 };
 ```
 
-## 对应版本
-
-| eco-image-picker | antd-mobile |
-| ---------------- | ----------- |
-| v1.x             | v2.x        |
-| v2.x             | 不依赖      |
-
 ## API
 
 - **上传**
   - [ImagePicker] - 图片上传
-  - [FilePicker] - 文件上传
 - **预览**
   - [ImageView] - 图片预览
-  - [FileView] - 文件预览
 
 ## 第三方组件
 
 - [react-wx-images-viewer] - 移动端图片浏览 React 组件
 - [compressorjs] - JavaScript 图像压缩器
+- [react-file-viewer] - 文件预览
+- [antd-mobile] - Ant 移动端组件库
 
 [npm]: https://img.shields.io/npm/v/eco-image-picker.svg
 [npm-url]: https://www.npmjs.com/package/eco-image-picker
 [imagepicker]: /components/image-picker
-[filepicker]: /components/file-picker
 [imageview]: /components/image-view
-[fileview]: /components/file-view
 [react-wx-images-viewer]: https://www.npmjs.com/package/react-wx-images-viewer
 [compressorjs]: https://www.npmjs.com/package/compressorjs
+[react-file-viewer]: https://www.npmjs.com/package/react-file-viewer
+[antd-mobile]: https://www.npmjs.com/package/antd-mobile

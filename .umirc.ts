@@ -35,12 +35,17 @@ const umiConfig = {
   navs: [
     null, // null 值代表保留约定式生成的导航，只做增量配置
     {
-      title: 'v1.x',
-      path: 'https://yicoding.github.io/eco-image-picker/refs/heads/v1/index.html',
+      title: '前往新版',
+      children: [
+        {
+          title: 'v2.x',
+          path: 'https://yicoding.github.io/eco-image-picker/refs/heads/master/index.html',
+        },
+      ],
     },
     {
       title: 'GitHub',
-      path: 'https://github.com/Yicoding/eco-image-picker',
+      path: 'https://github.com/Yicoding/eco-image-picker/tree/v1',
     },
   ],
   menus: {
