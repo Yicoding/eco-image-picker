@@ -74,6 +74,7 @@ export default () => {
           width="100%"
           height="90px"
           onUpload={onUpload}
+          replace
         >
           <Flex className={s.children} justify="center">
             <img className={s.img} alt="" src={iconIdCard} />
@@ -89,6 +90,7 @@ export default () => {
           width="100%"
           height="90px"
           onUpload={onUpload}
+          replace
         >
           <Flex className={s.children} justify="center">
             <img className={s.img} alt="" src={iconIdCardBack} />
