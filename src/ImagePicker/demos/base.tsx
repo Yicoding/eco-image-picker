@@ -32,7 +32,7 @@ export default () => {
         <ImagePicker
           value={value}
           onChange={onChange}
-          config={['defaultBackGround']}
+          config={['defaultBorder']}
         />
         <WhiteSpace />
       </WingBlank>

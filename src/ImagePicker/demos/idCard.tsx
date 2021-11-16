@@ -1,6 +1,3 @@
-/**
- * compact: true
- */
 import React, { useState } from 'react';
 
 import { Flex } from 'antd-mobile';

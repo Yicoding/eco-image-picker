@@ -1,11 +1,9 @@
-import {
-  iconFile,
-  iconAudio,
-  iconVideo,
-  iconExcel,
-  iconPdf,
-  iconWord,
-} from '../assets/icon';
+import iconFile from '../assets/icon/iconFile.png';
+import iconAudio from '../assets/icon/iconAudio.png';
+import iconVideo from '../assets/icon/iconVideo.png';
+import iconExcel from '../assets/icon/iconExcel.png';
+import iconPdf from '../assets/icon/iconPdf.png';
+import iconWord from '../assets/icon/iconWord.png';
 
 // 空函数
 export const noon = () => {};

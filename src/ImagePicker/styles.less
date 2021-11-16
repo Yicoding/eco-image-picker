@@ -1,13 +1,13 @@
-@prefix-toast-cls: ~'eco-image-picker';
+@prefix-cls: ~'eco-image-picker';
 
-.@{prefix-toast-cls}-root {
+.@{prefix-cls}-root {
   display: flex;
   flex-wrap: wrap;
   margin-left: -8px;
-  .@{prefix-toast-cls}-hidden {
+  .@{prefix-cls}-hidden {
     display: none;
   }
-  .@{prefix-toast-cls}-name {
+  .@{prefix-cls}-name {
     text-align: center;
     word-break: break-all;
     margin-bottom: 10px;
@@ -16,22 +16,22 @@
     line-height: 1.4;
     margin-top: 8px;
   }
-  .@{prefix-toast-cls}-parent {
+  .@{prefix-cls}-parent {
     overflow: hidden;
     margin: 0 0 8px 8px;
-    .@{prefix-toast-cls}-img-box {
+    .@{prefix-cls}-img-box {
       position: relative;
       overflow: hidden;
       border-radius: 5px;
       box-sizing: border-box;
-      .@{prefix-toast-cls}-img {
+      .@{prefix-cls}-img {
         display: block;
         box-sizing: border-box;
         border-radius: 5px;
         width: 100%;
         height: 100%;
       }
-      .@{prefix-toast-cls}-error-tip {
+      .@{prefix-cls}-error-tip {
         height: 100%;
         display: flex;
         justify-content: center;
@@ -43,7 +43,7 @@
         border-radius: 5px;
         padding: 0 3px;
       }
-      .@{prefix-toast-cls}-icon-remove {
+      .@{prefix-cls}-icon-remove {
         width: 20px;
         height: 20px;
         position: absolute;
@@ -53,7 +53,7 @@
         background-image: url(../assets/icon/iconRemove.png);
         background-size: 100% 100%;
       }
-      .@{prefix-toast-cls}-loading-box {
+      .@{prefix-cls}-loading-box {
         position: absolute;
         top: 0;
         right: 0;
@@ -64,7 +64,7 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        .@{prefix-toast-cls}-icon-loading {
+        .@{prefix-cls}-icon-loading {
           width: 35px;
           height: 35px;
           background-image: url(../assets/icon/iconLoading.png);
@@ -74,9 +74,9 @@
       }
     }
   }
-  .@{prefix-toast-cls}-parent-select {
+  .@{prefix-cls}-parent-select {
     margin: 0 0 8px 8px;
-    .@{prefix-toast-cls}-children-ele {
+    .@{prefix-cls}-children-ele {
       position: relative;
       border-radius: 5px;
       box-sizing: border-box;
@@ -102,15 +102,13 @@
       }
     }
   }
-  .@{prefix-toast-cls}-defaultDashed {
+  .@{prefix-cls}-defaultDashed {
     border: 1px dashed #cfcfcf;
   }
-
-  .@{prefix-toast-cls}-defaultBackGround {
+  .@{prefix-cls}-defaultBackGround {
     background: #f8f8f8;
   }
-
-  .@{prefix-toast-cls}-defaultBorder {
+  .@{prefix-cls}-defaultBorder {
     border: 1px solid #cfcfcf;
   }
 }

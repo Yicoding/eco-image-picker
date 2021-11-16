@@ -26,7 +26,7 @@ interface Size {
   default: number;
   [index: string]: number;
 }
-interface ImagePickerProps {
+interface Props {
   value?: Array<Files>; // 图片列表
   onChange?: (arr: Array<Files>) => void; // 图片列表改变
   max?: number; // 图片最大个数
@@ -51,13 +51,7 @@ interface ImagePickerProps {
   quality?: number; // 图片压缩比例
 }
 
-interface FileInfo {
-  fileName?: string;
-  fileType?: string;
-  filePath?: string;
-}
-
-const ImagePicker = forwardRef((props: ImagePickerProps, ref: any) => {
+const ImagePicker = forwardRef((props: Props, ref: any) => {
   const {
     value = [],
     onChange = noon,
@@ -67,7 +61,7 @@ const ImagePicker = forwardRef((props: ImagePickerProps, ref: any) => {
     capture,
     width = '80px',
     height = '80px',
-    config = ['defaultBorder'],
+    config = ['defaultBackGround'],
     children,
     mode = 'cover',
     size,
@@ -329,7 +323,7 @@ const ImagePicker = forwardRef((props: ImagePickerProps, ref: any) => {
         value.length > 0 &&
         value.map((item: Files, index: number) => {
           const { url, loading, name, errorTip, fileName } = item;
-          if (url || errorTip) {
+          if (url || errorTip || loading) {
             const currentArr = value.slice(0, index + 1);
             let errorNum = 0;
             for (let i = 0; i < currentArr.length; i++) {
