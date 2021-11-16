@@ -2,7 +2,6 @@ import React, { useEffect } from 'react';
 
 import Form, { Field } from 'rc-field-form';
 import { WhiteSpace, Button } from 'antd-mobile';
-// @ts-ignore
 import { ImagePicker } from 'eco-image-picker';
 
 export default () => {

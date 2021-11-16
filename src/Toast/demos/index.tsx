@@ -1,7 +1,6 @@
 import React from 'react';
 
 import { Button } from 'antd-mobile';
-// @ts-ignore
 import { Toast } from 'eco-image-picker';
 
 export default () => {

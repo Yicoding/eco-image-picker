@@ -1,21 +1,12 @@
 import React, { useEffect, useState } from 'react';
 
-// @ts-ignore
 import { ImageView } from 'eco-image-picker';
+import type { FileItem } from 'eco-image-picker';
 
 import iconEmpty from '../../assets/icon/iconEmpty.png';
 
-interface Files {
-  url: string; // 图片url
-  loading?: boolean; // 图片是否加载中
-  errorTip?: string; // 错误提示
-  name?: string; // 文件说明
-  fileName?: string; // 文件名称,包含后缀
-  [index: string]: any;
-}
-
 export default () => {
-  const [value, setValue] = useState<Array<Files>>([]);
+  const [value, setValue] = useState<FileItem[]>([]);
 
   useEffect(() => {
     setValue([

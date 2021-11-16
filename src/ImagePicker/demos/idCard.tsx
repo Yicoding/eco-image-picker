@@ -1,26 +1,18 @@
 import React, { useState } from 'react';
 
 import { Flex } from 'antd-mobile';
-// @ts-ignore
 import { ImagePicker } from 'eco-image-picker';
+import type { FileItem } from 'eco-image-picker';
+
 import s from './idCard.less';
 
 import iconIdCard from '../../assets/images/icon-idcard.png';
 import iconIdCardBack from '../../assets/images/icon-idcard-back.png';
 import iconPhoto from '../../assets/images/icon-photo.png';
 
-interface Files {
-  url: string; // 图片url
-  loading?: boolean; // 图片是否加载中
-  errorTip?: string; // 错误提示
-  name?: string; // 文件说明
-  fileName?: string; // 文件名称,包含后缀
-  [index: string]: any;
-}
-
 export default () => {
-  const [idCard, setIdCard] = useState<Array<Files>>([]);
-  const [idCardBack, setIdCardBack] = useState<Array<Files>>([]);
+  const [idCard, setIdCard] = useState<FileItem[]>([]);
+  const [idCardBack, setIdCardBack] = useState<FileItem[]>([]);
 
   // 实时上传方法
   const onUpload = (item: any): Promise<object | undefined> => {
@@ -38,13 +30,13 @@ export default () => {
   };
 
   // 人像面改变
-  const onChangeIdCard = (arr: Array<Files>) => {
+  const onChangeIdCard = (arr: FileItem[]) => {
     console.log('onChangeIdCard', arr);
     setIdCard(arr);
   };
 
   // 国徽面改变
-  const onChangeIdCardBack = (arr: Array<Files>) => {
+  const onChangeIdCardBack = (arr: FileItem[]) => {
     console.log('onChangeIdCardBack', arr);
     setIdCardBack(arr);
   };
