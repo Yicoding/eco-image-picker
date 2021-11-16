@@ -1,10 +1,10 @@
 import React, { useState, useRef, useMemo, forwardRef } from 'react';
 
-import classnames from 'classnames';
-import Compressor from 'compressorjs';
 import Toast from '../Toast';
 import WxImageViewer from 'react-wx-images-viewer';
 
+import classnames from 'classnames';
+import Compressor from 'compressorjs';
 import { noon, veryImage, judeFileTypeName, judeSiteGif } from '../utils/tools';
 
 import iconFile from '../assets/icon/iconFile.png';

@@ -1,3 +1,5 @@
-import React from 'react';
+import { FilePicker } from './file-picker';
 
-export default ({ title }: { title: string }) => <h1>{title}</h1>;
+import './styles.less';
+
+export default FilePicker;

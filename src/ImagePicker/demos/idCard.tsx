@@ -20,7 +20,7 @@ export default () => {
     return new Promise((resolve, reject) => {
       const rate = Math.random();
       setTimeout(() => {
-        if (rate > 0.8) {
+        if (rate > 0.1) {
           // 成功
           return resolve({ fssid: rate.toString().slice(-6) });
         }

@@ -1,7 +1,8 @@
 import React, { useState, useRef } from 'react';
-import classnames from 'classnames';
+
 import WxImageViewer from 'react-wx-images-viewer';
 
+import classnames from 'classnames';
 import { veryImage, judeSiteGif } from '../utils/tools';
 
 import iconEmpty from '../assets/icon/iconEmpty.png';

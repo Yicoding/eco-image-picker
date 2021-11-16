@@ -55,7 +55,7 @@ const umiConfig = {
       },
       {
         title: '扩展组件',
-        children: ['Toast'],
+        children: ['Toast', 'Modal'],
       },
     ],
   },

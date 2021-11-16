@@ -1,4 +1,4 @@
-@prefix-cls: ~'eco-toast';
+@prefix-cls: ~'eco-modal';
 
 .@{prefix-cls}-mask {
   position: fixed;
@@ -7,6 +7,7 @@
   bottom: 0;
   left: 0;
   z-index: 3000;
+  background-color: rgba(0, 0, 0, 0.7);
 }
 
 .@{prefix-cls}-root {
@@ -14,14 +15,14 @@
   position: fixed;
   top: 50%;
   left: 50%;
-  transform: translate3d(-50%, -50%, 0);
+  transform: translate(-50%, -50%);
   z-index: 13500;
   contain: content;
   will-change: transform, opacity;
-  color: #fff;
-  display: inline-block;
-  border-radius: 5px;
-  background-color: rgba(0, 0, 0, 0.7);
-  padding: 10px;
+  background-color: #fff;
+  border-radius: 10px;
   outline: none;
+  width: 90%;
+  height: auto;
+  max-height: 80%;
 }

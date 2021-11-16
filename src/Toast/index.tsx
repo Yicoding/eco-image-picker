@@ -4,7 +4,7 @@ import ReactDOM from 'react-dom';
 
 import './styles.less';
 
-const prefixCls = 'eco-taost';
+const prefixCls = 'eco-toast';
 
 const containers = [] as HTMLDivElement[];
 
@@ -43,6 +43,7 @@ const show = (config: Config) => {
   };
   ReactDOM.render(<TempToast />, container);
 };
+
 const hide = () => {
   while (true) {
     const container = containers.pop();

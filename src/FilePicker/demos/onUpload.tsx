@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-import { ImagePicker } from 'eco-image-picker';
+import { FilePicker } from 'eco-image-picker';
 import type { FileItem } from 'eco-image-picker';
 
 export default () => {
@@ -27,7 +27,7 @@ export default () => {
   };
 
   return (
-    <ImagePicker
+    <FilePicker
       value={value}
       onChange={onChange}
       multiple
