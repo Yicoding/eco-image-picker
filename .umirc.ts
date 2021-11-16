@@ -53,6 +53,10 @@ const umiConfig = {
         title: '预览',
         children: ['ImageView', 'FileView'],
       },
+      {
+        title: '扩展组件',
+        children: ['Toast'],
+      },
     ],
   },
 };

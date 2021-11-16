@@ -1,0 +1,125 @@
+@prefix-toast-cls: ~'eco-image-picker';
+
+.@{prefix-toast-cls}-root {
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: -8px;
+  .@{prefix-toast-cls}-hidden {
+    display: none;
+  }
+  .@{prefix-toast-cls}-name {
+    text-align: center;
+    word-break: break-all;
+    margin-bottom: 10px;
+    color: #999;
+    font-size: 12px;
+    line-height: 1.4;
+    margin-top: 8px;
+  }
+  .@{prefix-toast-cls}-parent {
+    overflow: hidden;
+    margin: 0 0 8px 8px;
+    .@{prefix-toast-cls}-img-box {
+      position: relative;
+      overflow: hidden;
+      border-radius: 5px;
+      box-sizing: border-box;
+      .@{prefix-toast-cls}-img {
+        display: block;
+        box-sizing: border-box;
+        border-radius: 5px;
+        width: 100%;
+        height: 100%;
+      }
+      .@{prefix-toast-cls}-error-tip {
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: #d56161;
+        font-size: 12px;
+        border: 1px solid #d56161;
+        box-sizing: border-box;
+        border-radius: 5px;
+        padding: 0 3px;
+      }
+      .@{prefix-toast-cls}-icon-remove {
+        width: 20px;
+        height: 20px;
+        position: absolute;
+        right: 0;
+        top: 0;
+        z-index: 99;
+        background-image: url(../assets/icon/iconRemove.png);
+        background-size: 100% 100%;
+      }
+      .@{prefix-toast-cls}-loading-box {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        z-index: 100;
+        background: rgba(0, 0, 0, 0.6);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        .@{prefix-toast-cls}-icon-loading {
+          width: 35px;
+          height: 35px;
+          background-image: url(../assets/icon/iconLoading.png);
+          background-size: 100% 100%;
+          animation: myRound 1s linear infinite;
+        }
+      }
+    }
+  }
+  .@{prefix-toast-cls}-parent-select {
+    margin: 0 0 8px 8px;
+    .@{prefix-toast-cls}-children-ele {
+      position: relative;
+      border-radius: 5px;
+      box-sizing: border-box;
+      &:before {
+        content: '';
+        width: 30px;
+        height: 4px;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        background: #cfcfcf;
+      }
+      &:after {
+        content: '';
+        width: 4px;
+        height: 30px;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        background: #cfcfcf;
+      }
+    }
+  }
+  .@{prefix-toast-cls}-defaultDashed {
+    border: 1px dashed #cfcfcf;
+  }
+
+  .@{prefix-toast-cls}-defaultBackGround {
+    background: #f8f8f8;
+  }
+
+  .@{prefix-toast-cls}-defaultBorder {
+    border: 1px solid #cfcfcf;
+  }
+}
+
+@keyframes myRound {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

@@ -29,7 +29,6 @@ import { ImagePicker } from 'eco-image-picker';
 
 type Files = {
   url: string, // 图片url
-  preview?: string, // 预览图
   loading?: boolean, // 图片是否加载中
   errorTip?: string, // 错误提示
   name?: string, // 文件说明
