@@ -1,3 +1,3 @@
-import React from 'react';
+import { FileView } from './file-view';
 
-export default ({ title }: { title: string }) => <h1>{title}</h1>;
+export default FileView;

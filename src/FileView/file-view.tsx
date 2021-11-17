@@ -1,14 +1,14 @@
 import React, { useState, forwardRef } from 'react';
 
-import ImagePicker from '../ImagePicker';
+import ImageView from '../ImageView';
 import FileViewer from '../FileViewer';
 import Modal from '../Modal';
 import { FileInfo, ImagePickerProps } from '../types';
 
 import { getFileExt } from '../utils/tools';
 
-export const FilePicker = forwardRef((props: ImagePickerProps, ref: any) => {
-  const { value = [], accept = '*', onFileClick, ...resProps } = props;
+export const FileView = forwardRef((props: ImagePickerProps, ref: any) => {
+  const { value = [], onFileClick, ...resProps } = props;
 
   const [visible, setVisible] = useState<boolean>(false);
   const [fileInfo, setFileInfo] = useState<FileInfo>({});
@@ -32,12 +32,7 @@ export const FilePicker = forwardRef((props: ImagePickerProps, ref: any) => {
 
   return (
     <>
-      <ImagePicker
-        value={value}
-        accept={accept}
-        onFileClick={onFileClickHandle}
-        {...resProps}
-      />
+      <ImageView value={value} onFileClick={onFileClickHandle} {...resProps} />
       <Modal
         visible={visible}
         onClose={onCancel}

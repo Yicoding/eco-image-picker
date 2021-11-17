@@ -10,13 +10,10 @@ nav:
 
 ## FileView
 
-Demo:
+## 基本用法
 
-```tsx
-import React from 'react';
-import { FileView } from 'eco-image-picker';
+<code src="./demos/base" />
 
-export default () => <FileView title="First Demo" />;
-```
+## 为空状态
 
-More skills for writing demo: https://d.umijs.org/guide/basic#write-component-demo
+<code src="./demos/empty" />

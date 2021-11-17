@@ -10,4 +10,6 @@ nav:
 
 ## FilePicker
 
+支持预览的文件：`图片`、`音频`、`视频`、`PDF`、`Word文档`
+
 <code src="./demos/onUpload" />

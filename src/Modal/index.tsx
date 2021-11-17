@@ -28,6 +28,7 @@ const Modal = (props: ModalProps) => {
       <div className={`${prefixCls}-btn-group`}>
         {footer.map((button, i) => (
           <div
+            key={i}
             className={`${prefixCls}-btn`}
             onClick={button.onPress}
             style={button.style}

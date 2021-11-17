@@ -1,5 +1,5 @@
 import React, { useState, useRef } from 'react';
-
+import { ImageViewProps, FileItem } from '../types';
 import WxImageViewer from 'react-wx-images-viewer';
 
 import classnames from 'classnames';
@@ -8,27 +8,6 @@ import { veryImage, judeSiteGif } from '../utils/tools';
 import iconEmpty from '../assets/icon/iconEmpty.png';
 
 const prefixCls = 'eco-image-view';
-
-export interface FileItem {
-  url: string; // 图片url
-  loading?: boolean; // 图片是否加载中
-  errorTip?: string; // 错误提示
-  name?: string; // 文件说明
-  fileName?: string; // 文件名称,包含后缀
-  [index: string]: any;
-}
-
-export interface ImageViewProps {
-  value?: FileItem[]; // 图片列表
-  width?: string; // 图片宽度，默认80px
-  height?: string | number; // 图片高度，默认80px
-  emptyDesc?: string; // 是否显示空状态图片
-  config?: Array<'defaultBackGround' | 'defaultDashed' | 'defaultBorder'>; // 图片的额外扩展项,defaultBackGround: 显示默认背景色, defaultDashed: 显示虚线边框, defaultBorder: 显示实线边框
-  mode?: 'fill' | 'cover' | 'contain' | 'scale-down'; // 图片裁切类型, fill, cover, contain, scale-down
-  disabledPreview?: boolean; // 是否禁用预览图片
-  onFileClick?: (index: number, item?: FileItem) => void; // 图片初始化加载方法
-  onImageClick?: (index: number, item?: FileItem) => void; // 点击单个图片
-}
 
 export const ImageView = (props: ImageViewProps) => {
   const {

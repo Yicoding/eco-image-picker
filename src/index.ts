@@ -1,6 +1,5 @@
 // 导出类型
-export type { FileItem, Size, ImagePickerProps } from './ImagePicker';
-export type { ImageViewProps } from './ImageView';
+export type { FileItem, Size, ImagePickerProps, ImageViewProps } from './types';
 
 // 上传预览组件
 export { default as ImagePicker } from './ImagePicker';
