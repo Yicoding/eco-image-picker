@@ -68,10 +68,11 @@ export default () => {
   - [ImageView] - 图片预览
   - [FileView] - 文件预览
 
-## 第三方组件
+## 第三方插件
 
 - [react-wx-images-viewer] - 移动端图片浏览 React 组件
 - [compressorjs] - JavaScript 图像压缩器
+- [mammoth] - docx 到 HTML 转换器
 
 [npm]: https://img.shields.io/npm/v/eco-image-picker.svg
 [npm-url]: https://www.npmjs.com/package/eco-image-picker
@@ -81,3 +82,4 @@ export default () => {
 [fileview]: /components/file-view
 [react-wx-images-viewer]: https://www.npmjs.com/package/react-wx-images-viewer
 [compressorjs]: https://www.npmjs.com/package/compressorjs
+[mammoth]: https://www.npmjs.com/package/mammoth
