@@ -8,7 +8,7 @@ nav:
   path: /components
 ---
 
-# Toast
+# Modal
 
 ## 示例
 

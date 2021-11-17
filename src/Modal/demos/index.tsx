@@ -13,7 +13,9 @@ export default () => {
       <Button inline type="primary" onClick={onClose}>
         open
       </Button>
-      <Modal visible={visible}>modal</Modal>
+      <Modal visible={visible} footer={[{ text: '关闭', onPress: onClose }]}>
+        modal
+      </Modal>
     </div>
   );
 };

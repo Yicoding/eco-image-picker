@@ -2,6 +2,7 @@ import React, { useState, forwardRef } from 'react';
 
 import ImagePicker from '../ImagePicker';
 import Toast from '../Toast';
+import Modal from '../Modal';
 import type { ImagePickerProps, FileItem } from '../ImagePicker';
 
 import classnames from 'classnames';
@@ -46,11 +47,43 @@ export const FilePicker = forwardRef((props: ImagePickerProps, ref: any) => {
   };
 
   return (
-    <ImagePicker
-      value={value}
-      accept={accept}
-      onFileClick={onFileClickHandle}
-      {...resProps}
-    />
+    <>
+      <ImagePicker
+        value={value}
+        accept={accept}
+        onFileClick={onFileClickHandle}
+        {...resProps}
+      />
+      <Modal
+        visible={visible}
+        onClose={onCancel}
+        footer={[{ text: '关闭', onPress: onCancel }]}
+      >
+        <div>
+          {veryAudio(fileInfo?.fileName) ? (
+            <audio controls autoPlay>
+              <source
+                src={fileInfo?.filePath}
+                type={`audio/${fileInfo?.fileType}`}
+              />
+            </audio>
+          ) : veryVideo(fileInfo?.fileName) ? (
+            <video
+              height="240"
+              style={{ width: '100%' }}
+              controls
+              autoPlay
+              webkit-playsinline
+              playsInline
+            >
+              <source
+                src={fileInfo?.filePath}
+                type={`video/${fileInfo?.fileType}`}
+              />
+            </video>
+          ) : null}
+        </div>
+      </Modal>
+    </>
   );
 });

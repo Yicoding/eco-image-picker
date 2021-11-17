@@ -16,7 +16,7 @@ function unmount(container: HTMLDivElement) {
 }
 
 type Config = {
-  text: string | React.ReactDOM;
+  text: string | React.ReactNode;
   duration?: number;
   mask?: boolean;
 };
@@ -54,7 +54,7 @@ const hide = () => {
 
 interface Props {
   visible?: boolean;
-  text?: string | React.ReactDOM;
+  text?: string | React.ReactNode;
   mask?: boolean;
 }
 
