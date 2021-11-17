@@ -62,10 +62,11 @@ export default () => {
   - [ImageView] - 图片预览
   - [FileView] - 文件预览
 
-## 第三方组件
+## 第三方插件
 
 - [react-wx-images-viewer] - 移动端图片浏览 React 组件
 - [compressorjs] - JavaScript 图像压缩器
+- [mammoth] - docx 到 HTML 转换器
 
 ## 贡献
 
@@ -125,5 +126,6 @@ npm run commit
 [fileview]: /components/file-view
 [react-wx-images-viewer]: https://www.npmjs.com/package/react-wx-images-viewer
 [compressorjs]: https://www.npmjs.com/package/compressorjs
+[mammoth]: https://www.npmjs.com/package/mammoth
 [what is commitlint]: https://github.com/conventional-changelog/commitlint#what-is-commitlint
 [site]: https://yicoding.github.io/eco-image-picker
