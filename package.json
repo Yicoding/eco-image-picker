@@ -1,10 +1,10 @@
 {
   "name": "eco-image-picker",
   "version": "2.0.0",
+  "description": "基于react的移动端图片/文件上传组件",
   "branch": "master",
   "main": "lib/index.js",
   "module": "es/index.js",
-  "description": "基于react的移动端图片/文件上传组件",
   "scripts": {
     "start": "dumi dev",
     "build": "father-build",
@@ -13,8 +13,7 @@
     "prettier": "prettier --write \"**/*.{js,jsx,tsx,ts,less,md,json}\"",
     "test": "umi-test",
     "test:coverage": "umi-test --coverage",
-    "commit": "cz",
-    "push": "git push"
+    "commit": "cz"
   },
   "files": [
     "es",
