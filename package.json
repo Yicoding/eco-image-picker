@@ -13,6 +13,7 @@
     "start": "dumi dev",
     "build": "father-build",
     "docs": "dumi build",
+    "analyze": "ANALYZE=1 umi build",
     "release": "npm run build && npm publish",
     "prettier": "prettier --write \"**/*.{js,jsx,tsx,ts,less,md,json}\"",
     "test": "umi-test",
@@ -64,6 +65,7 @@
     "lint-staged": "^10.0.7",
     "prettier": "^2.2.1",
     "rc-field-form": "^1.22.0",
+    "umi-webpack-bundle-analyzer": "^4.4.2",
     "yorkie": "^2.0.0"
   }
 }

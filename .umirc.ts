@@ -21,6 +21,7 @@ const umiConfig = {
   history: {
     type: 'hash',
   },
+  dynamicImport: {},
   hash: true,
   // more config: https://d.umijs.org/config
   extraBabelPlugins: [['import', { libraryName: 'antd-mobile', style: true }]],
@@ -31,6 +32,17 @@ const umiConfig = {
   nodeModulesTransform: {
     type: 'none',
     exclude: [],
+  },
+  // 配置具体含义见：https://github.com/umijs/umi-webpack-bundle-analyzer#options-for-plugin
+  analyze: {
+    analyzerMode: 'server',
+    analyzerPort: 8888,
+    openAnalyzer: true,
+    // generate stats file while ANALYZE_DUMP exist
+    generateStatsFile: false,
+    statsFilename: 'stats.json',
+    logLevel: 'info',
+    defaultSizes: 'parsed', // stat  // gzip
   },
   navs: [
     null, // null 值代表保留约定式生成的导航，只做增量配置

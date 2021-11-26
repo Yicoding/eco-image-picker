@@ -11,7 +11,7 @@ nav:
 # 快速上手
 
 [![npm][npm]][npm-url]
-![GitHub](https://shopmushi.com/configFile/assets/mit.svg)
+![GitHub](@/assets/svg/mit.svg)
 
 ## 使用
 
