@@ -7,7 +7,7 @@ export default {
     type: 'babel',
     lazy: true,
   },
-  cssModules: true,
+  // cssModules: true,
   lessInBabelMode: true,
   runtimeHelpers: true,
   extraBabelPlugins: [['import', { libraryName: 'antd-mobile', style: true }]],

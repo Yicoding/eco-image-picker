@@ -13,7 +13,7 @@ import {
 } from '../utils/tools';
 import { iconEmpty } from '../assets/icon';
 
-import s from './styles.less';
+import s from './styles.module.less';
 
 const noon = () => {};
 

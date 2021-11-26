@@ -5295,7 +5295,7 @@ fastq@^1.6.0:
   dependencies:
     reusify "^1.0.4"
 
-father-build@^1.17.2:
+father-build@^1.20.4:
   version "1.20.4"
   resolved "https://registry.npmjs.org/father-build/-/father-build-1.20.4.tgz#f61dda79076a1cf2ef5bdd9ca59dc549d91290ec"
   integrity sha512-TearRNSWBjTwXk/f+CD2GwpuUJoZyO/RH5MoTzXNUaQHupxmpegLDWUVx4Qz6U8ndedjP2cN2/fVmNsQ16QQZg==

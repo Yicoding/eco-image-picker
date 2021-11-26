@@ -15,7 +15,7 @@ import {
 } from '../utils/tools';
 import { iconFile } from '../assets/icon';
 
-import s from './styles.less';
+import s from './styles.module.less';
 
 const noon = () => {};
 
@@ -111,18 +111,6 @@ const ImagePicker = forwardRef((props: ImagePickerProps, ref: any) => {
     }
   });
 
-  // 有效个数
-  const validLength = useMemo(() => {
-    let num = 0;
-    for (let i = 0; i < value.length; i++) {
-      const { url, errorTip } = value[i];
-      if (url || errorTip) {
-        num++;
-      }
-    }
-    return num;
-  }, [value]);
-
   // 关闭图片预览
   const onClose = () => setOpen((val) => !val);
   const onCancel = () => setVisible((val) => !val);
@@ -205,7 +193,6 @@ const ImagePicker = forwardRef((props: ImagePickerProps, ref: any) => {
           reject(`Fail to get the ${index} image`);
           return;
         }
-        console.log('validLength + index', validLength + index, value);
         resolve(
           Object.assign({}, value[validLength + index], {
             file: data,
@@ -226,7 +213,7 @@ const ImagePicker = forwardRef((props: ImagePickerProps, ref: any) => {
       return (fileSelectorEl.value = '');
     }
     console.log('files', files);
-    const restNum = max - (replace ? 0 : validLength);
+    const restNum = max - (replace ? 0 : value.length);
     if (files.length > (replace ? max : restNum)) {
       Toast.info(`文件最多不超过${max}张`);
     }
@@ -237,7 +224,7 @@ const ImagePicker = forwardRef((props: ImagePickerProps, ref: any) => {
     setTemporaryArray(temporaryCopyArray);
     const imageParsePromiseList = [];
     for (let i = 0; i < restFileList.length; i++) {
-      imageParsePromiseList.push(parseFile(restFileList[i], i, validLength));
+      imageParsePromiseList.push(parseFile(restFileList[i], i, value.length));
     }
     refFilesList.current = refFilesList.current.filter(
       (item) => item.url || item.errorTip,
@@ -474,7 +461,7 @@ const ImagePicker = forwardRef((props: ImagePickerProps, ref: any) => {
             </div>
           );
         })}
-      {validLength < max && (
+      {value.length < max && (
         <div className={s.parentSelect} style={{ width }} onClick={inputClick}>
           {children ? (
             children
