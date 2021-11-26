@@ -1,0 +1,1 @@
+.eco-toast-mask{position:fixed;top:0;right:0;bottom:0;left:0;z-index:3000}.eco-toast-root{box-sizing:border-box;position:fixed;top:50%;left:50%;transform:translate3d(-50%,-50%,0);z-index:13500;contain:content;will-change:transform,opacity;color:#fff;display:inline-block;border-radius:5px;background-color:rgba(0,0,0,.7);padding:10px;outline:none}
