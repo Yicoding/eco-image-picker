@@ -17,7 +17,7 @@ export default () => {
     return new Promise((resolve, reject) => {
       const rate = Math.random();
       setTimeout(() => {
-        if (rate > 0.1) {
+        if (rate > 0.01) {
           // 成功
           return resolve({ fssid: rate.toString().slice(-6) });
         }
@@ -31,7 +31,7 @@ export default () => {
       value={value}
       onChange={onChange}
       multiple
-      max={10}
+      max={30}
       mode="cover"
       onUpload={onUpload}
     />

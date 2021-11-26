@@ -54,18 +54,6 @@ export const ImagePicker = forwardRef((props: ImagePickerProps, ref: any) => {
     }
   });
 
-  // 有效个数
-  const validLength = useMemo(() => {
-    let num = 0;
-    for (let i = 0; i < value.length; i++) {
-      const { url, errorTip } = value[i];
-      if (url || errorTip) {
-        num++;
-      }
-    }
-    return num;
-  }, [value]);
-
   // 关闭图片预览
   const onClose = () => setOpen((val) => !val);
 
@@ -92,22 +80,32 @@ export const ImagePicker = forwardRef((props: ImagePickerProps, ref: any) => {
       console.log('compress after', data);
     }
     return new Promise((resolve, reject) => {
-      const reader = new FileReader();
-      reader.readAsDataURL(data);
-      reader.onload = (e) => {
-        const dataURL = (e.target as any).result;
-        if (!dataURL) {
-          reject(`Fail to get the ${index} image`);
-          return;
-        }
+      if (veryImage(file?.name)) {
+        const reader = new FileReader();
+        reader.readAsDataURL(data);
+        reader.onload = (e) => {
+          const dataURL = (e.target as any).result;
+          if (!dataURL) {
+            reject(`Fail to get the ${index} image`);
+            return;
+          }
+          resolve(
+            Object.assign({}, value[validLength + index], {
+              file: data,
+              url: dataURL,
+              fileName: file?.name,
+            }),
+          );
+        };
+      } else {
         resolve(
           Object.assign({}, value[validLength + index], {
             file: data,
-            url: dataURL,
+            url: judeSiteGif(file?.name, ''),
             fileName: file?.name,
           }),
         );
-      };
+      }
     });
   };
 
@@ -119,7 +117,7 @@ export const ImagePicker = forwardRef((props: ImagePickerProps, ref: any) => {
       return (fileSelectorEl.value = '');
     }
     console.log('files', files);
-    const restNum = max - (replace ? 0 : validLength);
+    const restNum = max - (replace ? 0 : value.length);
     if (files.length > (replace ? max : restNum)) {
       Toast.show({ text: `文件最多不超过${max}张` });
     }
@@ -130,7 +128,7 @@ export const ImagePicker = forwardRef((props: ImagePickerProps, ref: any) => {
     setTemporaryArray(temporaryCopyArray);
     const imageParsePromiseList = [];
     for (let i = 0; i < restFileList.length; i++) {
-      imageParsePromiseList.push(parseFile(restFileList[i], i, validLength));
+      imageParsePromiseList.push(parseFile(restFileList[i], i, value.length));
     }
     refFilesList.current = refFilesList.current.filter(
       (item) => item.url || item.errorTip,
@@ -314,7 +312,7 @@ export const ImagePicker = forwardRef((props: ImagePickerProps, ref: any) => {
                     <img
                       alt=""
                       className={`${prefixCls}-img`}
-                      src={judeSiteGif(fileName, url)}
+                      src={url}
                       style={{ objectFit: mode }}
                       onClick={() => onPreview(currentIndex, index)}
                     />
@@ -370,7 +368,7 @@ export const ImagePicker = forwardRef((props: ImagePickerProps, ref: any) => {
             </div>
           );
         })}
-      {validLength + temporaryArray?.length < max && (
+      {value.length + temporaryArray?.length < max && (
         <div
           className={`${prefixCls}-parent-select`}
           style={{ width }}

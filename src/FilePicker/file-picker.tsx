@@ -22,17 +22,20 @@ export const FilePicker = forwardRef((props: ImagePickerProps, ref: any) => {
     // 处理文件预览
     const fileName = value[index].fileName;
     const fileType = getFileExt(fileName);
+    const url = URL.createObjectURL(value[index]?.file);
     setFileInfo({
       fileName,
       fileType,
-      filePath: value[index]?.url,
+      filePath: url,
     });
     onCancel();
+    setTimeout(() => URL.revokeObjectURL(url), 10);
   };
 
   return (
     <>
       <ImagePicker
+        ref={ref}
         value={value}
         accept={accept}
         onFileClick={onFileClickHandle}

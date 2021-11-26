@@ -17,3 +17,7 @@ nav:
 ## 为空状态
 
 <code src="./demos/empty" />
+
+## API
+
+- 同 ImageView

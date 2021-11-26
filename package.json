@@ -1,6 +1,6 @@
 {
   "name": "eco-image-picker",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "description": "基于react的移动端图片/文件上传组件",
   "branch": "master",
   "main": "lib/index.js",
@@ -62,6 +62,7 @@
     "cz-conventional-changelog": "^3.3.0",
     "dumi": "^1.0.17",
     "father-build": "^1.17.2",
+    "file-loader": "^6.2.0",
     "lint-staged": "^10.0.7",
     "prettier": "^2.2.1",
     "rc-field-form": "^1.22.0",

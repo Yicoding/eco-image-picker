@@ -78,22 +78,37 @@ const umiConfig = {
   },
 };
 
+function addLoader(config) {
+  config.module
+    .rule('pdf')
+    .test(/\.(pdf)$/)
+    .use('file-loader')
+    .loader(require.resolve('file-loader'));
+  config.module
+    .rule('docx')
+    .test(/\.(docx|doc)$/)
+    .use('file-loader')
+    .loader(require.resolve('file-loader'));
+  config.module
+    .rule('media')
+    .test(/\.(mp3|wav|ogg|mp4|webm|ogg)$/)
+    .use('file-loader')
+    .loader(require.resolve('file-loader'));
+  config.module
+    .rule('xlsx')
+    .test(/\.(xlsx)$/)
+    .use('file-loader')
+    .loader(require.resolve('file-loader'));
+}
+
+umiConfig.chainWebpack = function (config, { webpack }) {
+  addLoader(config);
+};
+
 if (process.env.NODE_ENV === 'production') {
-  umiConfig.headScripts = [
-    {
-      src: 'https://www.googletagmanager.com/gtag/js?id=G-N328Y9JJTL',
-      async: true,
-    },
-    {
-      content: `window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'G-N328Y9JJTL');
-      `,
-    },
-  ];
   umiConfig.chunks = ['vendors', 'umi'];
   umiConfig.chainWebpack = function (config, { webpack }) {
+    addLoader(config);
     config.merge({
       optimization: {
         minimize: true,

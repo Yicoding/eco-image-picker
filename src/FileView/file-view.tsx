@@ -1,4 +1,4 @@
-import React, { useState, forwardRef } from 'react';
+import React, { useState } from 'react';
 
 import ImageView from '../ImageView';
 import FileViewer from '../FileViewer';
@@ -7,7 +7,7 @@ import { FileInfo, ImagePickerProps } from '../types';
 
 import { getFileExt } from '../utils/tools';
 
-export const FileView = forwardRef((props: ImagePickerProps, ref: any) => {
+export const FileView = (props: ImagePickerProps) => {
   const { value = [], onFileClick, ...resProps } = props;
 
   const [visible, setVisible] = useState<boolean>(false);
@@ -22,12 +22,14 @@ export const FileView = forwardRef((props: ImagePickerProps, ref: any) => {
     // 处理文件预览
     const fileName = value[index].fileName;
     const fileType = getFileExt(fileName);
+    const url = URL.createObjectURL(value[index]?.file);
     setFileInfo({
       fileName,
       fileType,
-      filePath: value[index]?.url,
+      filePath: url,
     });
     onCancel();
+    setTimeout(() => URL.revokeObjectURL(url), 10);
   };
 
   return (
@@ -42,4 +44,4 @@ export const FileView = forwardRef((props: ImagePickerProps, ref: any) => {
       </Modal>
     </>
   );
-});
+};
