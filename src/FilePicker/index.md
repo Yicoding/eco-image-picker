@@ -12,7 +12,13 @@ nav:
 
 支持预览的文件：`图片`、`音频`、`视频`、`PDF`、`Word文档`
 
+## 基础
+
 <code src="./demos/onUpload" />
+
+## 控制文件大小
+
+<code src="./demos/size" />
 
 ## API
 

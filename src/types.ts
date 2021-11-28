@@ -34,7 +34,6 @@ export interface ImagePickerProps {
   children?: React.ReactNode; // 选择图片元素，默认为+
   mode?: 'fill' | 'cover' | 'contain' | 'scale-down'; // 图片裁切类型, fill, cover, contain, scale-down
   size?: number | Size; // 图片大小限制，单位: M
-  sizeType?: 'file' | 'base64'; // 图片大小限制的类型，file大小或者base64大小
   onFail?: (e: any) => void; // 图片选择失败回调
   disabledSelect?: boolean; // 是否禁止选择图片
   disabledPreview?: boolean; // 是否禁用预览图片

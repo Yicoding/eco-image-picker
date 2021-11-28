@@ -26,7 +26,6 @@ export const ImagePicker = forwardRef((props: ImagePickerProps, ref: any) => {
     children,
     mode = 'cover',
     size,
-    sizeType = 'file',
     disabledPreview,
     disabledSelect,
     onUpload,
@@ -154,17 +153,7 @@ export const ImagePicker = forwardRef((props: ImagePickerProps, ref: any) => {
                 sizeNum = size[fileType];
               }
             }
-            if (sizeType === 'file' && item.file.size > sizeNum * 1024 * 1024) {
-              Toast.show({
-                text: `${judeFileTypeName(
-                  item.file?.type,
-                )}大小不能超过${sizeNum}M`,
-              });
-              return false;
-            } else if (
-              sizeType === 'base64' &&
-              item?.url?.length > sizeNum * 1024 * 1024
-            ) {
+            if (item.file.size > sizeNum * 1024 * 1024) {
               Toast.show({
                 text: `${judeFileTypeName(
                   item.file?.type,
