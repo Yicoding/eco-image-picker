@@ -23,12 +23,8 @@ interface Files {
 }
 
 export default () => {
-  const [idCard, setIdCard] = useState<Array<Files>>([
-    { name: '人像', url: '' },
-  ]);
-  const [idCardBack, setIdCardBack] = useState<Array<Files>>([
-    { name: '国徽', url: '' },
-  ]);
+  const [idCard, setIdCard] = useState<Array<Files>>([]);
+  const [idCardBack, setIdCardBack] = useState<Array<Files>>([]);
 
   // 实时上传方法
   const onUpload = (item: any): Promise<object | undefined> => {
@@ -48,19 +44,11 @@ export default () => {
   // 人像面改变
   const onChangeIdCard = (arr: Array<Files>) => {
     console.log('onChangeIdCard', arr);
-    if (arr.length === 0) {
-      arr.push({ name: '人像', url: '' });
-      return setIdCard(arr);
-    }
     setIdCard(arr);
   };
 
   // 国徽面改变
   const onChangeIdCardBack = (arr: Array<Files>) => {
-    if (arr.length === 0) {
-      arr.push({ name: '国徽', url: '' });
-      return setIdCardBack(arr);
-    }
     setIdCardBack(arr);
   };
 
@@ -74,7 +62,6 @@ export default () => {
           width="100%"
           height="90px"
           onUpload={onUpload}
-          replace
         >
           <Flex className={s.children} justify="center">
             <img className={s.img} alt="" src={iconIdCard} />
@@ -90,7 +77,6 @@ export default () => {
           width="100%"
           height="90px"
           onUpload={onUpload}
-          replace
         >
           <Flex className={s.children} justify="center">
             <img className={s.img} alt="" src={iconIdCardBack} />
