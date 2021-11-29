@@ -38,7 +38,7 @@ interface ImagePickerProps {
   max?: number; // 图片最大个数
   onChange?: (arr: Array<Files>) => void; // 图片列表改变
   onUpload?: (file: any) => Promise<object | undefined>; // 图片上传方法
-  onInit?: (index: number) => Promise<object | undefined>; // 图片初始化加载方法
+  onInit?: (item: Files) => Promise<object | undefined>; // 图片初始化加载方法
   onFileClick?: (index: number, item?: Files) => void; // 点击单个文件
   accept?: string; // 选择的图片类型
   multiple?: boolean; // 是否多选
@@ -115,48 +115,41 @@ const ImagePicker = forwardRef((props: ImagePickerProps, ref: any) => {
   const onClose = () => setOpen((val) => !val);
   const onCancel = () => setVisible((val) => !val);
 
-  // 初始化
-  const init = (index: number) => {
-    if (onInit) {
-      onInit(index)
-        .then((res: any) => {
-          refFilesList.current[index] = Object.assign(
-            {},
-            refFilesList.current[index],
-            res,
-            { loading: false },
-          );
-          refFilesList.current = [...refFilesList.current];
-          setTimeout(() => onChange(refFilesList.current), 10);
-        })
-        .catch((err) => {
-          refFilesList.current[index] = Object.assign(
-            {},
-            refFilesList.current[index],
-            {
-              url: '',
-              loading: false,
-              errorTip: err || '加载失败',
-            },
-          );
-          refFilesList.current = [...refFilesList.current];
-          setTimeout(() => onChange(refFilesList.current), 10);
-        });
-    }
-  };
-
   // 处理初始化加载
   useEffect(() => {
     // 处理初始化加载
     if (typeof onInit === 'function') {
+      refFilesList.current.forEach((item) => {
+        item.loading = true;
+        item.isInit = true;
+      });
+      refFilesList.current = [...refFilesList.current];
+      onChange(refFilesList.current);
       for (let i = 0; i < refFilesList.current.length; i++) {
-        refFilesList.current.forEach((item: Files) => {
-          item.loading = true;
-          item.isInit = true;
-        });
-        refFilesList.current = [...refFilesList.current];
-        onChange(refFilesList.current);
-        init(i);
+        onInit(refFilesList.current[i])
+          .then((res: any) => {
+            refFilesList.current[i] = Object.assign(
+              {},
+              refFilesList.current[i],
+              res,
+              { loading: false },
+            );
+            refFilesList.current = [...refFilesList.current];
+            setTimeout(() => onChange(refFilesList.current), 10);
+          })
+          .catch((err) => {
+            refFilesList.current[i] = Object.assign(
+              {},
+              refFilesList.current[i],
+              {
+                url: '',
+                loading: false,
+                errorTip: err || '加载失败',
+              },
+            );
+            refFilesList.current = [...refFilesList.current];
+            setTimeout(() => onChange(refFilesList.current), 10);
+          });
       }
     }
   }, []);
