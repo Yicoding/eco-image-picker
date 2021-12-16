@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
 import { noon } from '../utils/tools';
 
@@ -20,6 +20,14 @@ export interface ModalProps {
 
 const Modal = (props: ModalProps) => {
   const { visible = false, children, footer = [], onClose = noon } = props;
+
+  useEffect(() => {
+    if (visible) {
+      document.body.classList.add('fixed-body');
+    } else {
+      document.body.classList.remove('fixed-body');
+    }
+  }, [visible]);
 
   if (!visible) return null;
 

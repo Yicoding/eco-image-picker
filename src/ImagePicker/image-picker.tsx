@@ -2,7 +2,7 @@ import React, { useState, useRef, useMemo, forwardRef } from 'react';
 import { ImagePickerProps, FileItem } from '../types';
 
 import Toast from '../Toast';
-import WxImageViewer from 'react-wx-images-viewer';
+import WxImageViewer from '../WxImageViewer';
 
 import classnames from 'classnames';
 import Compressor from 'compressorjs';

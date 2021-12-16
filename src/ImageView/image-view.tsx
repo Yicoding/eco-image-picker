@@ -1,6 +1,6 @@
 import React, { useState, useRef } from 'react';
 import { ImageViewProps, FileItem } from '../types';
-import WxImageViewer from 'react-wx-images-viewer';
+import WxImageViewer from '../WxImageViewer';
 
 import classnames from 'classnames';
 import { veryImage, judeSiteGif } from '../utils/tools';

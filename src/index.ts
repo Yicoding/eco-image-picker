@@ -1,3 +1,4 @@
+import './common.less';
 // 导出类型
 export type { FileItem, Size, ImagePickerProps, ImageViewProps } from './types';
 
