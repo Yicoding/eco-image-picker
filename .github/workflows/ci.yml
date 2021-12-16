@@ -13,6 +13,7 @@ on:
       - .umirc.js
       - tsconfig.json
       - package.json
+      - .github/workflows/*
 
 jobs:
   build-and-deploy:
