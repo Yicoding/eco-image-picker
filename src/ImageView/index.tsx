@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef, forwardRef } from 'react';
 import { Modal } from 'antd-mobile';
 import classnames from 'classnames';
 import FileViewer from 'react-file-viewer';
-import WxImageViewer from 'react-wx-images-viewer';
+import WxImageViewer from '../WxImageViewer';
 
 import {
   veryImage,

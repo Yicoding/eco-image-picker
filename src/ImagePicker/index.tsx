@@ -3,7 +3,7 @@ import { Toast, Modal } from 'antd-mobile';
 import classnames from 'classnames';
 import Compressor from 'compressorjs';
 import FileViewer from 'react-file-viewer';
-import WxImageViewer from 'react-wx-images-viewer';
+import WxImageViewer from '../WxImageViewer';
 
 import {
   veryImage,
