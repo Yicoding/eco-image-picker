@@ -11,13 +11,9 @@
 
 ### npm 或 yarn 安装
 
-```shell
+```bash
 npm install eco-image-picker
-```
-
-<br />
-
-```shell
+# or
 yarn add eco-image-picker
 ```
 
