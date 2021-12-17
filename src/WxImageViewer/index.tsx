@@ -3,6 +3,8 @@ import React, { useEffect } from 'react';
 import WxImageViewer from 'react-wx-images-viewer';
 import { noon } from '../utils/tools';
 
+import '../common.less';
+
 type Props = {
   onClose?: () => void;
   index?: number;

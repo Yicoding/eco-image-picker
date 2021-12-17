@@ -1,6 +1,6 @@
 {
   "name": "eco-image-picker",
-  "version": "2.0.5",
+  "version": "2.0.6",
   "description": "基于react的移动端图片/文件上传组件",
   "branch": "master",
   "main": "lib/index.js",

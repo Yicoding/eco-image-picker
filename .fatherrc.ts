@@ -10,5 +10,4 @@ export default {
   // cssModules: true,
   // lessInBabelMode: true,
   runtimeHelpers: true,
-  extraBabelPlugins: [['import', { libraryName: 'antd-mobile', style: true }]],
 };

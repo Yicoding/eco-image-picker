@@ -3,7 +3,7 @@
 [![npm][npm]][npm-url]
 ![GitHub](https://shopmushi.com/configFile/assets/mit.svg)
 
-基于`react`的移动端图片上传组件
+基于 `react` 扩展的移动端图片/文件上传组件
 
 [查看文档和示例][site]
 
