@@ -2,6 +2,8 @@ import React, { useEffect } from 'react';
 
 import WxImageViewer from 'react-wx-images-viewer';
 
+import '../common.module.less';
+
 const noon = () => {};
 
 type Props = {
