@@ -2,7 +2,7 @@ import React, { useState, useRef, useMemo, forwardRef } from 'react';
 import { ImagePickerProps, FileItem } from '../types';
 
 import Toast from '../Toast';
-import WxImageViewer from '../WxImageViewer';
+import ImageViewer from 'eco-react-image-viewer';
 
 import classnames from 'classnames';
 import Compressor from 'compressorjs';
@@ -48,7 +48,7 @@ export const ImagePicker = forwardRef((props: ImagePickerProps, ref: any) => {
   refFilesList.current = value;
   const urlList: string[] = [];
   refFilesList.current.forEach((item: FileItem) => {
-    if (item?.url && veryImage(item?.fileName)) {
+    if (item?.url && !item.loading && veryImage(item?.fileName)) {
       urlList.push(item.url);
     }
   });
@@ -377,9 +377,13 @@ export const ImagePicker = forwardRef((props: ImagePickerProps, ref: any) => {
           )}
         </div>
       )}
-      {isOpen && (
-        <WxImageViewer onClose={onClose} index={photoIndex} urls={urlList} />
-      )}
+      <ImageViewer
+        visible={isOpen}
+        urls={urlList}
+        onClose={onClose}
+        index={photoIndex}
+        onIndexChange={setPhotoIndex}
+      />
     </div>
   );
 });

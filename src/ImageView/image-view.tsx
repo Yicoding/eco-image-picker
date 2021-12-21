@@ -1,6 +1,6 @@
 import React, { useState, useRef } from 'react';
 import { ImageViewProps, FileItem } from '../types';
-import WxImageViewer from '../WxImageViewer';
+import ImageViewer from 'eco-react-image-viewer';
 
 import classnames from 'classnames';
 import { veryImage, judeSiteGif } from '../utils/tools';
@@ -31,7 +31,7 @@ export const ImageView = (props: ImageViewProps) => {
   refFilesList.current = value;
   const urlList: string[] = [];
   refFilesList.current.forEach((item: FileItem) => {
-    if (item.url && veryImage(item?.fileName)) {
+    if (item?.url && !item.loading && veryImage(item?.fileName)) {
       urlList.push(item.url);
     }
   });
@@ -124,9 +124,13 @@ export const ImageView = (props: ImageViewProps) => {
           <span className={`${prefixCls}-empty-desc`}>{emptyDesc}</span>
         </div>
       ) : null}
-      {isOpen && (
-        <WxImageViewer onClose={onClose} index={photoIndex} urls={urlList} />
-      )}
+      <ImageViewer
+        visible={isOpen}
+        urls={urlList}
+        onClose={onClose}
+        index={photoIndex}
+        onIndexChange={setPhotoIndex}
+      />
     </div>
   );
 };

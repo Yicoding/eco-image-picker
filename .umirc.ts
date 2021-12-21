@@ -1,11 +1,6 @@
 import { defineConfig } from 'dumi';
 
-const pkg = require('./package.json');
-
-const publicPath =
-  process.env.NODE_ENV === 'production'
-    ? `https://yicoding.github.io/eco-image-picker/refs/heads/${pkg.branch}/`
-    : '/';
+const publicPath = process.env.NODE_ENV === 'production' ? './' : '/';
 
 const umiConfig = {
   title: 'eco-image-picker',
