@@ -56,7 +56,7 @@ const umiConfig = {
         children: ['ImagePicker', 'FilePicker'],
       },
       {
-        title: '预览',
+        title: '展示',
         children: ['ImageView', 'FileView'],
       },
       {

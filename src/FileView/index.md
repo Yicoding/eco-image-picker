@@ -1,5 +1,5 @@
 ---
-title: FileView - 文件预览
+title: FileView - 文件展示
 order: 1
 group:
   path: /
@@ -8,7 +8,7 @@ nav:
   path: /components
 ---
 
-## FileView
+## FileView 文件展示
 
 ## 基本用法
 

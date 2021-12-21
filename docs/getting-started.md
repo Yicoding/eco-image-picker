@@ -60,9 +60,9 @@ export default () => {
 - **上传**
   - [ImagePicker] - 图片上传
   - [FilePicker] - 文件上传
-- **预览**
-  - [ImageView] - 图片预览
-  - [FileView] - 文件预览
+- **展示**
+  - [ImageView] - 图片展示
+  - [FileView] - 文件展示
 
 ## 第三方插件
 

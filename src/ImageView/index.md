@@ -1,5 +1,5 @@
 ---
-title: ImageView - 图片预览
+title: ImageView - 图片展示
 order: 0
 group:
   path: /
@@ -8,7 +8,7 @@ nav:
   path: /components
 ---
 
-# ImageView 图片预览
+# ImageView 图片展示
 
 ## 基本用法
 
