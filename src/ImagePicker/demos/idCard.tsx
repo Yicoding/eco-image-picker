@@ -6,9 +6,9 @@ import type { FileItem } from 'eco-image-picker';
 
 import s from './idCard.less';
 
-import iconIdCard from '../../assets/images/icon-idcard.png';
-import iconIdCardBack from '../../assets/images/icon-idcard-back.png';
-import iconPhoto from '../../assets/images/icon-photo.png';
+import iconIdCard from '../../fixtures/images/icon-idcard.png';
+import iconIdCardBack from '../../fixtures/images/icon-idcard-back.png';
+import iconPhoto from '../../fixtures/images/icon-photo.png';
 
 export default () => {
   const [idCard, setIdCard] = useState<FileItem[]>([]);

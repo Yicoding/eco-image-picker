@@ -11,7 +11,7 @@ nav:
 # 快速上手
 
 [![npm][npm]][npm-url]
-![GitHub](@/assets/svg/mit.svg)
+![GitHub](@/fixtures/svg/mit.svg)
 
 ## 使用
 

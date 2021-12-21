@@ -4,11 +4,11 @@ import { FileView } from 'eco-image-picker';
 import type { FileItem } from 'eco-image-picker';
 
 import iconEmpty from '../../assets/icon/iconEmpty.png';
-import filePdf from '../../assets/file/1.pdf';
-import fileWord from '../../assets/file/1.docx';
-import fileAudio from '../../assets/file/1.mp3';
-import fileVideo from '../../assets/file/1.mp4';
-import fileExcel from '../../assets/file/1.xlsx';
+import filePdf from '../../fixtures/file/1.pdf';
+import fileWord from '../../fixtures/file/1.docx';
+import fileAudio from '../../fixtures/file/1.mp3';
+import fileVideo from '../../fixtures/file/1.mp4';
+import fileExcel from '../../fixtures/file/1.xlsx';
 
 export default () => {
   const [value, setValue] = useState<FileItem[]>([]);
