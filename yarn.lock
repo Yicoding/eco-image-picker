@@ -4878,10 +4878,10 @@ ecc-jsbn@~0.1.1:
     jsbn "~0.1.0"
     safer-buffer "^2.1.0"
 
-eco-react-image-viewer@^0.0.9:
-  version "0.0.9"
-  resolved "https://registry.npmjs.org/eco-react-image-viewer/-/eco-react-image-viewer-0.0.9.tgz#237a3852fe4e72db75f88f261e6d7aa2f3897207"
-  integrity sha512-2Cfd7ef83oFORt/OsdmFNIt+Piv4ylyKeOCPjY6kK4TBzEYaA4HPSLBj3itJ02xRuFssmADEGBNWzHyV3Wa2rQ==
+eco-react-image-viewer@^0.0.10:
+  version "0.0.10"
+  resolved "https://registry.npmjs.org/eco-react-image-viewer/-/eco-react-image-viewer-0.0.10.tgz#b32c7f5a2c4030abcb855f8db9496b8fdde50aec"
+  integrity sha512-X+rVjGk29mHiwItAOjSeXQoxriwvlHOD6t6Zl0Jz44+ulG523TvqrHcKjSMwBTCvEa4shCs4J+IVqmEsK08DLw==
   dependencies:
     "@babel/runtime" "^7.16.3"
     any-touch "^2.0.0-alpha.4"
@@ -10161,7 +10161,7 @@ prompts@^2.0.1:
     kleur "^3.0.3"
     sisteransi "^1.0.5"
 
-prop-types@15.x, prop-types@^15.5.10, prop-types@^15.5.4, prop-types@^15.5.6, prop-types@^15.5.8, prop-types@^15.6.0, prop-types@^15.6.2:
+prop-types@15.x, prop-types@^15.5.10, prop-types@^15.5.4, prop-types@^15.5.6, prop-types@^15.5.8, prop-types@^15.6.2:
   version "15.7.2"
   resolved "https://registry.npmjs.org/prop-types/-/prop-types-15.7.2.tgz#52c41e75b8c87e72b9d9360e0206b99dcbffa6c5"
   integrity sha512-8QQikdH7//R2vurIJSutZ1smHYTcLpRWEOlHnzcWHmBYrOGUysKwSsrC89BCiFj3CbrfJ/nXFdJepOVrY1GCHQ==
@@ -10646,14 +10646,6 @@ react-tween-state@^0.1.5:
   dependencies:
     raf "^3.1.0"
     tween-functions "^1.0.1"
-
-react-wx-images-viewer@^1.0.6:
-  version "1.0.6"
-  resolved "https://registry.npmjs.org/react-wx-images-viewer/-/react-wx-images-viewer-1.0.6.tgz#a39592de6e2b1451943565ecc36f8d99c318f6c2"
-  integrity sha512-cF/I/+Xn+OzVcrwRM0usjzNiI0AkuQvGpW1XLh6kDf6Br5wfV51VBghWTV6RVhIC0FKPr1NUDhTJEBkQwckScQ==
-  dependencies:
-    prop-types "^15.6.0"
-    raf "^3.1.0"
 
 react@16.x:
   version "16.14.0"
