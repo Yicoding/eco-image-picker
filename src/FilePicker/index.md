@@ -22,4 +22,4 @@ nav:
 
 ## API
 
-- 同 ImagePicker
+- 同 `ImagePicker`
